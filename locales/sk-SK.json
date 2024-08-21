@@ -199,7 +199,6 @@
         "preoder": "Tento produkt je vypredaný, ale stále si ho môžete objednať."
       },
       "add_to_cart_button": "Pridať do košíka",
-      "choose_options_button": "Vybrať možnosti",
       "preorder_button": "Predobjednať",
       "share_link": "Zdieľať",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Obsah balíka",
       "add_product_to_bundle": "Pridať do balíka",
-      "product_added_to_bundle": "Pridané do balíka",
       "add_bundle_to_cart": "Pridať do košíka",
       "choose_products_first": "Najprv si vyberte produkty",
       "add_all_to_cart": "Pridať všetko do košíka"

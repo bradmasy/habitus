@@ -1,9 +1,9 @@
-.sidebars-has-scrollbars .sidebar {
+.sidebar {
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.sidebars-has-scrollbars .sidebar::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
@@ -26,22 +26,6 @@
 }
 html[dir=rtl] .sidebar * {
   direction: rtl;
-}
-body:not(.sidebar-has-scrollbars) .sidebar {
-  overflow-x: hidden;
-}
-body:not(.sidebar-has-scrollbars) .sidebar::-webkit-scrollbar {
-  width: 7px;
-}
-body:not(.sidebar-has-scrollbars) .sidebar::-webkit-scrollbar-track {
-  background: var(--color-borders-main);
-}
-body:not(.sidebar-has-scrollbars) .sidebar::-webkit-scrollbar-thumb {
-  background: var(--color-text-main);
-}
-body:not(.sidebar-has-scrollbars) .sidebar::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-main);
-  opacity: 0.86;
 }
 .sidebar svg * {
   fill: var(--color-text-main);
@@ -306,7 +290,52 @@ cart-recommendations .product-price--unit {
   opacity: 0.76;
 }
 
-html[dir=ltr] .site-menu-sidebar-footer .localization-form__content {
-  left: 0;
-  right: auto;
+/* BEGIN - HC 10th July '24' */
+.product__description {
+  margin-bottom: 1.5rem !important;
 }
+.sidebar-widget__stock {
+  margin-bottom: -2.5rem !important;
+  font-size: 1rem;
+}
+.sidebar-widget__stock-hover, .sidebar-widget__stock-hover-stock {
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.sidebar-widget__stock-hover:hover + .sidebar-widget__stock-popup, .sidebar-widget__stock-hover-stock:hover + .sidebar-widget__stock-popup-stock {
+  display: block;
+}
+.sidebar-widget__stock-popup {
+  display: none;
+  background: white;
+  position: absolute;
+  padding: 1rem;
+  line-height: 1.25rem;
+  transform: translateY(-100%);
+  top: -10px;
+  border-radius: 4px;
+  font-size: .9rem;
+  margin: 0 5rem;
+  z-index: 1;
+  border: 1px solid var(--color-borders-forms-primary);
+  box-shadow: 0 5px 15px #0000, 0 5px 15px rgba(0, 0, 0, .07) !important;
+}
+.sidebar-widget__stock-popup-stock {
+  display: none;
+  background: white;
+  position: absolute;
+  padding: 1rem;
+  line-height: 1.25rem;
+  transform: translateY(-100%);
+  top: -10px;
+  border-radius: 4px;
+  font-size: .9rem;
+  margin-right: 5rem;
+  z-index: 1;
+  border: 1px solid var(--color-borders-forms-primary);
+  box-shadow: 0 5px 15px #0000, 0 5px 15px rgba(0, 0, 0, .07) !important;
+}
+.sidebar-widget__stock-popup span, .sidebar-widget__stock-popup-stock span {
+  opacity: .9;
+}
+/* END - HC 10th July '24 */

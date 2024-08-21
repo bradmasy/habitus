@@ -8,14 +8,9 @@ if ( typeof InfoTabs !== 'function' ) {
 			
 			this.tabs = this.querySelectorAll('.js-info-tab');
 			this.panels = this.querySelectorAll('.js-info-panel');
-			this.togglers = this.querySelector('.info-tabs_togglers');
 			this.index = 0;
 			this.timeout = null;
 			this._timeoutInterval = parseInt(this.dataset.tabsAutoplayTimer*1000);
-
-			this.mobileNav = document.querySelectorAll(`#info-tabs-navigation-${this.dataset.id} .css-slider-dot`);
-			this.mobileNavPrev = document.querySelector(`#info-tabs-navigation-${this.dataset.id} .css-slider-prev`);
-			this.mobileNavNext = document.querySelector(`#info-tabs-navigation-${this.dataset.id} .css-slider-next`);
 
 			this.zIndex = 99;
 			
@@ -25,7 +20,7 @@ if ( typeof InfoTabs !== 'function' ) {
 
 			if (this.dataset.tabsAutoplay == "true" && this.tabs.length > 1 ) {
 				this.autoplay(this._timeoutInterval, true);
-				this.togglers.addEventListener('mouseover', () => {
+				this.querySelector('.info-tabs_togglers').addEventListener('mouseover', () => {
 					if ( this.timeout > 0 ) {
 						this._timeoutRemaining = this._timeoutInterval - (new Date().getTime() - this._timeoutStart);
 						clearTimeout(this.timeout);
@@ -33,105 +28,43 @@ if ( typeof InfoTabs !== 'function' ) {
 					}
 				});
 
-				this.togglers.addEventListener('mouseleave', () => {
+				this.querySelector('.info-tabs_togglers').addEventListener('mouseleave', () => {
 					this.autoplay(this._timeoutRemaining, true);
 					this._timeoutInterval = this._timeoutRemaining;
 				});
 				
 			}
 
-			this.index = 0;
-			this.SCROLL_EVENT = debounce(()=>{
-				if ( ! this._blockScroll ) {
-					const scrollItems = this.tabs.entries();
-					const scrollArray = Array.from(scrollItems, elm => (elm[1].offsetLeft-this.togglers.scrollLeft) + elm[1].offsetWidth);
-					const scrollIndex = scrollArray.reduce((bestIdx, current, idx) => {
-						return (current <= window.innerWidth && (bestIdx === -1 || Math.abs(scrollArray[bestIdx] - window.innerWidth) > Math.abs(current - window.innerWidth))) ? idx : bestIdx;
-					}, -1);
-					if ( scrollIndex != this.index ) {
-						this.index = scrollIndex;
-						this.clickTab(this.tabs[this.index]);
-					}
-				}
-			}, 10);
-
-			this.togglers.addEventListener('scroll', this.SCROLL_EVENT, {passive:true});
-
 			this.tabs.forEach(tab => {
+
 				tab.addEventListener('click', e=>{
 					if ( ! e.currentTarget.classList.contains('active') ) {
-						this.clickTab(e.currentTarget);
-						if ( window.innerWidth < 768 ) {
-							this.togglers.scrollTo({
+
+						const panelID = e.currentTarget.getAttribute('rel');
+						const panel = document.getElementById(`panel-${panelID}`);
+						this.reset();
+						
+						this.index = parseInt(e.currentTarget.dataset.index);
+						e.currentTarget.classList.add("active");
+
+						if(!document.body.classList.contains('no-touchevents') && window.innerWidth < 767) {
+							this.querySelector('.info-tabs_togglers').scrollTo({
 								left: e.currentTarget.offsetLeft - 40,
 								behavior: 'smooth'
-							});
+							})
 						}
+						
+						this.slideDown(e.currentTarget.querySelector('.info-tabs__tab-caption'), 200);
+
+						panel.classList.add("active");
+						panel.style.zIndex = ++this.zIndex;
+						panel.style.opacity = 1;
+
 					}
 				});
+
 			}); 		
 
-			this.mobileNavPrev.addEventListener('click', ()=>{
-				if ( this.index - 1 >= 0 ) {
-					this.index--;
-					this.clickTab(this.tabs[this.index]);
-					this.togglers.scrollTo({
-						left: this.tabs[this.index].offsetLeft - 40,
-						behavior: 'smooth'
-					});
-				}
-			});
-
-			this.mobileNavNext.addEventListener('click', ()=>{
-				if ( this.index + 1 < this.tabs.length ) {
-					this.index++;
-					this.clickTab(this.tabs[this.index]);
-					this.togglers.scrollTo({
-						left: this.tabs[this.index].offsetLeft - 40,
-						behavior: 'smooth'
-					});
-				}
-			});
-
-		}
-
-		clickTab(tab) {
-
-			const panelID = tab.getAttribute('rel');
-			const panel = document.getElementById(`panel-${panelID}`);
-			this.reset();
-			
-			this.index = parseInt(tab.dataset.index);
-			tab.classList.add('active');
-			
-			this.slideDown(tab.querySelector('.info-tabs__tab-caption'), 200);
-
-			if ( panel ) {
-				panel.classList.add('active');
-				panel.style.zIndex = ++this.zIndex;
-				panel.style.opacity = 1;
-			}
-
-			this.mobileNav.forEach((elm, index) => {
-				if ( index == this.index ) {
-					elm.classList.add('active');
-				} else {
-					elm.classList.remove('active');
-				}
-			});
-			this.mobileNavNext.classList.remove('disabled');
-			this.mobileNavPrev.classList.remove('disabled');
-			if ( this.index == 0 ) {
-				this.mobileNavPrev.classList.add('disabled');
-			} else if ( this.index + 1 == this.tabs.length ) {
-				this.mobileNavNext.classList.add('disabled');
-			}
-
-      this._blockScroll = true;
-      setTimeout(()=>{
-        this._blockScroll = false;
-      }, 500);  
-			
 		}
 
 		autoplay(delay, reset = false) {

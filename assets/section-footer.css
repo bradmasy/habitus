@@ -54,16 +54,9 @@
   flex-wrap: wrap;
   gap: 0.3125rem;
 }
-.footer-item__icons img {
-  border-radius: 2px;
-}
 
 .footer-item__image-heading {
   margin-bottom: 1em;
-}
-
-.footer-item__newsletter input:-webkit-autofill + button[type=submit] svg path {
-  stroke: #000;
 }
 
 .footer-item__newsletter .form-row {

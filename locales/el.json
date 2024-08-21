@@ -199,7 +199,6 @@
         "preoder": "Αυτό το προϊόν είναι εξαντλημένο, αλλά μπορείτε να το παραγγείλετε."
       },
       "add_to_cart_button": "Προσθήκη στο καλάθι",
-      "choose_options_button": "Επιλέξτε επιλογές",
       "preorder_button": "Προ-παραγγελία",
       "share_link": "Κοινοποίηση",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Περιεχόμενα πακέτου",
       "add_product_to_bundle": "Προσθήκη σε πακέτο",
-      "product_added_to_bundle": "Προστέθηκε στο πακέτο",
       "add_bundle_to_cart": "Προσθήκη στο καλάθι",
       "choose_products_first": "Επιλέξτε πρώτα τα προϊόντα",
       "add_all_to_cart": "Προσθήκη όλων στο καλάθι"

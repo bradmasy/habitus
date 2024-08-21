@@ -2,7 +2,6 @@ mobile-navigation {
   display: block;
   padding: 0 !important;
   min-height: 100%;
-  overflow: hidden;
 }
 mobile-navigation .site-nav {
   padding: 0;

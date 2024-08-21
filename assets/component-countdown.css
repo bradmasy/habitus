@@ -56,16 +56,11 @@ html[dir=rtl] .align-content--horizontal-right .countdown {
     font-size: 1.875rem;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 474px) {
   .countdown .time-holder > span > span {
     width: 1.8125rem;
     height: 2.5rem;
     font-size: 1.25rem;
-  }
-}
-@media screen and (max-width: 474px) {
-  .countdown .time-holder:last-child {
-    display: none;
   }
 }
 .countdown .time-helper {

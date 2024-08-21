@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "このテーマでは、カテゴリーメタフィールドで作成されたカラースウォッチにも対応しています。 [詳細はこちら](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "ビデオコントロールを表示",
-  "sticky_cart_actions": "スティッキードロワーカートアクションを有効にする",
-  "currency_codes": {
-    "header": "通貨形式",
-    "label": "通貨コードを表示",
-    "info": "例: $1.00 USD."
-  },
-  "a11": {
-    "label": "アクセシビリティ",
-    "show_sidebars_scrollbar": "サイドバーのスクロールバーを表示",
-    "disable_all_image_animations": "すべての画像アニメーションを無効にする"
-  },
-  "divider": {
-    "label": "区切り",
-    "divider_design": "区切りデザイン",
-    "divider_style_solid": "実線",
-    "divider_style_dotted": "点線",
-    "divider_style_dashed": "破線",
-    "divider_style_double": "二重線",
-    "divider_color": "色",
-    "divider_image": "区切り画像",
-    "divider_image_info": "水平に繰り返される画像。上記のスタイルと色を置き換えます。"
-  },
-  "cart_actions": {
-    "label": "ドロワー カートのアクション",
-    "option_1": "「カートの表示」ボタンを表示",
-    "option_2": "「チェックアウト」ボタンを表示",
-    "option_3": "両方を表示"
-  },
-  "sticky_atc": {
-    "label": "スティッキーにカートに追加",
-    "enable_sticky_atc": "スティッキーにカートに追加を有効にする"
-  },
-  "performance": {
-    "header": "SEO & パフォーマンス",
-    "name": "パフォーマンス",
-    "label": "ホバー時にリンクをプリロード",
-    "info": "ページの perceived loading speed を向上させます。"
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "最近閲覧した商品を有効にする",
-    "enable_recently_viewed_products_info": "有効にすると、テーマは閲覧した商品を記録しますが、これらの商品を表示するにはストアにセクションを追加する必要があります。",
-    "recently_viewed_products": "最近閲覧した商品",
-    "recently_viewed_products_info": "このセクションはテーマ設定で機能を有効にする必要があります。ユーザーが少なくとも1つの商品ページを訪れた後にのみ表示されます。",
-    "recently_viewed_products_limit": "最近閲覧した商品の制限"
-  },
   "rating_apps_update": {
     "label": "評価アプリ",
     "info": "サードパーティのアプリは、適切な統合には追加の手順が必要な場合があります。"
   },
   "local-220": {
-    "preorder": "「事前注文」ボタンのラベルを表示",
-    "autorotate": {
-      "heading": "自動回転",
-      "info": "スライドを自動的に切り替えます。",
-      "enable": "自動回転を有効にする",
-      "interval": "間隔",
-      "pause_on_mouseover": "マウスオーバー時に一時停止"
-    }
+    "preorder": "「事前注文」ボタンのラベルを表示"
   },
   "custom-social-icons": {
     "header": "カスタムリンク",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "退出意向のポップアップ",
-      "exit_intent_popup_info": "このセクションはデスクトップでのみ機能します"
-    },
     "colors": {
       "name": "カラー",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "注目商品を強調する",
-          "info": "[詳細](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[詳細](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "割引の表示方法...",
@@ -2575,9 +2517,6 @@
         "enable_sorting": {
           "label": "並び替えを有効化する"
         },
-        "image_filter_layout": {
-          "label": "画像フィルタのレイアウト"
-        },
         "header__1": {
           "content": "フィルタリングと並び替え"
         }
@@ -3294,19 +3233,6 @@
       "label_2": "画像2",
       "label_3": "画像3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "検索を隠す",
-    "hide_cart": "カートを隠す",
-    "product_gallery_mobile_padding": "モバイルのギャラリーにパディングを追加",
-    "show_variant_labels": "バリアントラベルを表示",
-    "hide_on_desktop": "デスクトップで要素を隠す",
-    "section_design": "セクションデザイン",
-    "background_color": "背景色",
-    "background_gradient": "背景グラデーション",
-    "heading_text_color": "見出しのテキストの色",
-    "text_color": "テキストの色",
-    "slider_navigation_color": "ナビゲーション要素の色"
   },
   "bundle-220": {
     "blending_modes_behind": "後ろ",

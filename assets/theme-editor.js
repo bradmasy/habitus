@@ -12,11 +12,7 @@ document.addEventListener('shopify:section:load', e=>{
   }
 
 	if ( section.classList.contains('mount-header') ) {
-		document.querySelector('.sticky-header')?.remove();
     section.querySelector('main-header')?.mount();
-		setTimeout(()=>{
-			section.querySelector('main-header')._checkMenuWidth();
-		}, 200);
 		document.querySelectorAll('.search-results-overlay').forEach(elm=>{
 			elm.style = '';
 		})
@@ -26,13 +22,11 @@ document.addEventListener('shopify:section:load', e=>{
 	}
 
 	if ( section.classList.contains('mount-product-page') ) {
-
 		const sectionId = JSON.parse(section.dataset.shopifyEditorSection).id;
 		document.getElementById(`add-to-cart-${sectionId}`)?.querySelector('form').append(document.getElementById(`add-to-cart-${sectionId}`).querySelector('template').content.cloneNode(true));
 		if ( section.querySelector('show-more') ) {
 			section.querySelector('show-more')?.init();
 		}
-
 		if ( section.querySelector('[data-js-variant-quantity]') && section.querySelector('product-variants') ) {
 			setTimeout(()=>{
 				section.querySelector('product-variants').productStock = section.querySelector('[data-js-variant-quantity]');
@@ -40,7 +34,6 @@ document.addEventListener('shopify:section:load', e=>{
 				section.querySelector('product-variants').updateStock();
 			}, 50);
 		}
-		
 	}
 
 	if ( section.classList.contains('mount-quick-buy') ) {
@@ -59,7 +52,7 @@ document.addEventListener('shopify:section:load', e=>{
 
 	if ( section.classList.contains('mount-show-more') ) {
 		setTimeout(()=>{
-			section.querySelector('show-more')?.init();
+			section.querySelector('show-more').init();
 		}, 50);
 	}
 
@@ -76,9 +69,6 @@ document.addEventListener('shopify:section:unload', e=>{
 	if ( section.classList.contains('mount-header') ) {
     section.querySelector('main-header')?.unmount();
 	}
-	if ( section.classList.contains('mount-product-page') ) {
-		document.querySelector('sticky-add-to-cart')?.unmount();
-	}
 
 });
 
@@ -86,19 +76,11 @@ document.addEventListener('shopify:section:select', e=>{
 
 	const section = e.target;
 
-	if ( section.classList.contains('mount-exit-intent-popup') ) {
-		document.getElementById('exit-intent-popup').show();
-  }
-
 });
 
 document.addEventListener('shopify:section:deselect', e=>{
 
 	const section = e.target;
-
-	if ( section.classList.contains('mount-exit-intent-popup') ) {
-		document.getElementById('exit-intent-popup').hide();
-  }
 
 });
 

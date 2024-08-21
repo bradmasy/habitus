@@ -14,6 +14,9 @@
   elsif vendor == "loox"
     assign rating = product.metafields.loox.avg_rating
     assign reviews_count = product.metafields.loox.num_reviews
+  elsif vendor == "judgeme"
+    assign rating = product.metafields.reviews.rating.value.rating | plus: 0
+    assign reviews_count = product.metafields.reviews.rating_count | plus: 0
   elsif vendor == "air"
     assign rating = product.metafields.air_reviews_product.review_avg
     assign reviews_count = product.metafields.air_reviews_product.review_count
@@ -42,6 +45,7 @@
 -%}
 
 {%- if custom_widget == blank -%}
+
   <div class="star-rating" aria-label="">
 
     <span class="visually-hidden">

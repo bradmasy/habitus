@@ -12,7 +12,7 @@
 
     <input data-js-cart-wrapping-checkbox type="checkbox" {{ checked }} class="styled-checkbox" id="cart-gift-wrapping" />
     <label for="cart-gift-wrapping">{{ settings.gift_wrap_heading | escape }}</label>
-    <div style="display:none !important">{%- render 'quick-buy', product: settings.gift_wrap_product, default_to_first_variant: true, id: 'cart-gift-wrapping' -%}</div>
+    <div style="display:none !important">{%- render 'quick-buy', product: settings.gift_wrap_product, default_to_first_variant: true -%}</div>
 
     <script>
       const cartWrappingForm = document.getElementById('cart-wrapping');

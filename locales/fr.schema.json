@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "Ce thème offre également une prise en charge des échantillons de couleur créés avec des métachamps de catégorie. [En savoir plus](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "Afficher les commandes vidéo",
-  "sticky_cart_actions": "Activer les actions du panier fixe",
-  "currency_codes": {
-    "header": "Format de la monnaie",
-    "label": "Afficher les codes de devise",
-    "info": "Exemple: $1.00 USD."
-  },
-  "a11": {
-    "label": "Accessibilité",
-    "show_sidebars_scrollbar": "Afficher la barre de défilement des volets latéraux",
-    "disable_all_image_animations": "Désactiver toutes les animations d'images"
-  },
-  "divider": {
-    "label": "Diviseur",
-    "divider_design": "Conception du diviseur",
-    "divider_style_solid": "Plein",
-    "divider_style_dotted": "Pointillé",
-    "divider_style_dashed": "Tireté",
-    "divider_style_double": "Double",
-    "divider_color": "Couleur",
-    "divider_image": "Image du diviseur",
-    "divider_image_info": "Une image répétitive horizontalement. Remplace le style et la couleur ci-dessus."
-  },
-  "cart_actions": {
-    "label": "Actions sur le panier à tiroirs",
-    "option_1": "Afficher le bouton \"Voir le panier\"",
-    "option_2": "Bouton \"Passer à la caisse\"",
-    "option_3": "Afficher les deux"
-  },
-  "sticky_atc": {
-    "label": "Ajouter au panier collant",
-    "enable_sticky_atc": "Activer l'ajout au panier collant"
-  },
-  "performance": {
-    "header": "SEO & performance",
-    "name": "Performance",
-    "label": "Précharger les liens au survol",
-    "info": "Augmente la vitesse de chargement perçue des pages."
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "Activer les produits récemment consultés",
-    "enable_recently_viewed_products_info": "Lorsqu'activé, le thème enregistrera les produits consultés, mais vous devez ajouter la section dans votre magasin pour afficher ces produits.",
-    "recently_viewed_products": "Produits récemment consultés",
-    "recently_viewed_products_info": "Cette section doit avoir la fonctionnalité activée dans les paramètres du thème. Elle ne s'affichera qu'après que les utilisateurs aient visité au moins une page de produit.",
-    "recently_viewed_products_limit": "Limite des produits récemment consultés"
-  },
   "rating_apps_update": {
     "label": "Application de notation",
     "info": "Les applications tierces peuvent nécessiter des étapes supplémentaires pour être correctement intégrées."
   },
   "local-220": {
-    "preorder": "Afficher l'étiquette du bouton \"Précommander\"",
-    "autorotate": {
-      "heading": "Rotation automatique",
-      "info": "Faire défiler les diapositives automatiquement.",
-      "enable": "Activer la rotation automatique",
-      "interval": "Intervalle",
-      "pause_on_mouseover": "Pause au survol de la souris"
-    }
+    "preorder": "Afficher l'étiquette du bouton \"Précommander\""
   },
   "custom-social-icons": {
     "header": "Lien personnalisé",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "Popup d'intention de sortie",
-      "exit_intent_popup_info": "Cette section fonctionne uniquement sur ordinateur"
-    },
     "colors": {
       "name": "Couleurs",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "Mettre en valeur les nouveautés",
-          "info": "[En savoir plus](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[En savoir plus](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "Afficher la réduction en tant que...",
@@ -2575,9 +2517,6 @@
         "enable_sorting": {
           "label": "Activer le tri"
         },
-        "image_filter_layout": {
-          "label": "Disposition du filtre d'image"
-        },
         "header__1": {
           "content": "Filtrage et tri"
         }
@@ -3294,19 +3233,6 @@
       "label_2": "Image 2",
       "label_3": "Image 3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "Masquer la recherche",
-    "hide_cart": "Masquer le panier",
-    "product_gallery_mobile_padding": "Ajouter un padding à la galerie sur mobile",
-    "show_variant_labels": "Afficher les étiquettes de variante",
-    "hide_on_desktop": "Masquer l'élément sur le bureau",
-    "section_design": "Conception de la section",
-    "background_color": "Couleur de fond",
-    "background_gradient": "Dégradé de fond",
-    "heading_text_color": "Couleur du texte du titre",
-    "text_color": "Couleur du texte",
-    "slider_navigation_color": "Couleur des éléments de navigation"
   },
   "bundle-220": {
     "blending_modes_behind": "Derrière",

@@ -56,7 +56,7 @@
             <h2 class="heading-size--xsmall">{{ 'search.form.product_results_title' | t }} ({{ products_results.size }})</h2>
             {%- liquid
               if section.settings.enable_filtering or section.settings.enable_sorting
-                render 'facets-horizontal', results: search, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, image_filter_layout: section.settings.image_filter_layout, offset: offset, page_size: page_size
+                render 'facets-horizontal', results: search, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, offset: offset, page_size: page_size
               endif
             -%}
           </div>
@@ -69,12 +69,12 @@
 
           <div {% if products_results.size == 0 and search.filters == empty %} style="display:none" {% endif %}>
 
-            <div id="main-collection-product-grid" data-id="{{ section.id }}" class="collection grid grid--layout {{ section.settings.layout }} {{ section.settings.layout_mobile }}">
+            <div id="main-collection-product-grid" data-id="{{ section.id }}" class="collection grid grid--layout grid-4 grid-portable-3 grid-lap-2 grid-tiny-1">
 
                 {%- liquid
                   if products_results.size > 0
                     for product in products_results
-                      render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: section.settings.layout, mobile_layout: section.settings.layout_mobile, show_badges: settings.show_badges, section_id: section.id
+                      render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: "grid-4", show_badges: settings.show_badges, section_id: section.id
                     endfor
                   endif
                 -%}
@@ -440,56 +440,8 @@
       "default": false
     },
     {
-      "type": "select",
-      "id": "image_filter_layout",
-      "label": "t:sections.main-collection-product-grid.settings.image_filter_layout.label",
-      "options": [
-        {
-          "value": "onecolumn",
-          "label": "t:sections.local-extra-words.sections.columns.option__0"
-        },
-        {
-          "value": "twocolumns",
-          "label": "t:sections.local-extra-words.sections.columns.option__1"
-        }
-      ],
-      "default": "onecolumn"
-    },
-    {
       "type": "header",
       "content": "t:sections.bundle-extra-words.sections.headings.layout.label"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "t:sections.local-extra-words.sections.columns.name",
-      "options": [
-        {
-          "value": "grid-3 grid-lap-2",
-          "label": "t:sections.local-extra-words.sections.columns.option__2"
-        },
-        {
-          "value": "grid-4 grid-portable-3 grid-lap-2",
-          "label": "t:sections.local-extra-words.sections.columns.option__3"
-        }
-      ],
-      "default": "grid-4 grid-portable-3 grid-lap-2"
-    },
-    {
-      "type": "select",
-      "id": "layout_mobile",
-      "label": "t:sections.local-extra-words.sections.columns.name_mobile",
-      "options": [
-        {
-          "value": "grid-palm-1",
-          "label": "t:sections.local-extra-words.sections.columns.option__0"
-        },
-        {
-          "value": "grid-palm-2",
-          "label": "t:sections.local-extra-words.sections.columns.option__1"
-        }
-      ],
-      "default": "grid-palm-2"
     },
     {
       "type": "header",

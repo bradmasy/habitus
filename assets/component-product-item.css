@@ -23,7 +23,7 @@ html[dir=ltr] .product-item__slider {
   overflow: visible;
   position: relative;
 }
-.product-item .product-item__slider, .product-item .product-item__slider .css-slider-holder, .product-item .product-item__slider figure, .product-item .product-item__image .svg-placeholder {
+.product-item .product-item__slider, .product-item .product-item__slider .css-slider-holder, .product-item .product-item__image .svg-placeholder {
   border-radius: var(--border-radius-product-card);
 }
 .product-item .product-item__image-no-slider, .product-item .product-item__image-no-slider img {
@@ -134,25 +134,14 @@ div + .equalize-white-space {
   margin-top: 0;
 }
 .product-item__quick-buy .product-variant:not(:last-child) {
-  margin-bottom: 0.875rem;
-}
-@media screen and (max-width: 474px) {
-  .product-item__quick-buy .product-variant:not(:last-child) {
-    margin-bottom: 0.625rem;
-  }
+  margin-bottom: 1.125rem;
 }
 .product-item__quick-buy .product-variant__name {
   margin-bottom: 0.3125rem;
 }
 .product-item__quick-buy .product-form {
-  margin-top: 0.5rem;
   border-top: 0;
   margin-bottom: 0;
-}
-@media screen and (max-width: 474px) {
-  .product-item__quick-buy .product-form {
-    margin-top: 0.3125rem;
-  }
 }
 
 .product-item__title:last-child {
@@ -215,11 +204,6 @@ html[dir=ltr] .product-item__badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.625rem 0.3125rem;
-}
-@media screen and (max-width: 474px) {
-  .product-item__icons {
-    gap: 0.3125rem;
-  }
 }
 
 .product-item__ratings {
@@ -288,21 +272,9 @@ html[dir=ltr] .star-rating__caption {
   align-items: center;
 }
 .product-item-compact--expanded {
+  grid-template-columns: 6.25rem 1fr;
   align-items: flex-start;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.product-item-compact--expanded .product-item-compact__image {
-  max-width: 6.25rem;
-  flex: 1 1 6.25rem;
-}
-.product-item-compact--expanded .product-item-compact__details {
-  flex: 1 1 0;
-}
-.product-item-compact--expanded img, .product-item-compact--expanded figure {
-  border-radius: clamp(0px, var(--border-radius-product-card), 5px);
 }
 .product-item-compact--expanded .product-variant__name {
   display: none;
@@ -314,33 +286,16 @@ html[dir=ltr] .star-rating__caption {
   display: block;
   margin-top: 0.3125rem;
 }
+.product-item-compact--expanded product-variants select {
+  font-size: 14px;
+}
 .product-item-compact--expanded .product-form {
   margin-bottom: 0;
   margin-top: 0.9375rem;
 }
 .product-item-compact--expanded .product-form .button {
   padding: 0.625rem 0.9375rem;
-}
-@media screen and (max-width: 474px) {
-  .product-item-compact--expanded .product-form .button {
-    font-size: calc(
-				13px / 16 * var(--base-body-primary-size) + 0px
-			);
-  }
-}
-@media screen and (min-width: 475px) and (max-width: 1023px) {
-  .product-item-compact--expanded .product-form .button {
-    font-size: calc(
-					14px / 16 * var(--base-body-primary-size) + 0px
-				);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .product-item-compact--expanded .product-form .button {
-    font-size: calc(
-				15px / 16 * var(--base-body-primary-size) + 0px
-			);
-  }
+  font-size: 14px;
 }
 .product-item-compact__details {
   display: grid;
@@ -365,34 +320,4 @@ html[dir=ltr] .star-rating__caption {
 }
 .product-item-compact .star-rating__caption {
   display: none;
-}
-.product-item-compact__form--horizontal quick-buy {
-  display: flex;
-  column-gap: 0.625rem;
-  row-gap: 0.3125rem;
-  align-items: start;
-  flex-wrap: wrap;
-}
-.product-item-compact__form--horizontal .product-form {
-  margin-top: 0.3125rem;
-}
-.product-item-compact__form--horizontal .add-to-cart {
-  white-space: nowrap;
-}
-.product-item-compact__form--horizontal .product-variants {
-  display: inline-flex;
-  margin-bottom: 0;
-  flex-wrap: wrap;
-}
-.product-item-compact__form--horizontal .product-variants .product-variant {
-  min-width: max-content;
-}
-
-.product-form .button {
-  padding: 0.75rem 0.9375rem;
-}
-@media screen and (max-width: 474px) {
-  .product-form .button {
-    padding: 0.625rem 0.9375rem;
-  }
 }

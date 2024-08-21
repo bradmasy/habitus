@@ -199,7 +199,6 @@
         "preoder": "Produk ini sudah habis, tetapi Anda masih bisa memesannya."
       },
       "add_to_cart_button": "Tambahkan ke keranjang",
-      "choose_options_button": "Pilih opsi",
       "preorder_button": "Pre-Order",
       "share_link": "Bagikan",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Isi bundel",
       "add_product_to_bundle": "Tambahkan ke bundel",
-      "product_added_to_bundle": "Ditambahkan ke bundel",
       "add_bundle_to_cart": "Tambahkan ke keranjang",
       "choose_products_first": "Pilih produk terlebih dahulu",
       "add_all_to_cart": "Tambahkan semua ke keranjang"

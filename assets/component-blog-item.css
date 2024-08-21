@@ -3,11 +3,6 @@
     margin-bottom: 1.25rem;
   }
 }
-@media screen and (max-width: 474px) {
-  .blog-item:not(:last-child) {
-    margin-bottom: 0;
-  }
-}
 .blog-item__image {
   display: block;
   border-radius: var(--blog-item-border-radius);

@@ -28,7 +28,6 @@ toggle-tab.opened .toggle__title + .toggle__content {
   padding: 1.1875rem 0;
   cursor: pointer;
   font-weight: var(--font-weight-body-primary-bold);
-  color: var(--color-text-main);
   transition: all 100ms linear;
   display: flex;
   align-items: center;
@@ -51,7 +50,6 @@ toggle-group .toggle:first-child .toggle__title {
 
 .toggle__content {
   overflow-x: auto;
-  color: var(--color-text-main);
 }
 
 .toggle--faq {

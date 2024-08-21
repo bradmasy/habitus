@@ -7,7 +7,24 @@
     endif
   -%}
   <html id="html" class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ direction }}">
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "nk9azfo21h");
+</script>
+    
   <head>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MJBHFJH');</script>
+<!-- End Google Tag Manager -->
   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -112,11 +129,7 @@
   
   </head>
   
-  <body id="{{ page_title | handle }}" class="no-touchevents 
-    {% if customer %} customer-logged-in {% endif %} 
-    template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} 
-    {% unless settings.show_sidebars_scrollbar %} sidebars-has-scrollbars {% endunless %}
-  ">
+  <body id="{{ page_title | handle }}" class="{% if customer %} customer-logged-in {% endif %} template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} no-touchevents">
     
     <script type="text/javascript">
       if ( 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch ) { document.querySelector('body').classList.remove('no-touchevents'); document.querySelector('body').classList.add('touchevents'); } 
@@ -139,8 +152,6 @@
   
     {%- sections 'footer-group' -%}
     {%- section 'popups' -%}
-    {%- section 'popup-age-verification' -%}
-    {%- section 'exit-intent-popup' -%}
     
     <script src="{{ 'component-modal.js' | asset_url }}" defer></script>
     <link rel="stylesheet" href="{{ 'component-modal.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -150,10 +161,9 @@
   
       KROWN = {  
         themeName: "Combine",
-        themeVersion: "2.4.2.1",
+        themeVersion: "2.3.1",
         settings: {
           shop_money_format: '{{ shop.money_format }}',
-          iso_code: '{% if settings.show_currency_codes %} {{ localization.country.currency.iso_code }}{% endif %}',
           cart_action: "{{ settings.cart_action }}",
           cart_popup: "{{ settings.cart_mini_enabled }}",
           routes: {
@@ -168,7 +178,6 @@
             products_preorder_button: `{{ 'products.page.preorder_button' | t }}`,
             products_add_to_cart_button: `{{ 'products.page.add_to_cart_button' | t }}`,
             products_add_to_bundle_button: `{{ 'products.bundles.add_product_to_bundle' | t }}`,
-            products_added_to_bundle_label: `{{ 'products.bundles.product_added_to_bundle' | t }}`,
             products_sold_out_variant: `{{ 'products.page.inventory.sold_out_variant' | t }}`,
             products_unavailable_variant: `{{ 'products.page.inventory.unavailable_variant' | t }}`,
             products_variant_required: `{{ 'products.grid.choose_variant_first' | t }}`,
@@ -230,8 +239,6 @@
       <script src="{{ 'component-shipping-calculator.js' | asset_url }}" defer></script>
       <script src="{{ 'component-countdown-clock.js' | asset_url }}" defer></script>
       <script src="{{ 'component-scrolling-text.js' | asset_url }}" defer></script>
-      <script src="{{ 'component-lightbox.js' | asset_url }}" defer></script>
-      {{ 'component-lightbox.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'theme-editor.js' | asset_url }}" defer></script>
     {%- endif -%}
     
@@ -261,7 +268,7 @@
 
           {%- liquid
             unless settings.cart_upsell_product == blank
-              render 'product-cross-sell', heading: settings.cart_upsell_heading, product: settings.cart_upsell_product, id: 'cart-individual-product-cross-sell', widget_style: 'outline', heading_position: 'outside', style: 'margin-bottom: var(--sidebar-gutter);padding-bottom: 5px;', class: 'cart-individual-product-recommendation hide-if-empty-cart', layout: 'expanded'
+              render 'product-cross-sell', heading: settings.cart_upsell_heading, product: settings.cart_upsell_product, id: 'cart-individual-product-cross-sell', widget_style: 'outline', heading_position: 'outside', style: 'margin-bottom: var(--sidebar-gutter);padding-bottom: 5px;', class: 'cart-individual-product-recommendation hide-if-empty-cart' 
             endunless
           -%}
 
@@ -285,10 +292,7 @@
 
         {%- render 'cart-gift-wrapping', class: 'cart-wrapping--sidebar' -%}
   
-        <div class="sidebar__footer hide-if-empty-cart" 
-          style="background-color:var(--color-background-main-alternate);
-          {% if settings.sticky_cart_actions %} position: sticky; {% endif %}"
-        ">
+        <div class="sidebar__footer hide-if-empty-cart" style="background-color:var(--color-background-main-alternate)">
           {%- render 'cart-subtotal', type: 'sidebar' -%}
         </div>
   
@@ -382,34 +386,7 @@
       document.querySelectorAll('.rte a img').forEach(function(elm){
         elm.parentNode.style.border = 'none';
       });
-      document.querySelectorAll('.rte table').forEach(elm => {
-        elm.outerHTML = '<div class="table-wrapper">' + elm.outerHTML + "</div>";
-     });
     </script>
-    
-    {%- if settings.enable_instapage -%}
-      <script src="{{ 'instantpage.js' | asset_url }}" type="module" defer></script>
-    {%- endif -%}
-    
-    {%- if settings.disable_all_image_animations -%}
-      <style>
-        img,
-        img:hover {
-          transition: all 0ms !important;
-          opacity: 1 !important;
-          transform: none !important;
-        }
-
-        .no-touchevents a:hover .lazy-image.lazy-image--zoom-animation img,
-        .no-touchevents .card--animation:hover .lazy-image.lazy-image--animation img  {
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-      </style>
-    {%- endif -%}
   
   </body>
   </html>

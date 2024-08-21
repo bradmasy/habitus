@@ -11,7 +11,7 @@
 {% if type == 'button' %}
   <button {{ id }} {%- if is_submit -%}type="submit"{%- endif -%}
 {% else %}
-  <a href="{{ link | escape }}" {% if target_blank %} target="_blank" {% endif %}
+  <a href="{{ link | escape }}" 
 {% endif %}
 
   class="button button--{{ style }} {% if fullwidth %} button--fullwidth {% endif %}  button--icon {% if icon_position == 'left' %} button--icon-left {% endif %}" {{ attribute }}>

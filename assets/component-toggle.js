@@ -38,7 +38,7 @@ if ( typeof ToggleTab !== 'function' ) {
 				this.classList.remove('opened');
 				this.titleEl.setAttribute('aria-expanded', 'false');
 				if ( this.toggleInert ) {
-					this.contentEl.setAttribute('inert', '');
+					this.contentEl.addAttribute('inert');
 				}
 				this.slideUp(this.contentEl, 200);
 			}

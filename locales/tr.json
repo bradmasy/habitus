@@ -199,7 +199,6 @@
         "preoder": "Ürün stokta yok, fakat hala siparişi verebilirsin."
       },
       "add_to_cart_button": "Sepete ekle",
-      "choose_options_button": "Seçenekleri seç",
       "preorder_button": "Ön Sipariş",
       "share_link": "Paylaş",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Paket içerikleri",
       "add_product_to_bundle": "Pakete ekle",
-      "product_added_to_bundle": "Pakete eklendi",
       "add_bundle_to_cart": "Sepete ekle",
       "choose_products_first": "Önce ürünleri seç",
       "add_all_to_cart": "Hepsini sepete ekle"

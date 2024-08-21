@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "Bu tema ayrıca kategori meta alanlarıyla oluşturulan renk örneklerini destekler. [Daha fazla bilgi edinin](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "Video kontrollerini göster",
-  "sticky_cart_actions": "Sabit çekmece sepeti işlemlerini etkinleştir",
-  "currency_codes": {
-    "header": "Para birimi formatı",
-    "label": "Para birimi kodlarını göster",
-    "info": "Örnek: $1.00 USD."
-  },
-  "a11": {
-    "label": "Erişilebilirlik",
-    "show_sidebars_scrollbar": "Kenar çubuklarında kaydırma çubuğunu göster",
-    "disable_all_image_animations": "Tüm resim animasyonlarını devre dışı bırak"
-  },
-  "divider": {
-    "label": "Bölücü",
-    "divider_design": "Bölücü tasarımı",
-    "divider_style_solid": "Katı",
-    "divider_style_dotted": "Noktalı",
-    "divider_style_dashed": "Çizgili",
-    "divider_style_double": "Çift",
-    "divider_color": "Renk",
-    "divider_image": "Bölücü resim",
-    "divider_image_info": "Yatay olarak tekrar eden bir resim. Üstteki stili ve rengi değiştirir."
-  },
-  "cart_actions": {
-    "label": "Çekmece sepeti eylemleri",
-    "option_1": "\"Sepeti görüntüle\" düğmesini göster",
-    "option_2": "\"Ödeme\" düğmesini göster",
-    "option_3": "Her ikisini de göster"
-  },
-  "sticky_atc": {
-    "label": "Yapışkan sepete ekle",
-    "enable_sticky_atc": "Yapışkan sepete ekle'yi etkinleştir"
-  },
-  "performance": {
-    "header": "SEO & performans",
-    "name": "Performans",
-    "label": "Üzerine gelindiğinde bağlantıları önceden yükle",
-    "info": "Sayfaların algılanan yükleme hızını artırır."
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "Son görüntülenen ürünleri etkinleştir",
-    "enable_recently_viewed_products_info": "Etkinleştirildiğinde, tema görüntülenen ürünleri kaydedecek, ancak bu ürünleri göstermek için mağazanıza bölüm eklemeniz gerekmektedir.",
-    "recently_viewed_products": "Son görüntülenen ürünler",
-    "recently_viewed_products_info": "Bu bölümün Tema Ayarları'nda etkinleştirilmiş olması gerekmektedir. Kullanıcılar en az bir ürün sayfasını ziyaret ettikten sonra görünecektir.",
-    "recently_viewed_products_limit": "Son görüntülenen ürünler limiti"
-  },
   "rating_apps_update": {
     "label": "Değerlendirme uygulaması",
     "info": "Üçüncü taraf uygulamaları, düzgün bir entegrasyon için ek adımlar gerekebilir."
   },
   "local-220": {
-    "preorder": "\"Ön sipariş\" düğme etiketini göster",
-    "autorotate": {
-      "heading": "Otomatik döndür",
-      "info": "Slaytlar arasında otomatik olarak geçiş yap.",
-      "enable": "Otomatik döndürmeyi etkinleştir",
-      "interval": "Aralık",
-      "pause_on_mouseover": "Fare üzerindeyken duraklat"
-    }
+    "preorder": "\"Ön sipariş\" düğme etiketini göster"
   },
   "custom-social-icons": {
     "header": "Özel link",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "Çıkış niyeti popup",
-      "exit_intent_popup_info": "Bu bölüm sadece masaüstünde çalışır"
-    },
     "colors": {
       "name": "Renkler",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "Öne çıkan ürünleri vurgula",
-          "info": "[Learn more](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[Learn more](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "İndirimi şöyle göster:",
@@ -2575,9 +2517,6 @@
         "enable_sorting": {
           "label": "Sıralamayı etkinleştir"
         },
-        "image_filter_layout": {
-          "label": "Görüntü filtresi düzeni"
-        },
         "header__1": {
           "content": "Filtreleme ve sıralama"
         }
@@ -3294,19 +3233,6 @@
       "label_2": "Görsel 2",
       "label_3": "Görsel 3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "Aramayı gizle",
-    "hide_cart": "Sepeti gizle",
-    "product_gallery_mobile_padding": "Mobilde galeriye dolgu ekle",
-    "show_variant_labels": "Varyant etiketlerini göster",
-    "hide_on_desktop": "Masaüstünde öğeyi gizle",
-    "section_design": "Bölüm tasarımı",
-    "background_color": "Arka plan rengi",
-    "background_gradient": "Arka plan gradyanı",
-    "heading_text_color": "Başlık metin rengi",
-    "text_color": "Metin rengi",
-    "slider_navigation_color": "Navigasyon öğeleri rengi"
   },
   "bundle-220": {
     "blending_modes_behind": "Arkada",

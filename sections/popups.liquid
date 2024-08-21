@@ -1,6 +1,6 @@
 {%- if section.blocks.size > 0 or settings.cart_mini_enabled -%}
 
-  <div class="stacked-popups stacked-popups--align-{{ section.settings.alignment }}">
+  <div class="stacked-popups">
     
     {%- if settings.cart_mini_enabled -%}
 
@@ -160,14 +160,11 @@
                         <div class="popup-product_info">
                           <div class="product-item__price text-size--small equalize-white-space">
                             <div class="" data-js-product-item-price>
-                              {%- liquid
-                                unless blank_product
-                                  assign product_variant = product.selected_or_first_available_variant
-                                  render 'product-price', target: product, variant: product_variant, product_price_varies: product.price_varies
-                                else
-                                  echo 9999 | money
-                                endunless  
-                              -%}
+                              {% unless blank_product %}
+                                {%- render 'product-price', target: product, variant: product_variant, product_price_varies: product.price_varies -%}
+                              {%- else -%}
+                                {{ 9999 | money }}
+                              {%- endunless -%}
                             </div>
                           </div>
 
@@ -872,23 +869,7 @@
 				"step": 1,
 				"unit": "px",
 				"default": 10
-			},
-      {
-        "type": "select",
-        "id": "alignment",
-        "label": "t:sections.bundle-extra-words-v110.settings_schema.labels.alignment",
-        "options": [
-          {
-            "value": "left",
-            "label": "t:sections.bundle-extra-words.sections.headings.alignment.option_1"
-          },
-          {
-            "value": "right",
-            "label": "t:sections.bundle-extra-words.sections.headings.alignment.option_3"
-          }
-        ],
-        "default": "right"
-      }
+			}
     ],
     "default": {
       "blocks": [
