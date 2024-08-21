@@ -1,66 +1,10 @@
 {
-  "new_color_swatches": "This theme also offers support for color swatches created with category metafields. [Learn more](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "Show video controls",
-  "sticky_cart_actions": "Enable sticky drawer cart actions",
-  "currency_codes": {
-    "header": "Currency format",
-    "label": "Show currency codes",
-    "info": "Example: $1.00 USD."
-  },
-  "a11": {
-    "label": "Accessibility",
-    "show_sidebars_scrollbar": "Show drawers scrollbar (on desktop)",
-    "disable_all_image_animations": "Disable all image animations"
-  },
-  "divider": {
-    "label": "Divider",
-    "divider_design": "Divider Design",
-    "divider_style_solid": "Solid",
-    "divider_style_dotted": "Dotted",
-    "divider_style_dashed": "Dashed",
-    "divider_style_double": "Double",
-    "divider_color": "Color",
-    "divider_image": "Divider Image",
-    "divider_image_info": "A horizontally repeating image. Replaces the previous style and color."
-  },
-  "cart_actions": {
-    "label": "Drawer cart actions",
-    "option_1": "Show \"view cart\" button",
-    "option_2": "Show \"checkout\" button",
-    "option_3": "Show both"
-  },
-  "sticky_atc": {
-    "label": "Sticky add to cart",
-    "enable_sticky_atc": "Enable sticky add to cart",
-    "sticky_atc_style_wide": "Wide",
-    "sticky_atc_style_floating": "Floating"
-  },
-  "performance": {
-    "header": "SEO & performance",
-    "name": "Performance",
-    "label": "Preload links on hover",
-    "info": "Increases the perceived loading speed of pages."
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "Enable recently viewed products",
-    "enable_recently_viewed_products_info": "When enabled, the theme will record viewed products, but you need to add the section in your store in order to show these products.",
-    "recently_viewed_products": "Recently viewed products",
-    "recently_viewed_products_info": "This section needs to have the functionality enabled in Theme Settings. It will show up only after users visit at least a product page.",
-    "recently_viewed_products_limit": "Recently viewed products limit"
-  },
   "rating_apps_update": {
     "label": "Rating app",
     "info": "Third party apps may require additional steps to be properly integrated."
   },
   "local-220": {
-    "preorder": "Show \"pre-order\" button label",
-    "autorotate": {
-      "heading": "Autorotate",
-      "info": "Automatically rotate through the slides.",
-      "enable": "Enable autorotate",
-      "interval": "Interval",
-      "pause_on_mouseover": "Pause on mouseover"
-    }
+    "preorder": "Show \"pre-order\" button label"
   },
   "color-schemes": {
     "name_plural": "Color schemes",
@@ -91,10 +35,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "Exit intent popup",
-      "exit_intent_popup_info": "This section works on desktop, when the visitor reaches the top of the page with their mouse."
-    },
     "colors": {
       "name": "Colors",
       "settings": {
@@ -150,7 +90,7 @@
         },
         "enhance_featured_products": {
           "label": "Emphasize featured products",
-          "info": "[Learn more](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[Learn more](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "Show discount as...",
@@ -869,7 +809,7 @@
             },
             "icons": {
               "name": "Icons list",
-              "info": "To visualize & download icons included in the theme, please visit [this link](https://resources.krownthemes.com/icons//).",
+              "info": "To visualize & download icons included in the theme, please visit [this link](https://www.krownthemes.com/krown-icons/).",
               "help": "This theme allows you to add custom product icons through dynamic content. [Learn more](https://shopify-support.krownthemes.com/article/639-theme-settings#dynamic-icons)",
               "headers": {
                 "icon_1": "Icon 1",
@@ -928,10 +868,7 @@
           "blocks": {
             "payment": {
               "name": "Payment icons",
-              "info": "The icons that show are determined by your store's [payment settings](/admin/settings/payments) and the customer's region and currency.",
-              "custom_icons": "Custom icons",
-              "custom_icons_info": "Upload 114 x 72px .png images",
-              "only_show_custom_icons": "Only show the custom icons"
+              "info": "The icons that show are determined by your store's [payment settings](/admin/settings/payments) and the customer's region and currency."
             },
             "text": {
               "name": "Text & social icons"
@@ -973,7 +910,6 @@
         },
         "columns": {
           "name": "Desktop layout",
-          "name_mobile": "Mobile layout",
           "info": "The layout adapts itself for mobile devices.",
           "option__0": "1 column",
           "option__1": "2 columns",
@@ -2639,9 +2575,6 @@
         "enable_sorting": {
           "label": "Enable sorting"
         },
-        "image_filter_layout": {
-          "label": "Image filter layout"
-        },
         "header__1": {
           "content": "Filtering and sorting"
         }
@@ -3022,8 +2955,7 @@
           },
           "gutter": {
             "label": "Gutter",
-            "content": "Decrease top margin",
-            "content_bottom": "Decrease bottom margin"
+            "content": "Decrease top margin"
           }
         },
         "video": {
@@ -3170,7 +3102,7 @@
           "blocks": {
             "description": {
               "info": "Truncates the description to the specified number of words.",
-              "link": "Show link to product page"
+              "link": "Show link to prouduct page"
             }
           }
         },
@@ -3274,16 +3206,6 @@
             "mobile_image": "Logo mobile image",
             "mobile_image_info": "Upload a smaller version of your logo if needed. Maximum height 40px."
           },
-          "layout": {
-            "option_1": "One row",
-            "option_2": "Two rows"
-          },
-          "menu_style": {
-            "label": "Desktop menu style (one row)",
-            "option_1": "Classic (text)",
-            "option_2": "Minimal (drawer)",
-            "info": "On mobile devices or when the classic menu is too wide to fit the screen's size, the menu will automatically switch to the drawer style."
-          },
           "label_style": {
             "name": "Menu icons desktop style",
             "option_1": "Inline",
@@ -3320,7 +3242,7 @@
               },
               "custom_enable": {
                 "label": "Enable on custom pages",
-                "info": "Write any page handles, separated by commas."
+                "info": "Write any \"regular\" page handles, separated by commas. Doesn't work with product pages."
               },
               "logo": {
                 "info": "Upload same size as the original logo."
@@ -3381,26 +3303,12 @@
       "label_3": "Image 3"
     }
   },
-  "bundle-240": {
-    "hide_search": "Hide search",
-    "hide_cart": "Hide cart",
-    "product_gallery_mobile_padding": "Add padding to the gallery on mobile",
-    "show_variant_labels": "Show variant labels",
-    "hide_on_desktop": "Hide element on desktop",
-    "section_design": "Section design",
-    "background_color": "Background color",
-    "background_gradient": "Background gradient",
-    "heading_text_color": "Heading text color",
-    "text_color": "Text color",
-    "slider_navigation_color": "Navigation elements color"
-  },
   "bundle-220": {
     "blending_modes_behind": "Behind",
     "maximum_page_width": "Maximum page width",
     "mobile_logo_height": "Mobile logo image maximum height",
     "header_border_bottom": "Show header bottom border",
     "header_border_top": "Show secondary header border",
-    "header_border_top_info": "For \"two rows\" layout only.",
     "hide_borders": "Hide transparent header borders",
     "container_border": "Container border",
     "gallery_border": "Gallery border",

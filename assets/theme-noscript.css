@@ -23,16 +23,3 @@
     margin-inline-start: calc((100vw - var(--theme-max-width)) / -2);
   }
 }
-
-.lazy-image:not(.lazy-image--to-reveal) img,
-.lazy-image.lazy-image--to-reveal img {
-  opacity: 1 !important;
-}
-
-.show-more {
-  --height: auto;
-}
-
-.info-tabs__tab-caption {
-  display: inline-block !important;
-}

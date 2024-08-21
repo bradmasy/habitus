@@ -199,7 +199,6 @@
         "preoder": "Proizvod nije na zalihi, ali možete ga naručiti."
       },
       "add_to_cart_button": "Dodaj u košaricu",
-      "choose_options_button": "Odaberite opcije",
       "preorder_button": "Prednarudžba",
       "share_link": "Dijeljenje",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Sadržaj paketa",
       "add_product_to_bundle": "Dodaj u paket",
-      "product_added_to_bundle": "Dodano u paket",
       "add_bundle_to_cart": "Dodaj u košaricu",
       "choose_products_first": "Najprije izaberite proizvode",
       "add_all_to_cart": "Dodaj sve u košaricu"

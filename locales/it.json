@@ -199,7 +199,6 @@
         "preoder": "Questo prodotto è esaurito, ma puoi ancora ordinarlo."
       },
       "add_to_cart_button": "Aggiungi al carrello",
-      "choose_options_button": "Scegli le opzioni",
       "preorder_button": "Preordina",
       "share_link": "Condividi",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Contenuti pacchetto",
       "add_product_to_bundle": "Aggiungi al pacchetto",
-      "product_added_to_bundle": "Aggiunto al pacchetto",
       "add_bundle_to_cart": "Aggiungi al carrello",
       "choose_products_first": "Scegli prima i prodotti",
       "add_all_to_cart": "Aggiungi tutto al carrello"

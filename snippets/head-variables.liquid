@@ -92,19 +92,10 @@
       assign color_foreground_main = '#fff' 
     endif 
 
-    assign brightness_background_main = color_background_main | color_brightness
-    if brightness_background_main < 25
-      assign color_borders_main = color_text_main | color_modify: 'alpha', 0.2
-      assign color_secondary_background_main = color_text_main | color_modify: 'alpha', 0.16
-      assign color_third_background_main = color_text_main | color_modify: 'alpha', 0.08
-      assign color_fourth_background_main = color_text_main | color_modify: 'alpha', 0.04
-    else
-      assign color_borders_main = color_text_main | color_modify: 'alpha', 0.1
-      assign color_secondary_background_main = color_text_main | color_modify: 'alpha', 0.08
-      assign color_third_background_main = color_text_main | color_modify: 'alpha', 0.04
-      assign color_fourth_background_main = color_text_main | color_modify: 'alpha', 0.02
-    endif
-
+    assign color_borders_main = color_text_main | color_modify: 'alpha', 0.1
+    assign color_secondary_background_main = color_text_main | color_modify: 'alpha', 0.08
+    assign color_third_background_main = color_text_main | color_modify: 'alpha', 0.04
+    assign color_fourth_background_main = color_text_main | color_modify: 'alpha', 0.02
     assign color_secondary_text_main = color_text_main | color_modify: 'alpha', 0.6
 
     assign color_borders_forms_primary = color_text_main | color_modify: 'alpha', 0.3

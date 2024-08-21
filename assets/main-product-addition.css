@@ -1,0 +1,16 @@
+.resource-list {
+  text-decoration: none !important;
+  display: flex;
+  flex-direction:column;
+  list-style-type: none;
+  margin-inline-start: 0px !important;
+  gap:10px;
+  height:100%;
+}
+
+.resource-list-li {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  list-style-type: none;
+}

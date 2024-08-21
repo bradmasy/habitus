@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "此主题还支持使用类别元字段创建的颜色样本。 [了解更多](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "显示视频控件",
-  "sticky_cart_actions": "启用粘性抽屉购物车操作",
-  "currency_codes": {
-    "header": "货币格式",
-    "label": "显示货币代码",
-    "info": "示例: $1.00 USD."
-  },
-  "a11": {
-    "label": "无障碍",
-    "show_sidebars_scrollbar": "显示侧边栏滚动条",
-    "disable_all_image_animations": "禁用所有图片动画"
-  },
-  "divider": {
-    "label": "分隔线",
-    "divider_design": "分隔线设计",
-    "divider_style_solid": "实线",
-    "divider_style_dotted": "点线",
-    "divider_style_dashed": "虚线",
-    "divider_style_double": "双线",
-    "divider_color": "颜色",
-    "divider_image": "分隔线图片",
-    "divider_image_info": "一张水平重复的图片。替换上面的样式和颜色。"
-  },
-  "cart_actions": {
-    "label": "抽屉购物车操作",
-    "option_1": "显示“查看购物车”按钮",
-    "option_2": "显示“结帐”按钮",
-    "option_3": "显示两者"
-  },
-  "sticky_atc": {
-    "label": "粘性加入购物车",
-    "enable_sticky_atc": "启用粘性加入购物车"
-  },
-  "performance": {
-    "header": "SEO与性能",
-    "name": "性能",
-    "label": "悬停时预加载链接",
-    "info": "提高页面加载的感知速度。"
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "启用最近浏览过的产品",
-    "enable_recently_viewed_products_info": "启用后，主题将记录浏览过的产品，但您需要在商店中添加该部分以显示这些产品。",
-    "recently_viewed_products": "最近浏览过的产品",
-    "recently_viewed_products_info": "此部分需要在主题设置中启用功能。仅在用户至少访问过一个产品页面后显示。",
-    "recently_viewed_products_limit": "最近浏览过的产品限制"
-  },
   "rating_apps_update": {
     "label": "评级应用",
     "info": "第三方应用可能需要额外的步骤才能正确集成。"
   },
   "local-220": {
-    "preorder": "显示 \"预订\" 按钮标签",
-    "autorotate": {
-      "heading": "自动旋转",
-      "info": "自动切换幻灯片。",
-      "enable": "启用自动旋转",
-      "interval": "间隔",
-      "pause_on_mouseover": "鼠标悬停时暂停"
-    }
+    "preorder": "显示 \"预订\" 按钮标签"
   },
   "custom-social-icons": {
     "header": "自定义链接",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "退出意图弹窗",
-      "exit_intent_popup_info": "本节只在桌面上有效"
-    },
     "colors": {
       "name": "颜色",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "突出特色产品",
-          "info": "[了解更多](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[了解更多](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "显示折扣为……",
@@ -2574,9 +2516,6 @@
         "enable_sorting": {
           "label": "启用排序"
         },
-        "image_filter_layout": {
-          "label": "图像滤镜布局"
-        },
         "header__1": {
           "content": "过滤和排序"
         }
@@ -3293,19 +3232,6 @@
       "label_2": "图片 2",
       "label_3": "图片 3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "隐藏搜索",
-    "hide_cart": "隐藏购物车",
-    "product_gallery_mobile_padding": "在移动设备上为画廊添加填充",
-    "show_variant_labels": "显示变体标签",
-    "hide_on_desktop": "在桌面上隐藏元素",
-    "section_design": "部分设计",
-    "background_color": "背景颜色",
-    "background_gradient": "背景渐变",
-    "heading_text_color": "标题文字颜色",
-    "text_color": "文字颜色",
-    "slider_navigation_color": "导航元素颜色"
   },
   "bundle-220": {
     "blending_modes_behind": "后面",

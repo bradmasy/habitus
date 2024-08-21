@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "Chủ đề này cũng hỗ trợ các mẫu màu được tạo bằng các trường siêu dữ liệu danh mục. [Tìm hiểu thêm](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "Hiển thị điều khiển video",
-  "sticky_cart_actions": "Bật hành động giỏ hàng cố định",
-  "currency_codes": {
-    "header": "Định dạng tiền tệ",
-    "label": "Hiển thị mã tiền tệ",
-    "info": "Ví dụ: $1.00 USD."
-  },
-  "a11": {
-    "label": "Khả năng tiếp cận",
-    "show_sidebars_scrollbar": "Hiển thị thanh cuộn của thanh bên",
-    "disable_all_image_animations": "Vô hiệu hóa tất cả các hoạt ảnh hình ảnh"
-  },
-  "divider": {
-    "label": "Ngăn cách",
-    "divider_design": "Thiết kế ngăn cách",
-    "divider_style_solid": "Liền",
-    "divider_style_dotted": "Chấm",
-    "divider_style_dashed": "Gạch",
-    "divider_style_double": "Đôi",
-    "divider_color": "Màu sắc",
-    "divider_image": "Hình ảnh ngăn cách",
-    "divider_image_info": "Hình ảnh lặp lại theo chiều ngang. Thay thế kiểu và màu sắc phía trên."
-  },
-  "cart_actions": {
-    "label": "Hành động với giỏ hàng dạng ngăn",
-    "option_1": "Hiển thị nút \"xem giỏ hàng\"",
-    "option_2": "Hiển thị nút \"thanh toán\"",
-    "option_3": "Hiển thị cả hai"
-  },
-  "sticky_atc": {
-    "label": "Thêm vào giỏ hàng cố định",
-    "enable_sticky_atc": "Kích hoạt thêm vào giỏ hàng cố định"
-  },
-  "performance": {
-    "header": "SEO & hiệu suất",
-    "name": "Hiệu Suất",
-    "label": "Tải trước liên kết khi di chuột qua",
-    "info": "Tăng tốc độ tải trang cảm nhận được."
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "Kích hoạt sản phẩm đã xem gần đây",
-    "enable_recently_viewed_products_info": "Khi được kích hoạt, chủ đề sẽ ghi lại các sản phẩm đã xem, nhưng bạn cần thêm phần này vào cửa hàng của bạn để hiển thị những sản phẩm này.",
-    "recently_viewed_products": "Sản phẩm đã xem gần đây",
-    "recently_viewed_products_info": "Phần này cần được kích hoạt trong Cài đặt Chủ đề. Nó chỉ hiển thị sau khi người dùng truy cập ít nhất một trang sản phẩm.",
-    "recently_viewed_products_limit": "Giới hạn sản phẩm đã xem gần đây"
-  },
   "rating_apps_update": {
     "label": "Ứng dụng đánh giá",
     "info": "Ứng dụng của bên thứ ba có thể yêu cầu các bước thêm để được tích hợp đúng cách."
   },
   "local-220": {
-    "preorder": "Hiển thị nhãn nút \"đặt hàng trước\"",
-    "autorotate": {
-      "heading": "Tự động xoay",
-      "info": "Tự động chuyển qua các slide.",
-      "enable": "Bật chế độ tự động xoay",
-      "interval": "Khoảng thời gian",
-      "pause_on_mouseover": "Tạm dừng khi di chuột lên"
-    }
+    "preorder": "Hiển thị nhãn nút \"đặt hàng trước\""
   },
   "custom-social-icons": {
     "header": "Liên kết tùy chỉnh",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "Popup ý định thoát",
-      "exit_intent_popup_info": "Phần này chỉ hoạt động trên máy tính để bàn"
-    },
     "colors": {
       "name": "Màu sắc",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "Nhấn mạnh sản phẩm nổi bật",
-          "info": "[Tìm hiểu thêm](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[Tìm hiểu thêm](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "Hiển thị giảm giá dưới dạng...",
@@ -859,7 +801,7 @@
             },
             "icons": {
               "name": "Danh sách biểu tượng",
-              "info": "Để trực quan hóa &amp; tải xuống các biểu tượng có trong chủ đề này, xin vui lòng truy cập [liên kết này](https://resources.krownthemes.com/icons//).",
+              "info": "Để trực quan hóa &amp; tải xuống các biểu tượng có trong chủ đề này, xin vui lòng truy cập [liên kết này](https://www.krownthemes.com/krown-icons/).",
               "help": "Chủ đề này cho phép bạn thêm các biểu tượng sản phẩm tùy chỉnh thông qua nội dung động. [Tìm hiểu thêm](https://shopify-support.krownthemes.com/article/639-theme-settings#dynamic-icons)",
               "headers": {
                 "icon_1": "Biểu tượng 1",
@@ -2625,9 +2567,6 @@
         "enable_sorting": {
           "label": "Bật tính năng sắp xếp"
         },
-        "image_filter_layout": {
-          "label": "Bố cục bộ lọc ảnh"
-        },
         "header__1": {
           "content": "Lọc và sắp xếp"
         }
@@ -3352,19 +3291,6 @@
       "label_2": "Hình ảnh 2",
       "label_3": "Hình ảnh 3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "Ẩn tìm kiếm",
-    "hide_cart": "Ẩn giỏ hàng",
-    "product_gallery_mobile_padding": "Thêm đệm vào thư viện trên di động",
-    "show_variant_labels": "Hiển thị nhãn biến thể",
-    "hide_on_desktop": "Ẩn phần tử trên máy tính",
-    "section_design": "Thiết kế phần",
-    "background_color": "Màu nền",
-    "background_gradient": "Gradient nền",
-    "heading_text_color": "Màu văn bản tiêu đề",
-    "text_color": "Màu văn bản",
-    "slider_navigation_color": "Màu các yếu tố điều hướng"
   },
   "bundle-220": {
     "blending_modes_behind": "Phía sau",

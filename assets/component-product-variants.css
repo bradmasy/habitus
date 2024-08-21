@@ -67,7 +67,7 @@ html[dir=ltr] .product-variant__container--radio--nowrap .product-variant__item-
   transform: none !important;
 }
 .product-variant__container--select {
-  line-height: 1.2;
+  line-height: 1;
   padding-inline-start: 0.75rem;
   background-position-x: calc(100% - 0.75rem);
   padding-inline-end: 2.375rem;
@@ -77,15 +77,9 @@ html[dir=ltr] .product-variant__container--radio--nowrap .product-variant__item-
 .product-variant__container--select html[dir=rtl] {
   background-position-x: 0.75rem;
 }
-.product-variants--hide-unavailable .product-variant__container--select option.disabled {
-  display: none;
-}
 .product-variant__quantity:not(:empty) {
   margin-top: 0.75rem;
   display: block;
-}
-.product-variants--hide-unavailable .product-variant__item.disabled {
-  display: none;
 }
 .product-variant__item--radio {
   position: relative;
@@ -95,9 +89,8 @@ html[dir=ltr] .product-variant__container--radio--nowrap .product-variant__item-
 .product-variant__item--radio:not(:first-child) label {
   transform: translateX(0.0625rem);
 }
-.product-variant__item--radio.css-slide:last-child {
+.product-variant__item--radio:last-child {
   padding-inline-end: 1.5625rem;
-  pointer-events: none;
 }
 .product-variant__item--radio label {
   text-align: center;
@@ -134,17 +127,19 @@ html[dir=ltr] .product-variant__item--radio input {
 .product-variant__item--radio input:before {
   display: none;
 }
+.product-variant__item--radio input.disabled, .product-variant__item--radio input[disabled] {
+  cursor: default;
+}
+.product-variants--hide-unavailable .product-variant__item--radio input.disabled, .product-variants--hide-unavailable .product-variant__item--radio input[disabled] {
+  display: none;
+}
 .product-variant__item--radio input.disabled + label, .product-variant__item--radio input[disabled] + label {
   opacity: 0.22;
   text-decoration: line-through;
   cursor: default;
 }
 .product-variant__item--radio input[disabled] {
-  cursor: default;
   pointer-events: none;
-}
-.product-variant__item--radio input[disabled] + label {
-  cursor: default;
 }
 .product-variant__item--radio input:checked + label {
   border-color: var(--color-text-main) !important;
@@ -193,10 +188,6 @@ html[dir=ltr] .product-variant__item--radio input {
 .product-variant__item-text-label {
   display: block;
   margin-top: 0.625rem;
-}
-
-.product-variants--hide-unavailable .disabled + label {
-  display: none;
 }
 
 .hide-variant {

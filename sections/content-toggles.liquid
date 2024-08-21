@@ -1,6 +1,6 @@
 {{ 'component-toggle.css' | asset_url | stylesheet_tag }}
 
-<div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} {% if section.settings.section_background_color != "rgba(0,0,0,0)" or section.settings.section_background_gradient != blank %} container--has-background {% endif %} {% if section.settings.remove_bottom_margin %} container--negative-margin {% endif %} remove-empty-space">
+<div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %}">
 
   {%- render 'section-heading', heading: section.settings.heading, subheading: section.settings.subheading, heading_size: section.settings.section_heading_size, section_layout: section.settings.section_heading_layout, button: section.settings.cta_label, button_label: section.settings.cta_label, link: section.settings.cta_url, seo_h_tag: section.settings.seo_h_tag -%}
 
@@ -10,74 +10,59 @@
       <div>
         {%- if section.blocks.size > 0 -%}
           <toggle-group>
-
             {%- for block in section.blocks -%}
+              <toggle-tab class="toggle toggle--faq {% if forloop.index == 1 and section.settings.open_first %}opened{% endif %}" 
+                data-togglepack-alternate
+                {{ block.shopify_attributes }}
+              >
 
-              {%- liquid
-                assign show_block = true
-                if block.settings.hide_block_if == true and block.settings.body == blank and block.settings.image == blank
-                  assign show_block = false
-                endif
-              -%}
-
-              {%- if show_block -%}
-
-                <toggle-tab class="toggle toggle--faq {% if forloop.index == 1 and section.settings.open_first %}opened{% endif %}" 
-                  data-togglepack-alternate
-                  {{ block.shopify_attributes }}
-                >
-
-                  <div class="toggle__title" data-js-title tabindex="0" aria-expanded="false" role="button" aria-controls="toggle-{{ block.id }}">
-                    
-                    <div class="toggle__heading">
-
-                      <span class="text-weight--bold">{{ block.settings.title | escape }}</span>
+                <div class="toggle__title" data-js-title tabindex="0" aria-expanded="false" role="button" aria-controls="toggle-{{ block.id }}">
                   
-                      {%- if block.settings.subtitle != empty or block.settings.icon != 'no-icon' -%}
-                        <div class="toggle__subtitle">
-                          {%- liquid
-                            if block.settings.icon != 'no-icon'
-                              render 'icon-pack', icon: block.settings.icon
-                            endif 
-                          -%}
-                          {%- unless block.settings.subtitle == blank -%}
-                            <span class="text-size--small">{{ block.settings.subtitle | escape }}</span>
-                          {%- endunless -%}
-                        </div>
-                      {%- endif -%}
+                  <div class="toggle__heading">
 
-                    </div>
-
-                    {%- if block.settings.button_label != blank -%}
-                      <a href="{{ block.settings.button_link }}" class="pill pill--large pill--outline">{{ block.settings.button_label | escape }}</a>
+                    <span class="text-weight--bold">{{ block.settings.title | escape }}</span>
+                
+                    {%- if block.settings.subtitle != empty or block.settings.icon != 'no-icon' -%}
+                      <div class="toggle__subtitle">
+                        {%- liquid
+                          if block.settings.icon != 'no-icon'
+                            render 'icon-pack', icon: block.settings.icon
+                          endif 
+                        -%}
+                        {%- unless block.settings.subtitle == blank -%}
+                          <span class="text-size--small">{{ block.settings.subtitle | escape }}</span>
+                        {%- endunless -%}
+                      </div>
                     {%- endif -%}
 
                   </div>
 
-                  <div id="toggle-{{ block.id }}" data-js-content class="toggle__content rte remove-empty-space" role="region">
-                    
-                    {{ block.settings.body }}
+                  {%- if block.settings.button_label != blank -%}
+                    <a href="{{ block.settings.button_link }}" class="pill pill--large pill--outline">{{ block.settings.button_label | escape }}</a>
+                  {%- endif -%}
 
-                    {%- unless block.settings.image == blank -%}
-                      {%- if section.settings.form_enable -%}
-                        {%- capture sizes %}
-                          sizes="(max-width: 1023px) calc(100vw - 100px), (max-width: {{ settings.theme_max_width }}px) 60vw, {{ settings.theme_max_width | divided_by: 2 | plus: 100 }}px"
-                        {%- endcapture -%}
-                      {%- else -%}
-                        {%- capture sizes %}
-                          sizes="(max-width: 1023px) calc(100vw - 100px), (max-width: {{ settings.theme_max_width }}px) calc(100vw - 150px), {{ settings.theme_max_width | minus: 160 }}px"
-                        {%- endcapture -%}
-                      {%- endif -%}
-                      {%- render 'lazy-image', image: block.settings.image, alt: block.settings.title, sizes: sizes, class: 'element--border-radius' -%}
-                    {%- endunless -%}
-                  </div>
+                </div>
 
-                </toggle-tab>
-                
-              {%- endif -%}
+                <div id="toggle-{{ block.id }}" data-js-content class="toggle__content rte remove-empty-space" role="region">
+                  
+                  {{ block.settings.body }}
 
+                  {%- unless block.settings.image == blank -%}
+                    {%- if section.settings.form_enable -%}
+                      {%- capture sizes %}
+                        sizes="(max-width: 1023px) calc(100vw - 100px), (max-width: {{ settings.theme_max_width }}px) 60vw, {{ settings.theme_max_width | divided_by: 2 | plus: 100 }}px"
+                      {%- endcapture -%}
+                    {%- else -%}
+                      {%- capture sizes %}
+                        sizes="(max-width: 1023px) calc(100vw - 100px), (max-width: {{ settings.theme_max_width }}px) calc(100vw - 150px), {{ settings.theme_max_width | minus: 160 }}px"
+                      {%- endcapture -%}
+                    {%- endif -%}
+                    {%- render 'lazy-image', image: block.settings.image, alt: block.settings.title, sizes: sizes, class: 'element--border-radius' -%}
+                  {%- endunless -%}
+                </div>
+
+              </toggle-tab>
             {%- endfor -%}
-            
           </toggle-group>
         {%- endif -%}
       </div>
@@ -162,26 +147,6 @@
   {%- render 'section-footer', button: section.settings.cta_label, button_label: section.settings.cta_label, link: section.settings.cta_url -%}
   
 </div>
-
-<style>
-  {%- if section.settings.section_background_color != "rgba(0,0,0,0)" -%}
-    #shopify-section-{{ section.id }} {
-      background-color: {{ section.settings.section_background_color }};
-    }
-  {%- endif -%}
-  {%- if section.settings.section_background_gradient != blank -%}
-    #shopify-section-{{ section.id }} {
-      background-image: {{ section.settings.section_background_gradient }};
-    }
-  {%- endif -%}
-  {%- if section.settings.section_heading_color != "rgba(0,0,0,0)" -%}
-    #shopify-section-{{ section.id }} {
-      --color-text-main: {{ section.settings.section_heading_color }};
-      --color-borders-forms-primary: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.3 }};
-      --color-borders-main: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.1 }};
-    }
-  {%- endif -%}
-</style>
 
 <script src="{{ 'component-toggle.js' | asset_url }}" defer></script>
 
@@ -303,40 +268,9 @@
         "content": "t:sections.bundle-extra-words.sections.headings.gutter.label"
       },
       {
-        "type": "header",
-        "content": "t:bundle-240.section_design"
-      },
-      {
-        "type": "color",
-        "id": "section_background_color",
-        "label": "t:bundle-240.background_color",
-        "default": "rgba(0,0,0,0)"
-      },
-      {
-        "type": "color_background",
-        "id": "section_background_gradient",
-        "label": "t:bundle-240.background_gradient"
-      },
-      {
-        "type": "color",
-        "id": "section_heading_color",
-        "label": "t:bundle-240.text_color",
-        "default": "rgba(0,0,0,0)"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.bundle-extra-words.sections.headings.gutter.label"
-      },
-      {
         "type": "checkbox",
         "id": "gutter_decrease",
         "label": "t:sections.bundle-extra-words.sections.headings.gutter.content",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "remove_bottom_margin",
-        "label": "t:sections.local-extra-words.settings_schema.layout.sections.remove_bottom_margin",
         "default": false
       },
       {
@@ -550,16 +484,6 @@
             "type": "image_picker",
             "id": "image",
             "label": "t:sections.faq.blocks.text.settings.image.label"
-          },
-          {
-            "type": "header",
-            "content": "t:local-march-update.labels.dynamic_content.name"
-          },
-          {
-            "type": "checkbox",
-            "label": "t:local-march-update.labels.dynamic_content.hide_block",
-            "id": "hide_block_if",
-            "default": false
           }
         ]
       }

@@ -199,7 +199,6 @@
         "preoder": "Tego produktu nie ma w magazynie, ale można go zamówić."
       },
       "add_to_cart_button": "Dodaj do koszyka",
-      "choose_options_button": "Wybierz opcje",
       "preorder_button": "Zamówienie w przedsprzedaży",
       "share_link": "Udostępnij",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Zawartość pakietu",
       "add_product_to_bundle": "Dodaj do pakietu",
-      "product_added_to_bundle": "Dodane do pakietu",
       "add_bundle_to_cart": "Dodaj do koszyka",
       "choose_products_first": "Najpierw wybierz produkty",
       "add_all_to_cart": "Dodaj wszystko do koszyka"

@@ -53,7 +53,7 @@
 
       {%- for block in section.blocks -%}
 
-        <div class="slider-vertical__slide {% if block.settings.hide_on_mobile %} element--hide-on-small {% endif %} {% if block.settings.hide_on_desk %} element--hide-on-desk {% endif %}" 
+        <div class="slider-vertical__slide {% if block.settings.hide_on_mobile %} element--hide-on-small {% endif %}" 
           data-js-item
           style="
             {%- assign max_offset_x = 100 | minus: block.settings.offset_width -%}
@@ -274,7 +274,7 @@
       {
         "type": "select",
         "id": "title_size",
-        "label": "t:sections.local-extra-words.sections.main-header.settings.promotion_block.title.size",
+        "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label",
         "options": [
           {
             "value": "heading-size--regular",
@@ -476,12 +476,6 @@
             "unit": "%"
           },
           {
-            "type": "checkbox",
-            "label": "t:bundle-240.hide_on_desktop",
-            "id": "hide_on_desk",
-            "default": false
-          },
-          {
             "type": "header",
             "content": "t:sections.bundle-extra-words.sections.slider.blocks.image.settings.layout.heading_mobile"
           },
@@ -586,12 +580,6 @@
             "unit": "%"
           },
           {
-            "type": "checkbox",
-            "label": "t:bundle-240.hide_on_desktop",
-            "id": "hide_on_desk",
-            "default": false
-          },
-          {
             "type": "header",
             "content": "t:sections.bundle-extra-words.sections.slider.blocks.image.settings.layout.heading_mobile"
           },
@@ -692,12 +680,6 @@
             "step": 5,
             "default": 40,
             "unit": "%"
-          },
-          {
-            "type": "checkbox",
-            "label": "t:bundle-240.hide_on_desktop",
-            "id": "hide_on_desk",
-            "default": false
           },
           {
             "type": "header",
@@ -803,12 +785,6 @@
             "step": 5,
             "default": 40,
             "unit": "%"
-          },
-          {
-            "type": "checkbox",
-            "label": "t:bundle-240.hide_on_desktop",
-            "id": "hide_on_desk",
-            "default": false
           },
           {
             "type": "header",

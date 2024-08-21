@@ -93,10 +93,6 @@ modal-box.active .modal-content {
   stroke: var(--color-text-main);
 }
 
-.modal-footer {
-  margin-top: 1.875rem;
-}
-
 @media screen and (max-width: 767px) {
   .modal {
     height: var(--window-height);

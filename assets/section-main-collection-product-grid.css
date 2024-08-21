@@ -6,8 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
 }
 .collection-heading__text {
   display: flex;

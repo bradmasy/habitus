@@ -60,7 +60,7 @@
           </div>
         </div>
       {%- endfor -%}
-        <input type="range" min="0" max="100" value="50" class="before-after__slider" orient="{{ section.settings.layout }}" aria-hidden="true">
+        <input type="range" min="0" max="100" value="50" class="before-after__slider" orient="{{ section.settings.layout }}">
         <span class="before-after--handle">
           <span class="before-after--handle-icon">
             {%- render 'theme-symbols', icon: 'arrow-left-right' -%}

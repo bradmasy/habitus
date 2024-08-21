@@ -29,7 +29,6 @@ if ( typeof CSSSlider !== 'function' ) {
           disableSwipe: false,
           listenScroll: false,
           observer: true,
-          disableMouseDownEvent: true,
           autoplay: 0
         }, ...JSON.parse(this.dataset.options)
       };
@@ -112,11 +111,9 @@ if ( typeof CSSSlider !== 'function' ) {
       this.length = this.items.length;
       this.windowWidth = window.innerWidth;
 
-      if ( this.o.disableMouseDownEvent ) {
-        this.querySelector('.css-slider-container').addEventListener('mousedown', e=>{
-          e.preventDefault();
-        })
-      }
+      this.querySelector('.css-slider-container').addEventListener('mousedown', e=>{
+        e.preventDefault();
+      })
       
       this.viewport = this.querySelector('.css-slider-viewport');
       if ( this.o.autoHeight ) {
@@ -419,14 +416,6 @@ if ( typeof CSSSlider !== 'function' ) {
         this.slidesPerPage = this.items.length;
         hideNavigation = true;
       }
-
-      const sliderDifference = totalWidth - slidesWidth;
-      if ( sliderDifference < 60 ) {
-        this.setAttribute('data-slides-per-page-difference', 'small')
-      } else if ( sliderDifference >= 60 ) {
-        this.setAttribute('data-slides-per-page-difference', 'large')
-      }
-
       // set each slide for observer
       
       this.items.forEach((elm, i) => {
@@ -499,8 +488,6 @@ if ( typeof CSSSlider !== 'function' ) {
         })
       }
       this.element.classList.remove('disable-snapping');
-
-      this.setAttribute('data-slider-length', this.length);
 
       this.dispatchEvent(this._resetEvent);
 

@@ -94,13 +94,7 @@
   object-fit: contain !important;
 }
 
-.merged-section + .merged-section .container--large:not(.container--vertical-space):not(.container--vertical-space-small),
-.merged-section + .merged-section .container--fullwidth:not(.container--vertical-space):not(.container--vertical-space-small) {
+.merged-section + .merged-section .container--large:not(.container--vertical-space),
+.merged-section + .merged-section .container--fullwidth:not(.container--vertical-space) {
   margin-top: -1px;
-}
-
-@media screen and (max-width: 474px) {
-  .countdown__text {
-    padding: var(--gutter-large) !important;
-  }
 }

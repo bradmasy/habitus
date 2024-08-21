@@ -199,7 +199,6 @@
         "preoder": "Sản phẩm này đã hết hàng, nhưng bạn vẫn có thể đặt hàng."
       },
       "add_to_cart_button": "Thêm vào giỏ hàng",
-      "choose_options_button": "Chọn lựa chọn",
       "preorder_button": "Đặt hàng trước",
       "share_link": "Chia sẻ",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Nội dung bên trong gói",
       "add_product_to_bundle": "Thêm vào gói",
-      "product_added_to_bundle": "Đã thêm vào gói",
       "add_bundle_to_cart": "Thêm vào giỏ hàng",
       "choose_products_first": "Trước hết hãy chọn sản phẩm",
       "add_all_to_cart": "Thêm tất cả vào giỏ hàng"

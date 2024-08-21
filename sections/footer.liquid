@@ -93,73 +93,10 @@
               {%- when 'payment' -%}
                 <div class="footer-item__icons">
                   {%- liquid 
-                    unless block.settings.only_show_custom_icons
-                      for type in shop.enabled_payment_types
-                        echo type | payment_type_svg_tag: class: 'payment-icon'
-                      endfor
-                    endunless
+                    for type in shop.enabled_payment_types
+                      echo type | payment_type_svg_tag: class: 'payment-icon'
+                    endfor
                   -%}
-                  
-                  {%- if block.settings.icon_1 -%}
-                    <img 
-                      src="{{  block.settings.icon_1 | image_url: width: 38, height: 24, crop: 'center' }}"
-                      srcset="{{  block.settings.icon_1 | image_url: width: 38, height: 24, crop: 'center' }} 38w, {{  block.settings.icon_1 | image_url: width: 76, height: 48, crop: 'center' }} 76w, {{  block.settings.icon_1 | image_url: width: 114, height: 72, crop: 'center' }} 114w"
-                      loading="lazy" alt="{{ block.settings.icon_1.alt }}"
-                      sizes="38px" width="38" height="24"
-                      onload="this.parentNode.classList.add('lazyloaded')"
-                    >
-                  {%- endif -%}
-                  
-                  {%- if block.settings.icon_2 -%}
-                    <img 
-                      src="{{  block.settings.icon_2 | image_url: width: 38, height: 24, crop: 'center' }}"
-                      srcset="{{  block.settings.icon_2 | image_url: width: 38, height: 24, crop: 'center' }} 38w, {{  block.settings.icon_2 | image_url: width: 76, height: 48, crop: 'center' }} 76w, {{  block.settings.icon_2 | image_url: width: 114, height: 72, crop: 'center' }} 114w"
-                      loading="lazy" alt="{{ block.settings.icon_2.alt }}"
-                      sizes="38px" width="38" height="24"
-                      onload="this.parentNode.classList.add('lazyloaded')"
-                    >
-                  {%- endif -%}
-                  
-                  {%- if block.settings.icon_3 -%}
-                    <img 
-                      src="{{  block.settings.icon_3 | image_url: width: 38, height: 24, crop: 'center' }}"
-                      srcset="{{  block.settings.icon_3 | image_url: width: 38, height: 24, crop: 'center' }} 38w, {{  block.settings.icon_3 | image_url: width: 76, height: 48, crop: 'center' }} 76w, {{  block.settings.icon_3 | image_url: width: 114, height: 72, crop: 'center' }} 114w"
-                      loading="lazy" alt="{{ block.settings.icon_3.alt }}"
-                      sizes="38px" width="38" height="24"
-                      onload="this.parentNode.classList.add('lazyloaded')"
-                    >
-                  {%- endif -%}
-                  
-                  {%- if block.settings.icon_4 -%}
-                    <img 
-                      src="{{  block.settings.icon_4 | image_url: width: 38, height: 24, crop: 'center' }}"
-                      srcset="{{  block.settings.icon_4 | image_url: width: 38, height: 24, crop: 'center' }} 38w, {{  block.settings.icon_4 | image_url: width: 76, height: 48, crop: 'center' }} 76w, {{  block.settings.icon_4 | image_url: width: 114, height: 72, crop: 'center' }} 114w"
-                      loading="lazy" alt="{{ block.settings.icon_4.alt }}"
-                      sizes="38px" width="38" height="24"
-                      onload="this.parentNode.classList.add('lazyloaded')"
-                    >
-                  {%- endif -%}
-                  
-                  {%- if block.settings.icon_5 -%}
-                    <img 
-                      src="{{  block.settings.icon_5 | image_url: width: 38, height: 24, crop: 'center' }}"
-                      srcset="{{  block.settings.icon_5 | image_url: width: 38, height: 24, crop: 'center' }} 38w, {{  block.settings.icon_5 | image_url: width: 76, height: 48, crop: 'center' }} 76w, {{  block.settings.icon_5 | image_url: width: 114, height: 72, crop: 'center' }} 114w"
-                      loading="lazy" alt="{{ block.settings.icon_5.alt }}"
-                      sizes="38px" width="38" height="24"
-                      onload="this.parentNode.classList.add('lazyloaded')"
-                    >
-                  {%- endif -%}
-                  
-                  {%- if block.settings.icon_6 -%}
-                    <img 
-                      src="{{  block.settings.icon_6 | image_url: width: 38, height: 24, crop: 'center' }}"
-                      srcset="{{  block.settings.icon_6 | image_url: width: 38, height: 24, crop: 'center' }} 38w, {{  block.settings.icon_6 | image_url: width: 76, height: 48, crop: 'center' }} 76w, {{  block.settings.icon_6 | image_url: width: 114, height: 72, crop: 'center' }} 114w"
-                      loading="lazy" alt="{{ block.settings.icon_6.alt }}"
-                      sizes="38px" width="38" height="24"
-                      onload="this.parentNode.classList.add('lazyloaded')"
-                    >
-                  {%- endif -%}
-                  
                 </div>
 
                 {%- when 'follow' -%}
@@ -434,47 +371,6 @@
           {
             "type": "paragraph",
             "content": "t:sections.local-extra-words.sections.main-footer.blocks.payment.info"
-          },
-          {
-            "type": "header",
-            "content": "t:sections.local-extra-words.sections.main-footer.blocks.payment.custom_icons",
-            "info": "t:sections.local-extra-words.sections.main-footer.blocks.payment.custom_icons_info"
-          },
-          {
-            "type": "checkbox",
-            "id": "only_show_custom_icons",
-            "label": "t:sections.local-extra-words.sections.main-footer.blocks.payment.only_show_custom_icons",
-            "default": false
-          },
-          {
-            "type": "image_picker",
-            "id": "icon_1",
-            "label": "t:sections.local-extra-words.sections.main-product.blocks.icons.headers.icon_1"
-          },
-          {
-            "type": "image_picker",
-            "id": "icon_2",
-            "label": "t:sections.local-extra-words.sections.main-product.blocks.icons.headers.icon_2"
-          },
-          {
-            "type": "image_picker",
-            "id": "icon_3",
-            "label": "t:sections.local-extra-words.sections.main-product.blocks.icons.headers.icon_3"
-          },
-          {
-            "type": "image_picker",
-            "id": "icon_4",
-            "label": "t:sections.local-extra-words.sections.main-product.blocks.icons.headers.icon_4"
-          },
-          {
-            "type": "image_picker",
-            "id": "icon_5",
-            "label": "t:sections.local-extra-words.sections.main-product.blocks.icons.headers.icon_5"
-          },
-          {
-            "type": "image_picker",
-            "id": "icon_6",
-            "label": "t:sections.local-extra-words.sections.main-product.blocks.icons.headers.icon_6"
           }
         ]
       },
