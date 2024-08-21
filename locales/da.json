@@ -199,6 +199,7 @@
         "preoder": "Dette produkt er udsolgt, men du kan stadig bestille det."
       },
       "add_to_cart_button": "Tilføj til kurv",
+      "choose_options_button": "Vælg muligheder",
       "preorder_button": "Forudbestil",
       "share_link": "Del",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Pakkeindhold",
       "add_product_to_bundle": "Tilføj til bundt",
+      "product_added_to_bundle": "Tilføjet til pakken",
       "add_bundle_to_cart": "Tilføj til kurv",
       "choose_products_first": "Vælg produkter først",
       "add_all_to_cart": "Tilføj alt til indkøbskurv"

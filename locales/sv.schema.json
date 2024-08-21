@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "Detta tema erbjuder också stöd för färgprover skapade med kategorimetafält. [Läs mer](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "Visa videokontroller",
+  "sticky_cart_actions": "Aktivera klistriga kundvagnsåtgärder",
+  "currency_codes": {
+    "header": "Valutaformat",
+    "label": "Visa valutakoder",
+    "info": "Exempel: $1.00 USD."
+  },
+  "a11": {
+    "label": "Tillgänglighet",
+    "show_sidebars_scrollbar": "Visa rullningslist på sidopaneler",
+    "disable_all_image_animations": "Inaktivera alla bildanimationer"
+  },
+  "divider": {
+    "label": "Avdelare",
+    "divider_design": "Avdelardesign",
+    "divider_style_solid": "Solid",
+    "divider_style_dotted": "Prickad",
+    "divider_style_dashed": "Streckad",
+    "divider_style_double": "Dubbel",
+    "divider_color": "Färg",
+    "divider_image": "Avdelarbild",
+    "divider_image_info": "En horisontellt repetitiv bild. Ersätter stilen och färgen ovan."
+  },
+  "cart_actions": {
+    "label": "Åtgärder för lådkundvagn",
+    "option_1": "Visa knappen \"visa kundvagn\"",
+    "option_2": "Visa knappen \"gå till kassan\"",
+    "option_3": "Visa båda"
+  },
+  "sticky_atc": {
+    "label": "Klibbig lägg till i kundvagn",
+    "enable_sticky_atc": "Aktivera klibbig lägg till i kundvagn"
+  },
+  "performance": {
+    "header": "SEO & prestanda",
+    "name": "Prestanda",
+    "label": "Förhandsladda länkar vid hovring",
+    "info": "Ökar den upplevda laddningshastigheten för sidor."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "Aktivera nyligen visade produkter",
+    "enable_recently_viewed_products_info": "När aktiverat kommer temat att registrera visade produkter, men du måste lägga till avsnittet i din butik för att visa dessa produkter.",
+    "recently_viewed_products": "Nyligen visade produkter",
+    "recently_viewed_products_info": "Detta avsnitt måste ha funktionaliteten aktiverad i Temainställningar. Det kommer bara att visas efter att användare har besökt minst en produktsida.",
+    "recently_viewed_products_limit": "Gräns för nyligen visade produkter"
+  },
   "rating_apps_update": {
     "label": "Betygsättningsapp",
     "info": "Tredjepartsappar kan kräva ytterligare steg för att integreras korrekt."
   },
   "local-220": {
-    "preorder": "Visa \"förbeställ\" knappetikett"
+    "preorder": "Visa \"förbeställ\" knappetikett",
+    "autorotate": {
+      "heading": "Autorotation",
+      "info": "Roterar automatiskt genom bilderna.",
+      "enable": "Aktivera autorotation",
+      "interval": "Intervall",
+      "pause_on_mouseover": "Paus vid muspekare"
+    }
   },
   "custom-social-icons": {
     "header": "Anpassad länk",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "Popup för utgångsavsikt",
+      "exit_intent_popup_info": "Detta avsnitt fungerar endast på skrivbord"
+    },
     "colors": {
       "name": "Färger",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "Betona utvalda produkter",
-          "info": "[Learn more](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Learn more](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "Visa rabatt som...",
@@ -2517,6 +2575,9 @@
         "enable_sorting": {
           "label": "Tillämpa sortering"
         },
+        "image_filter_layout": {
+          "label": "Layout för bildfilter"
+        },
         "header__1": {
           "content": "Filtrering och sortering"
         }
@@ -3233,6 +3294,19 @@
       "label_2": "Bild 2",
       "label_3": "Bild 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "Dölj sökning",
+    "hide_cart": "Dölj kundvagn",
+    "product_gallery_mobile_padding": "Lägg till vaddering till galleriet på mobil",
+    "show_variant_labels": "Visa variantetiketter",
+    "hide_on_desktop": "Dölj element på skrivbordet",
+    "section_design": "Sektionsdesign",
+    "background_color": "Bakgrundsfärg",
+    "background_gradient": "Bakgrundsgradient",
+    "heading_text_color": "Rubrikens textfärg",
+    "text_color": "Textfärg",
+    "slider_navigation_color": "Navigeringselementens färg"
   },
   "bundle-220": {
     "blending_modes_behind": "Bakom",

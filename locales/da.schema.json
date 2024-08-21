@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "Dette tema tilbyder også support til farveprøver oprettet med kategorimetafelt. [Lær mere](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "Vis videokontroller",
+  "sticky_cart_actions": "Aktivér klæbende skuffe kurv handlinger",
+  "currency_codes": {
+    "header": "Valutaformat",
+    "label": "Vis valutakoder",
+    "info": "Eksempel: $1.00 USD."
+  },
+  "a11": {
+    "label": "Tilgængelighed",
+    "show_sidebars_scrollbar": "Vis rullebjælke i sidepaneler",
+    "disable_all_image_animations": "Deaktiver alle billedeanimationer"
+  },
+  "divider": {
+    "label": "Opdeler",
+    "divider_design": "Opdeler design",
+    "divider_style_solid": "Solid",
+    "divider_style_dotted": "Punkteret",
+    "divider_style_dashed": "Stiplet",
+    "divider_style_double": "Dobbelt",
+    "divider_color": "Farve",
+    "divider_image": "Opdeler billede",
+    "divider_image_info": "Et horisontalt gentagende billede. Erstatter stilen og farven ovenfor."
+  },
+  "cart_actions": {
+    "label": "Handlinger til indkøbskurvskuffe",
+    "option_1": "Vis \"vis indkøbskurv\"-knap",
+    "option_2": "Vis \"til kassen\"-knap",
+    "option_3": "Vis begge"
+  },
+  "sticky_atc": {
+    "label": "Klistret tilføj til kurv",
+    "enable_sticky_atc": "Aktivér klistret tilføj til kurv"
+  },
+  "performance": {
+    "header": "SEO & ydeevne",
+    "name": "Ydeevne",
+    "label": "Forudindlæs links ved hover",
+    "info": "Øger den opfattede indlæsningshastighed af sider."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "Aktivér nyligt viste produkter",
+    "enable_recently_viewed_products_info": "Når aktiveret, vil temaet registrere viste produkter, men du skal tilføje sektionen i din butik for at vise disse produkter.",
+    "recently_viewed_products": "Nyligt viste produkter",
+    "recently_viewed_products_info": "Denne sektion skal have aktiveret funktionaliteten i Tema Indstillinger. Den vil kun vises efter brugere har besøgt mindst en produktside.",
+    "recently_viewed_products_limit": "Grænse for nyligt viste produkter"
+  },
   "rating_apps_update": {
     "label": "Vurdering app",
     "info": "Tredjeparts apps kan kræve yderligere trin for korrekt integration."
   },
   "local-220": {
-    "preorder": "Vis \"forudbestil\" knap etiket"
+    "preorder": "Vis \"forudbestil\" knap etiket",
+    "autorotate": {
+      "heading": "Autoroter",
+      "info": "Roter automatisk gennem slides.",
+      "enable": "Aktiver autorotation",
+      "interval": "Interval",
+      "pause_on_mouseover": "Pause ved museover"
+    }
   },
   "custom-social-icons": {
     "header": "Brugerdefineret link",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "Popup ved exit-intent",
+      "exit_intent_popup_info": "Denne sektion fungerer kun på desktop"
+    },
     "colors": {
       "name": "Farver",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "Understreg fremhævede produkter",
-          "info": "[Få flere oplysninger](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Få flere oplysninger](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "Vis rabat som...",
@@ -1061,7 +1119,7 @@
             },
             "icons": {
               "name": "Ikonliste",
-              "info": "For at visualisere og downloade ikoner inkluderet i temaet, besøg venligst [dette link](https://www.krownthemes.com/krown-icons/).",
+              "info": "For at visualisere og downloade ikoner inkluderet i temaet, besøg venligst [dette link](https://resources.krownthemes.com/icons//).",
               "help": "Dette tema giver dig mulighed for at tilføje brugerdefinerede produktikoner gennem dynamisk indhold. [Få flere oplysninger](https://shopify-support.krownthemes.com/article/639-theme-settings#dynamic-icons)",
               "headers": {
                 "icon_1": "Ikon 1",
@@ -2540,6 +2598,9 @@
         "enable_sorting": {
           "label": "Aktiver sortering"
         },
+        "image_filter_layout": {
+          "label": "Layout af billedfilter"
+        },
         "header__1": {
           "content": "Filtrering og sortering"
         }
@@ -3256,6 +3317,19 @@
       "label_2": "Billede 2",
       "label_3": "Billede 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "Skjul søgning",
+    "hide_cart": "Skjul kurv",
+    "product_gallery_mobile_padding": "Tilføj polstring til galleriet på mobil",
+    "show_variant_labels": "Vis variantetiketter",
+    "hide_on_desktop": "Skjul element på desktop",
+    "section_design": "Sektion design",
+    "background_color": "Baggrundsfarve",
+    "background_gradient": "Baggrundsgradient",
+    "heading_text_color": "Overskrift tekstfarve",
+    "text_color": "Tekstfarve",
+    "slider_navigation_color": "Navigations elementers farve"
   },
   "bundle-220": {
     "blending_modes_behind": "Bagved",

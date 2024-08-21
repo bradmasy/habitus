@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "Tämä teema tukee myös värimallien käyttöä, jotka on luotu kategorian metakentillä. [Lisätietoja](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "Näytä videon säätimet",
+  "sticky_cart_actions": "Ota käyttöön kiinteät ostoskoritoiminnot",
+  "currency_codes": {
+    "header": "Valuuttamuoto",
+    "label": "Näytä valuuttakoodit",
+    "info": "Esimerkki: $1.00 USD."
+  },
+  "a11": {
+    "label": "Esteettömyys",
+    "show_sidebars_scrollbar": "Näytä sivupalkkien vierityspalkki",
+    "disable_all_image_animations": "Poista kaikki kuvanimaatiot käytöstä"
+  },
+  "divider": {
+    "label": "Jakaja",
+    "divider_design": "Jakajan suunnittelu",
+    "divider_style_solid": "Kiinteä",
+    "divider_style_dotted": "Pistetty",
+    "divider_style_dashed": "Viivakoodi",
+    "divider_style_double": "Kaksois",
+    "divider_color": "Väri",
+    "divider_image": "Jakajan kuva",
+    "divider_image_info": "Horisontaalisesti toistuva kuva. Korvaa yllä olevan tyylin ja värin."
+  },
+  "cart_actions": {
+    "label": "Laatikon ostoskorin toiminnot",
+    "option_1": "Näytä \"näytä ostoskori\" -painike",
+    "option_2": "Näytä \"kassa\"-painike",
+    "option_3": "Näytä molemmat"
+  },
+  "sticky_atc": {
+    "label": "Pysyvä lisää koriin",
+    "enable_sticky_atc": "Ota pysyvä lisäys koriin käyttöön"
+  },
+  "performance": {
+    "header": "SEO & suorituskyky",
+    "name": "Suorituskyky",
+    "label": "Esilataa linkit hiiren ollessa päällä",
+    "info": "Lisää sivujen koetun latausnopeuden."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "Ota käyttöön äskettäin katsotut tuotteet",
+    "enable_recently_viewed_products_info": "Kun otettu käyttöön, teema rekisteröi katsotut tuotteet, mutta sinun täytyy lisätä osio kauppaasi näiden tuotteiden näyttämiseksi.",
+    "recently_viewed_products": "Äskettäin katsotut tuotteet",
+    "recently_viewed_products_info": "Tämän osion tulee olla käytössä Teema-asetuksissa. Se näkyy vain, kun käyttäjät ovat vierailleet ainakin yhdellä tuotesivulla.",
+    "recently_viewed_products_limit": "Äskettäin katsottujen tuotteiden raja"
+  },
   "rating_apps_update": {
     "label": "Arviointisovellus",
     "info": "Kolmannen osapuolen sovellukset saattavat vaatia lisätoimenpiteitä asianmukaiseen integrointiin."
   },
   "local-220": {
-    "preorder": "Näytä \"ennakkotilaus\" painikkeen etiketti"
+    "preorder": "Näytä \"ennakkotilaus\" painikkeen etiketti",
+    "autorotate": {
+      "heading": "Automaattinen pyöritys",
+      "info": "Siirry dioissa automaattisesti.",
+      "enable": "Ota automaattinen pyöritys käyttöön",
+      "interval": "Intervalli",
+      "pause_on_mouseover": "Tauko kun hiiri on päällä"
+    }
   },
   "custom-social-icons": {
     "header": "Mukautettu linkki",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "Poistumisaikomuksen popup",
+      "exit_intent_popup_info": "Tämä osio toimii vain pöytätietokoneilla"
+    },
     "colors": {
       "name": "Värit",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "Korosta esittelyssä olevia tuotteita",
-          "info": "[Lue lisää](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Lue lisää](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "Näytä alennus muodossa…",
@@ -801,7 +859,7 @@
             },
             "icons": {
               "name": "Kuvakeluettelo",
-              "info": "Voit visualisoida ja ladata teemaan sisältyviä kuvakkeita [tämän linkin](https://www.krownthemes.com/krown-icons/) kautta.",
+              "info": "Voit visualisoida ja ladata teemaan sisältyviä kuvakkeita [tämän linkin](https://resources.krownthemes.com/icons//) kautta.",
               "help": "Tämä teema mahdollistaa mukautettujen tuotekuvakkeiden lisäämisen dynaamisen sisällön avulla. [Lue lisää](https://shopify-support.krownthemes.com/article/639-theme-settings#dynamic-icons)",
               "headers": {
                 "icon_1": "Kuvake 1",
@@ -2567,6 +2625,9 @@
         "enable_sorting": {
           "label": "Ota lajittelu käyttöön"
         },
+        "image_filter_layout": {
+          "label": "Kuvan suodattimen asettelu"
+        },
         "header__1": {
           "content": "Suodattaminen ja lajittelu"
         }
@@ -3291,6 +3352,19 @@
       "label_2": "Kuva 2",
       "label_3": "Kuva 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "Piilota haku",
+    "hide_cart": "Piilota ostoskori",
+    "product_gallery_mobile_padding": "Lisää täyttö galleriaan mobiilissa",
+    "show_variant_labels": "Näytä varianttien etiketit",
+    "hide_on_desktop": "Piilota elementti työpöydällä",
+    "section_design": "Osion suunnittelu",
+    "background_color": "Taustaväri",
+    "background_gradient": "Taustaliukuväri",
+    "heading_text_color": "Otsikkotekstin väri",
+    "text_color": "Tekstin väri",
+    "slider_navigation_color": "Navigointielementtien väri"
   },
   "bundle-220": {
     "blending_modes_behind": "Takana",

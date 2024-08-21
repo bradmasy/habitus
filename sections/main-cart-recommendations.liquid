@@ -4,12 +4,20 @@
 
     <div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} remove-empty-space">
 
-        {%- render 'section-heading', heading: section.settings.heading, subheading: section.settings.subheading, heading_size: section.settings.section_heading_size, section_layout: section.settings.section_heading_layout, seo_h_tag: 'span' -%}
+      {%- render 'section-heading', heading: section.settings.heading, subheading: section.settings.subheading, heading_size: section.settings.section_heading_size, section_layout: section.settings.section_heading_layout, seo_h_tag: 'span' -%}
 
-      <div class="grid grid--layout grid-4 grid-portable-3 grid-lap-2 grid-tiny-1">
+      {%- liquid
+        if section.settings.layout_desktop == 'four-columns'
+          assign grid_class_desktop = 'grid-4 grid-laptop-3 grid-lap-2'
+        else
+          assign grid_class_desktop = 'grid-3 grid-portable-2'
+        endif
+      -%}
+
+      <div class="grid grid--layout {{ grid_class_desktop }} {{ section.settings.layout_mobile }}">
         {%- liquid
           for recommendation in recommendations.products
-            render 'product-item', product: recommendation, section_blocks: section.blocks, index: forloop.index, layout: 'grid-4'
+            render 'product-item', product: recommendation, section_blocks: section.blocks, index: forloop.index, layout: grid_class_desktop, mobile_layout: section.settings.layout_mobile
           endfor
         -%}
       </div>
@@ -229,6 +237,42 @@
           }
         ],
         "default": "section-heading--left section-heading--two-rows"
+      },
+      {
+      "type": "header",
+      "content": "t:sections.bundle-extra-words.sections.headings.layout.label"
+      },
+      {
+        "type": "select",
+        "id": "layout_desktop",
+        "label": "t:sections.local-extra-words.sections.columns.name",
+        "options": [
+          {
+            "value": "three-columns",
+            "label": "t:sections.local-extra-words.sections.columns.option__2"
+          },
+          {
+            "value": "four-columns",
+            "label": "t:sections.local-extra-words.sections.columns.option__3"
+          }
+        ],
+        "default": "four-columns"
+      },
+      {
+        "type": "select",
+        "id": "layout_mobile",
+        "label": "t:sections.local-extra-words.sections.columns.name_mobile",
+        "options": [
+          {
+            "value": "grid-palm-1",
+            "label": "t:sections.local-extra-words.sections.columns.option__0"
+          },
+          {
+            "value": "grid-palm-2",
+            "label": "t:sections.local-extra-words.sections.columns.option__1"
+          }
+        ],
+        "default": "grid-palm-2"
       },
       {
         "type": "header",

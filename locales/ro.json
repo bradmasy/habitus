@@ -199,6 +199,7 @@
         "preoder": "Acest produs nu mai este în stoc, dar îl poți comanda."
       },
       "add_to_cart_button": "Adăugare în coș",
+      "choose_options_button": "Alegeți opțiuni",
       "preorder_button": "Precomandă",
       "share_link": "Partajare",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Conținutul pachetului",
       "add_product_to_bundle": "Adăugați la pachet",
+      "product_added_to_bundle": "Adăugat în pachet",
       "add_bundle_to_cart": "Adăugare în coș",
       "choose_products_first": "Alegeți mai întâi produsele",
       "add_all_to_cart": "Adaugă totul în coș"

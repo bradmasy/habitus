@@ -3,7 +3,7 @@
 		"name": "theme_info",
 		"theme_name": "Combine",
 		"theme_author": "KrownThemes",
-		"theme_version": "2.3.1",
+		"theme_version": "2.4.2.1",
 		"theme_documentation_url": "https://shopify-support.krownthemes.com/",
 		"theme_support_url": "https://krownthemes.com/shopify-support-contact/"
 	},
@@ -377,6 +377,10 @@
 				"default": "color,colour,couleur,cor,colore,culoare,farbe,색,色,カラー,färg,farve,szín,barva"
 			},
 			{
+				"type": "paragraph",
+				"content": "t:new_color_swatches"
+			},
+			{
 				"type": "checkbox",
 				"id": "variant_images",
 				"label": "t:sections.bundle-extra-words.sections.product_grid.blocks.quick_buy.settings.variant_images.label",
@@ -456,8 +460,8 @@
 				"info": "t:rating_apps_update.info",
 				"options": [
 					{
-						"value": "default",
-						"label": "Shopify Reviews (deprecated)"
+						"value": "okendo",
+						"label": "Okendo"
 					},
 					{
 						"value": "loox",
@@ -488,7 +492,7 @@
 						"label": "Air Reviews"
 					}
 				],
-				"default": "default"
+				"default": "okendo"
 			},
 			{
 				"type": "header",
@@ -744,6 +748,32 @@
 				"label": "t:settings_schema.cart-page.settings.cart_buttons.label",
 				"default": false
 			},
+			{
+				"type": "select",
+				"id": "cart_drawer_actions",
+				"label": "t:cart_actions.label",
+				"options": [
+					{
+						"value": "show-view",
+						"label": "t:cart_actions.option_1"
+					},
+					{
+						"value": "show-checkout",
+						"label": "t:cart_actions.option_2"
+					},
+					{
+						"value": "show-view show-checkout",
+						"label": "t:cart_actions.option_3"
+					}
+				],
+				"default": "show-view show-checkout"
+			},
+			{
+				"type": "checkbox",
+				"id": "sticky_cart_actions",
+				"label": "t:sticky_cart_actions",
+				"default": false
+			},
       {
         "type": "header",
         "content": "t:sections.bundle-extra-words.settings_schema.cart.settings.media.header"
@@ -880,7 +910,7 @@
 		]
 	},
   {
-    "name": "t:sections.refactor_words.seo.name",
+    "name": "t:performance.header",
     "settings": [
       {
         "type": "checkbox",
@@ -895,9 +925,48 @@
         "label": "t:sections.refactor_words.seo_late.breadcrumbs.label",
         "default": true,
         "info": "t:sections.refactor_words.seo_late.breadcrumbs.info"
+			},
+			{
+        "type": "header",
+        "content": "t:a11.label"
+      },
+			{
+        "type": "checkbox",
+        "id": "show_sidebars_scrollbar",
+        "label": "t:a11.show_sidebars_scrollbar",
+        "default": false
+			},
+			{
+        "type": "checkbox",
+        "id": "disable_all_image_animations",
+        "label": "t:a11.disable_all_image_animations",
+        "default": false
+			},
+			{
+				"type": "header",
+				"content": "t:performance.name"
+			},
+			{
+        "type": "checkbox",
+        "id": "enable_instapage",
+        "label": "t:performance.label",
+        "info": "t:performance.info",
+        "default": true
 			}
     ]
   },
+	{
+		"name": "t:currency_codes.header",
+		"settings": [
+			{
+				"type": "checkbox",
+				"id": "show_currency_codes",
+				"label": "t:currency_codes.label",
+				"info": "t:currency_codes.info",
+				"default": false
+			}	
+		]
+	},
 	{
 		"name": "t:settings_schema.social.name",
 		"settings": [

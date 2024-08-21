@@ -199,6 +199,7 @@
         "preoder": "Tämä tuote on loppunut varastosta, mutta voit yhä tilata sen."
       },
       "add_to_cart_button": "Lisää ostoskoriin",
+      "choose_options_button": "Valitse vaihtoehdot",
       "preorder_button": "Ennakkotilaus",
       "share_link": "Jaa",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Paketin sisältö",
       "add_product_to_bundle": "Lisää pakettiin",
+      "product_added_to_bundle": "Lisätty pakettiin",
       "add_bundle_to_cart": "Lisää ostoskoriin",
       "choose_products_first": "Valitse tuotteet ensin",
       "add_all_to_cart": "Lisää kaikki ostoskoriin"

@@ -1,4 +1,5 @@
-<div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %}">
+
+<div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} {% if section.settings.section_background_color != "rgba(0,0,0,0)" or section.settings.section_background_gradient != blank %} container--has-background {% endif %} {% if section.settings.remove_bottom_margin %} container--negative-margin {% endif %} remove-empty-space">
   
   {%- render 'section-heading', heading: section.settings.heading, subheading: section.settings.subheading, heading_size: section.settings.section_heading_size, section_layout: section.settings.section_heading_layout, button: section.settings.cta_label, button_label: section.settings.cta_label, link: section.settings.cta_url, seo_h_tag: section.settings.seo_h_tag -%}
   
@@ -15,7 +16,7 @@
       endif
     -%}
     
-    <info-tabs id="info-tabs-{{ section.id }}" class="info-tabs info-tabs--image-{{ section.settings.image_position }} info-tabs--image-{{ section.settings.image_position }}--{{ section.settings.desktop_layout }}" data-tabs-autoplay="{{ autoplay_setting }}" data-tabs-autoplay-timer="{{ section.settings.autoplay }}">
+    <info-tabs id="info-tabs-{{ section.id }}" data-id="{{ section.id }}" class="info-tabs info-tabs--image-{{ section.settings.image_position }} info-tabs--image-{{ section.settings.image_position }}--{{ section.settings.desktop_layout }}" data-tabs-autoplay="{{ autoplay_setting }}" data-tabs-autoplay-timer="{{ section.settings.autoplay }}">
       
       {% style %}
         {% if autoplay_setting %}
@@ -65,52 +66,87 @@
         {%- endfor -%}
 
       </div>
+
+      {%- unless section.settings.image_position == 'no-image' -%}
         
-      <div class="info-tabs_panels" style="padding-top:{{ 100 | divided_by: section.settings.image_aspect_ratio }}%">
+        <div class="info-tabs_panels" style="padding-top:{{ 100 | divided_by: section.settings.image_aspect_ratio }}%">
 
-        {%- for block in section.blocks -%}
+          {%- for block in section.blocks -%}
 
-          <div class="info-tabs__panel js-info-panel {% if forloop.first %} active {% endif %}" id="panel-{{ block.id }}">
-            <div class="info-tabs__image" {% if block.settings.image == blank %} style="padding-top:{{ 100 | divided_by: section.settings.image_aspect_ratio }}%" {% endif %}>
-              {%- if block.settings.image != blank -%}
-                {%- if section.settings.desktop_layout contains 'half' -%}
-                  {%- capture sizes -%}
-                    sizes="(max-width: 767px) calc(100vw - 20px), (max-width: {{ settings.theme_max_width }}px) 50vw, {{ settings.theme_max_width | divided_by: 2 }}px"
-                  {%- endcapture -%}
-                {%- elsif section.settings.desktop_layout contains 'third' -%}
-                  {%- capture sizes -%}
-                    sizes="(max-width: 767px) calc(100vw - 20px), (max-width: {{ settings.theme_max_width }}px) 33vw, {{ settings.theme_max_width | divided_by: 3 }}px"
-                  {%- endcapture -%}
-                {%- elsif section.settings.desktop_layout contains 'fourth' -%}
-                  {%- capture sizes -%}
-                    sizes="(max-width: 767px) calc(100vw - 20px), (max-width: {{ settings.theme_max_width }}px) 25vw, {{ settings.theme_max_width | divided_by: 4 }}px"
-                  {%- endcapture -%}
+            <div class="info-tabs__panel js-info-panel {% if forloop.first %} active {% endif %}" id="panel-{{ block.id }}">
+              <div class="info-tabs__image" {% if block.settings.image == blank %} style="padding-top:{{ 100 | divided_by: section.settings.image_aspect_ratio }}%" {% endif %}>
+                {%- if block.settings.image != blank -%}
+                  {%- if section.settings.desktop_layout contains 'half' -%}
+                    {%- capture sizes -%}
+                      sizes="(max-width: 767px) calc(100vw - 20px), (max-width: {{ settings.theme_max_width }}px) 50vw, {{ settings.theme_max_width | divided_by: 2 }}px"
+                    {%- endcapture -%}
+                  {%- elsif section.settings.desktop_layout contains 'third' -%}
+                    {%- capture sizes -%}
+                      sizes="(max-width: 767px) calc(100vw - 20px), (max-width: {{ settings.theme_max_width }}px) 33vw, {{ settings.theme_max_width | divided_by: 3 }}px"
+                    {%- endcapture -%}
+                  {%- elsif section.settings.desktop_layout contains 'fourth' -%}
+                    {%- capture sizes -%}
+                      sizes="(max-width: 767px) calc(100vw - 20px), (max-width: {{ settings.theme_max_width }}px) 25vw, {{ settings.theme_max_width | divided_by: 4 }}px"
+                    {%- endcapture -%}
+                  {%- endif -%}
+                  {%- liquid
+                    if section.index == 1 and forloop.first
+                      assign preload = true
+                    else
+                      assign preload = false
+                    endif
+                  -%}
+                  {%- render 'lazy-image', image: block.settings.image, sizes: sizes, ratio: section.settings.image_aspect_ratio, alt: block.settings.title, preload: preload -%}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag }}
                 {%- endif -%}
-                {%- liquid
-                  if section.index == 1 and forloop.first
-                    assign preload = true
-                  else
-                    assign preload = false
-                  endif
-                -%}
-                {%- render 'lazy-image', image: block.settings.image, sizes: sizes, ratio: section.settings.image_aspect_ratio, alt: block.settings.title, preload: preload -%}
-              {%- else -%}
-                {{ 'image' | placeholder_svg_tag }}
-              {%- endif -%}
+              </div>
             </div>
-          </div>
 
-        {%- endfor -%}
+          {%- endfor -%}
 
-      </div>
+        </div>
+      {%- endunless -%}
 
     </info-tabs>
+
+    <div id="info-tabs-navigation-{{ section.id }}" class="css-slider element--hide-on-desk">
+      <div class="css-slider-navigation-container">
+        <span class="css-slider-button css-slider-prev disabled" style="display: block;"><svg fill="none" height="11" viewBox="0 0 6 11" width="6" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m4.32845 10.0708-4.18198-4.18194c-.195261-.19526-.195261-.51185 0-.70711l4.18198-4.181979c.19527-.195262.51185-.195262.70711 0 .19526.195259.19526.511849 0 .707109l-3.32843 3.32842s-.70713.4647-.00002 1l3.32845 3.32843c.19526.19526.19526.51185 0 .70707-.19526.1953-.51185.1953-.70711 0z" fill="#000" fill-rule="evenodd"></path></svg></span><span class="css-slider-button css-slider-next" style="display: block;"><svg fill="none" height="11" viewBox="0 0 6 11" width="6" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m.853555.999962 4.181985 4.181978c.19526.19526.19526.51185 0 .70711l-4.181983 4.18195c-.195263.1953-.511845.1953-.707108 0-.1952631-.19523-.1952632-.51181 0-.70708l3.328431-3.32842s.70713-.4647.00002-1l-3.328453-3.32843c-.1952626-.19526-.1952627-.51185 0-.707108.195263-.195262.511845-.195262.707108 0z" fill="#000" fill-rule="evenodd"></path></svg></span>
+        <div class="css-slider-dot-navigation" style="display: block; --size: {{ section.blocks.size }};">
+          {%- for block in section.blocks -%}
+            <span class="css-slider-dot {% if forloop.first %} active {% endif %}" data-index="{{ forloop.index0 }}"></span>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
 
   {%- endif -%}
 
   {%- render 'section-footer', button: section.settings.cta_label, button_label: section.settings.cta_label, link: section.settings.cta_url -%}
 
 </div>
+
+<style>
+  {%- if section.settings.section_background_color != "rgba(0,0,0,0)" -%}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.section_background_color }};
+    }
+  {%- endif -%}
+  {%- if section.settings.section_background_gradient != blank -%}
+    #shopify-section-{{ section.id }} {
+      background-image: {{ section.settings.section_background_gradient }};
+    }
+  {%- endif -%}
+  {%- if section.settings.section_heading_color != "rgba(0,0,0,0)" -%}
+    #shopify-section-{{ section.id }} {
+      --color-text-main: {{ section.settings.section_heading_color }};
+      --color-secondary-text-main: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.6 }};
+      --color-borders-forms-primary: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.3 }};
+      --color-borders-main: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.1 }};
+    }
+  {%- endif -%}
+</style>
 
 {% schema %}
 {
@@ -218,6 +254,10 @@
         {
           "value": "right",
           "label": "t:sections.local-extra-words.sections.rich-text.settings.image_position.option__3"
+        },
+        {
+          "value": "no-image",
+          "label": "t:late_edits.rich-text.image_position.no_image.label"
         }
       ],
       "default": "left"
@@ -295,12 +335,39 @@
     },
     {
       "type": "header",
+      "content": "t:bundle-240.section_design"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "t:bundle-240.background_color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color_background",
+      "id": "section_background_gradient",
+      "label": "t:bundle-240.background_gradient"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color",
+      "label": "t:bundle-240.text_color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
       "content": "t:sections.bundle-extra-words.sections.headings.gutter.label"
     },
     {
       "type": "checkbox",
       "id": "gutter_decrease",
       "label": "t:sections.bundle-extra-words.sections.headings.gutter.content",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_bottom_margin",
+      "label": "t:sections.local-extra-words.settings_schema.layout.sections.remove_bottom_margin",
       "default": false
     },
     {

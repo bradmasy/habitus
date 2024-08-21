@@ -22,16 +22,27 @@
     data-js-product-item-image
   >
 
-    {%- if layout contains 'grid-4' -%}
-      {%- capture sizes -%}
-        (max-width: 1023px) calc((100vw - 100px) / 3), (max-width: {{ settings.theme_max_width }}px) calc((100vw - 120px) / 4), {{ settings.theme_max_width | minus: 120 | divided_by: 4 }}px"
-      {%- endcapture -%}
+    {%- if layout contains 'set' -%}
+      {%- assign sizes = sizes -%}
     {%- else -%}
-      {%- capture sizes -%}
-        (max-width: {{ settings.theme_max_width }}px) calc((100vw - 120px) / 3), {{ settings.theme_max_width | minus: 120 | divided_by: 3 }}px"
-      {%- endcapture -%}
+      {%- if layout contains 'grid-4' -%}
+        {%- capture sizes -%}
+          (max-width: 1023px) calc((100vw - 100px) / 3), (max-width: {{ settings.theme_max_width }}px) calc((100vw - 120px) / 4), {{ settings.theme_max_width | minus: 120 | divided_by: 4 }}px"
+        {%- endcapture -%}
+      {%- else -%}
+        {%- capture sizes -%}
+          (max-width: {{ settings.theme_max_width }}px) calc((100vw - 120px) / 3), {{ settings.theme_max_width | minus: 120 | divided_by: 3 }}px"
+        {%- endcapture -%}
+      {%- endif -%} 
+      {%- liquid
+        assign sizes = sizes | prepend: '(max-width: 767px) calc((100vw - 50px) / 2), '
+        if mobile_layout contains 'palm-1'
+          assign sizes = sizes | prepend: 'sizes="(max-width: 474px) calc(100vw - 30px), '
+        else 
+          assign sizes = sizes | prepend: 'sizes="(max-width: 474px) calc(50vw - 20px), '
+        endif
+      -%}
     {%- endif -%}
-    {%- assign sizes = sizes | prepend: 'sizes="(max-width: 359px) calc(100vw - 30px), (max-width: 767px) calc((100vw - 50px) / 2),' -%}
 
     {%- if product.media.size == 0 or blank_product -%}
       
@@ -212,7 +223,7 @@
             >
               {%- liquid
                 unless product == blank
-                  render 'quick-buy', product: product, variants_style: settings.variants_style, show_color_swatches: settings.color_swatches, change_variant_images: settings.variant_images, default_to_first_variant: block.settings.variant_default, add_to_cart_price: block.settings.show_price, show_variant_quantities: "no", unavailable_variants: block.settings.unavailable_variants, image_sizes: sizes, image_aspect_ratio: aspect, id: block_id
+                  render 'quick-buy', product: product, variants_style: settings.variants_style, show_color_swatches: settings.color_swatches, change_variant_images: settings.variant_images, default_to_first_variant: block.settings.variant_default, add_to_cart_price: block.settings.show_price, show_variant_quantities: "no", unavailable_variants: block.settings.unavailable_variants, image_sizes: sizes, image_aspect_ratio: aspect_ratio, id: block_id
                 endunless
               -%}
             </div>
@@ -267,18 +278,6 @@
         </span>
       {%- endif -%}
 
-{%- assign inventory_quantity = product.variants.first.inventory_quantity -%}
-{%- if product.available and inventory_quantity >= 1 -%}
-  <span class="product-item__badge"
-    style="background-color: #1e1e1e; color: {{ settings.product_card_badge_sold_out_text_color }}"
-  >
-    Quickship
-  </span>
-{%- endif -%}
-
-
-
-
       {%- if product.compare_at_price > product.price -%}
         {%- liquid 
           if product.compare_at_price_varies or product.price_varies
@@ -315,7 +314,10 @@
                 echo 'products.grid.save_percent' | t: percent: saved
               endif
             elsif settings.product_card_badge_sale_type == 'amount'
-              assign saved = compare_at_price | minus: price | money
+              if settings.show_currency_codes
+                assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
+              endif
+              assign saved = compare_at_price | minus: price | money | append: iso_code
               if compare_price_nums == 1
                 echo 'products.grid.save_amount_html' | t: amount: saved
               else

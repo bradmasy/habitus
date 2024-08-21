@@ -52,11 +52,20 @@
         </div>
       </div>
 
-      <div class="grid grid--layout grid-2 grid-portable-1 grid-lap-2" style="margin-bottom: calc(-1*var(--gutter-regular));">
+      {%- capture sizes -%} (max-width: 1023px) calc(50vw - 50px), (max-width: {{ settings.theme_max_width }}px) calc((100vw - 120px) / 4), {{ settings.theme_max_width | minus: 120 | divided_by: 4 }}px" {%- endcapture -%}
+      {%- liquid
+        if mobile_layout contains 'palm-1'
+          assign sizes = sizes | prepend: 'sizes="(max-width: 474px) calc(100vw - 30px), '
+        else 
+          assign sizes = sizes | prepend: 'sizes="(max-width: 474px) calc(50vw - 20px), '
+        endif
+      -%}
+
+      <div class="grid grid--layout grid-2 grid-portable-2 {{ section.settings.layout_mobile }}" style="margin-bottom: calc(-1*var(--gutter-regular));">
         {%- liquid
           if section.settings.product_list != blank
             for product in section.settings.product_list
-              render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: 'grid-4', show_badges: settings.show_badges, section_id: section.id
+              render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: 'set', sizes: sizes, show_badges: settings.show_badges, section_id: section.id
             endfor
           else
             for i in (1..4)
@@ -317,6 +326,22 @@
         "id": "image_mobile",
         "type": "image_picker",
         "label": "t:sections.image.mobile_image"
+      },
+      {
+        "type": "select",
+        "id": "layout_mobile",
+        "label": "t:sections.local-extra-words.sections.columns.name_mobile",
+        "options": [
+          {
+            "value": "grid-palm-1",
+            "label": "t:sections.local-extra-words.sections.columns.option__0"
+          },
+          {
+            "value": "grid-palm-2",
+            "label": "t:sections.local-extra-words.sections.columns.option__1"
+          }
+        ],
+        "default": "grid-palm-2"
       },
       {
         "type": "select",

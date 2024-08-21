@@ -98,7 +98,11 @@
 
                             unless product == blank
 
-                              assign price = product.price | money
+                              if settings.show_currency_codes
+                                assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
+                              endif
+                          
+                              assign price = product.price | money | append: iso_code
 
                               if product.price_varies
                                 if product.compare_at_price > product.price
@@ -110,7 +114,7 @@
                                 if product.compare_at_price > product.price
                                   echo price
                                   echo '<del>'
-                                    echo product.compare_at_price | money
+                                    echo product.compare_at_price | money | append: iso_code
                                   echo '</del>'
                                 else 
                                   echo price

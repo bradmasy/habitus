@@ -199,6 +199,7 @@
         "preoder": "Dit product is niet meer op voorraad, maar je kunt het wel nog bestellen."
       },
       "add_to_cart_button": "Toevoegen aan winkelmand",
+      "choose_options_button": "Opties kiezen",
       "preorder_button": "Reserveren",
       "share_link": "Delen",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Bundel inhoud",
       "add_product_to_bundle": "Toevoegen aan bundel",
+      "product_added_to_bundle": "Toegevoegd aan bundel",
       "add_bundle_to_cart": "Toevoegen aan winkelmand",
       "choose_products_first": "Kies eerst producten",
       "add_all_to_cart": "Voeg alles toe aan winkelwagen"

@@ -38,11 +38,17 @@
     endunless
   -%}
 
+  {%- liquid
+    if settings.show_currency_codes
+      assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
+    endif
+  -%}
+
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 
   <product-page 
     id="featured-product-{{ section.id }}" 
-    class="container grid grid--layout grid--gap-xlarge {{ parent_class }} grid--no-stretch main-product" 
+    class="container grid grid--layout grid--gap-xlarge {{ parent_class }} grid--no-stretch main-product main-product--mobile-padding--{{ section.settings.gallery_mobile_margin }}" 
     data-collection="{{ collection.handle }}" data-id="{{ product.id }}" 
     data-availability="{{ product.available }}" 
     data-no-history
@@ -97,6 +103,7 @@
             "listenScroll": false
           }'
             class="css-slider--bottom-navigation element--border-radius" 
+            style="display:block"
           >
         {%- endif -%}
   
@@ -179,6 +186,118 @@
             <div class="has-bg-style--{{ section.settings.style }}">
               {%- render block -%}
             </div>
+          
+          {%- when 'divider' -%}
+            <span class="divider" 
+              style="
+                --divider-height: {{ block.settings.height }}px; 
+                --divider-color: {{ block.settings.color }}; 
+                --divider-style: {{ block.settings.style }};
+              " {{ block.shopify_attributes }}>&nbsp;</span>
+              
+          {%- when 'image' -%}
+            <div class="product-image-block product-text-element--with-borders" {{ block.shopify_attributes }}>
+              <div class="element--overflow-hidden">
+  
+                {%- if block.settings.link -%}
+                  <a href="{{ block.settings.link }}" {% unless block.settings.open_in_new_window == false %} target="_blank" {% endunless %}>
+                {%- endif -%}  
+  
+                {%- unless block.settings.image == blank -%}
+  
+                  {%- liquid
+  
+                    if block.settings.link != blank
+                      assign animation_class = 'lazy-image--to-reveal lazy-image--zoom-animation'
+                    else 
+                      assign animation_class = 'lazy-image--to-reveal'
+                    endif
+  
+                    if block.settings.mobile_image != blank
+
+                      assign desk_image_class = animation_class | append: ' lap-hide'
+                      assign mobile_image_class = animation_class | append: ' hide lap-show'
+                      render 'lazy-image', image: block.settings.mobile_image, sizes: 'sizes="(max-width: 767px) calc(100vw - 20px), 50vw"', class: mobile_image_class
+
+                    endif 
+  
+                    render 'lazy-image', image: block.settings.image, sizes: 'sizes="(max-width: 767px) calc(100vw - 20px), 50vw"', class: desk_image_class
+  
+                  -%}
+  
+                {%- else -%}
+                  {%- render 'lazy-svg', image: 'hero-apparel-1', class: 'onboardig-svg' -%}
+                {%- endunless -%}
+  
+                {%- if block.settings.link -%}
+                  </a>
+                {%- endif -%}
+  
+              </div>
+            </div>
+    
+          {%- when 'size_guide' -%}
+            
+            {%- liquid
+              assign show_block = true
+              if block.settings.hide_block_if == true and block.settings.page == blank 
+                assign show_block = false
+              endif
+            -%}
+
+            {%- if show_block -%}
+
+              <div class="product-size-chart" {{ block.shopify_attributes }}>
+
+                {%- liquid 
+                  if block.settings.has_icon
+                    assign icon_class = "size-chart-link--has-icon"
+                  endif
+                -%}
+
+                {%- if block.settings.page != blank -%}
+                  <a class="size-chart-link {% if block.settings.open_mode == "popup" %} js-toggle-size-chart-modal {% endif %} {{ icon_class }}" href="{{ block.settings.page.url }}" {% if block.settings.open_mode == "blank" %} target="_blank" {% endif %}>
+                {%- else -%}
+                  <span class="size-chart-link {{ icon_class }}">
+                {%- endif -%}
+
+                {%- if block.settings.has_icon -%}  
+                  {%- render 'theme-symbols', icon: 'size-chart' -%}
+                {%- endif -%}
+
+                  <span class="text-animation--underline-thin">{{ block.settings.label | escape }}</span>
+
+                {%- if block.settings.page -%}
+                  </a>
+                {%- else -%}
+                  </span>
+                {%- endif -%}
+                
+                <div id="size-chart-modal" aria-hidden="true" class="hide">
+
+                  <div class="size-chart-modal">
+                    
+                    {%- if block.settings.open_mode == "popup" -%}
+                      <div class="page-popup">
+                        <div class="section-heading__title text-font--secondary text-size--large gutter-bottom--small">{{ pages[block.settings.page].title | escape }}</div>
+                        <div class="rte">
+                          {{ pages[block.settings.page].content }}
+                        </div>
+                      </div>
+                    {%- endif -%} 
+
+                    <div class="basicLightboxClose basicLightboxCloseWithIcon">{%- render 'theme-symbols', icon: 'close' -%}</div>
+
+                  </div>
+
+                </div>
+
+                <script src="{{ 'component-lightbox.js' | asset_url }}" defer onload="basicLightbox.create(document.getElementById('size-chart-modal'),{trigger:document.querySelector('.js-toggle-size-chart-modal')});"></script>
+                {{ 'component-lightbox.css' | asset_url | stylesheet_tag }}
+
+              </div>
+            
+            {%- endif -%}
             
           {%- when 'complementary' -%}
 
@@ -200,30 +319,41 @@
                       </div>
     
                       <div class="product-item-compact__details">
+
                         {%- if block.settings.show_price -%}
                           <div class="product-item-compact__price">
                             <span>
                               {%- liquid
                                 if product.price_varies
-                                  assign product_price = product.price_min | money
+                                  assign product_price = product.price_min | money | append: iso_code
                                   if product.compare_at_price > product.price 
                                     echo 'products.grid.on_sale_from_html' | t: price: product_price 
                                   else
                                     echo 'products.grid.from_text_html' | t: price: product_price
                                   endif
                                 else
-                                  echo product.price | money
+                                  echo product.price | money | append: iso_code
                                 endif
                               -%}
                             </span>
                             <del>
                               {%- liquid 
                                 if product.compare_at_price > product.price
-                                  echo product.compare_at_price | money | prepend: '<span>' | append: '</span>'
+                                  echo product.compare_at_price | money | append: iso_code | prepend: '<span>' | append: '</span>'
                                 endif
                               -%}
                             </del>
                           </div>
+                          {%- assign product_list_variant = product.selected_or_first_available_variant -%}
+                          {%- if product_list_variant.unit_price_measurement -%}
+                            <span class="cart-item__unit-price text-size--small text-color--opacity" style="display:block">
+                              {{ product_list_variant.unit_price | money | append: iso_code }} / 
+                              {% if product_list_variant.unit_price_measurement.reference_value != 1 %}
+                                {{ product_list_variant.unit_price_measurement.reference_value }}
+                              {% endif %}
+                              {{ product_list_variant.unit_price_measurement.reference_unit }}
+                            </span>
+                          {%- endif -%}
                         {%- endif -%}
     
                         <a href="{{ product.url }}" class="">
@@ -277,25 +407,35 @@
                             <span>
                               {%- liquid
                                 if product.price_varies
-                                  assign product_price = product.price_min | money
+                                  assign product_price = product.price_min | money | append: iso_code
                                   if product.compare_at_price > product.price 
                                     echo 'products.grid.on_sale_from_html' | t: price: product_price 
                                   else
                                     echo 'products.grid.from_text_html' | t: price: product_price
                                   endif
                                 else
-                                  echo product.price | money
+                                  echo product.price | money | append: iso_code
                                 endif
                               -%}
                             </span>
                             <del>
                               {%- liquid 
                                 if product.compare_at_price > product.price and product.price_varies == false
-                                  echo product.compare_at_price | money | prepend: '<span>' | append: '</span>'
+                                  echo product.compare_at_price | money | append: iso_code | prepend: '<span>' | append: '</span>'
                                 endif
                               -%}
                             </del>
-                          </div>
+                          </div> 
+                          {%- assign product_list_variant = product.selected_or_first_available_variant -%}
+                          {%- if product_list_variant.unit_price_measurement -%}
+                            <span class="cart-item__unit-price text-size--small text-color--opacity" style="display:block">
+                              {{ product_list_variant.unit_price | money | append: iso_code }} / 
+                              {% if product_list_variant.unit_price_measurement.reference_value != 1 %}
+                                {{ product_list_variant.unit_price_measurement.reference_value }}
+                              {% endif %}
+                              {{ product_list_variant.unit_price_measurement.reference_unit }}
+                            </span>
+                          {%- endif -%}
                         {%- endif -%}
   
                         <a href="{{ product.url }}" class="">
@@ -342,29 +482,39 @@
                     <div class="product-item-compact__price">
                       {%- if block.settings.show_price_free -%}
                         <span class="text-weight--medium">{{ 'products.page.free_product' | t }}</span>
-                        <del>{{ promo_product.price | money }}</del>
+                        <del>{{ promo_product.price | money | append: iso_code }}</del>
                       {%- else -%}
                         <span>
                           {%- liquid
                             if promo_product.price_varies
-                              assign promo_produce_price = promo_product.price_min | money
+                              assign promo_produce_price = promo_product.price_min | money | append: iso_code
                               if promo_product.compare_at_price > promo_product.price 
                                 echo 'products.grid.on_sale_from_html' | t: price: promo_produce_price 
                               else
                                 echo 'products.grid.from_text_html' | t: price: promo_produce_price
                               endif
                             else
-                              echo promo_product.price | money
+                              echo promo_product.price | money | append: iso_code
                             endif
                           -%}
                         </span>
                         <del>
                           {%- liquid 
                             if product.compare_at_price > product.price
-                              echo product.compare_at_price | money | prepend: '<span>' | append: '</span>'
+                              echo product.compare_at_price | money | append: iso_code | prepend: '<span>' | append: '</span>'
                             endif
                           -%}
                         </del>
+                        {%- assign product_list_variant = product.selected_or_first_available_variant -%}
+                        {%- if product_list_variant.unit_price_measurement -%}
+                          <span class="cart-item__unit-price text-size--small text-color--opacity" style="display:block">
+                            {{ product_list_variant.unit_price | money | append: iso_code }} / 
+                            {% if product_list_variant.unit_price_measurement.reference_value != 1 %}
+                              {{ product_list_variant.unit_price_measurement.reference_value }}
+                            {% endif %}
+                            {{ product_list_variant.unit_price_measurement.reference_unit }}
+                          </span>
+                        {%- endif -%}
                       {%- endif -%}
                     </div>
 
@@ -532,41 +682,28 @@
                         {%- assign option_downcased = option.name | downcase %}
                         
                         <div class="product-variant" data-name="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}" data-js-product-variant>
+
+                          {%- liquid
+                            assign swatch_count = option.values | map: 'swatch' | compact | size
+                            if color_label contains option_downcased and block.settings.color_swatches
+                              assign is_color = true
+                            elsif block.settings.color_swatches and swatch_count > 0
+                              assign is_color = true
+                            else
+                              assign is_color = false
+                            endif
+                          -%}
                 
-                          <span class="product-variant__name text-size--small">{{ 'products.grid.select_variant' | t: variant: option.name }}</span>
+                          {%- if block.settings.variants_style == 'select' and is_color == blank -%}
+                            <label for="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}" class="product-variant__name text-size--small {% unless block.settings.variant_labels %} visually-hidden {% endunless %}">{{ 'products.grid.select_variant' | t: variant: option.name }}</label>
+                          {%- elsif block.settings.variant_labels -%}
+                            <span class="product-variant__name text-size--small">{{ 'products.grid.select_variant' | t: variant: option.name }}</span>
+                          {%- endif -%}
                 
-                          {%- if color_label contains option_downcased and block.settings.color_swatches -%}
-                
+                          {%- if is_color -%}
+                            
                             <div class="product-variant__container product-variant__container--radio product-variant__container--radio--wrap" data-js-product-variant-container="radio">
-                              {%- for value in option.values -%}
-                                <div class="product-variant__item product-variant__item--radio product-variant__item--color">
-                                  <input type="radio" name="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}" id="{{ product.handle }}-option-{{ option.name | escape | downcase | strip }}-{{ forloop.index }}-{{ section.id }}" value="{{ value | escape }}" {% if default_to_first_variant and option.selected_value == value %}checked{% endif %} class="product-variant__input product-variant-value">
-                                  <label for="{{ product.handle }}-option-{{ option.name | escape | downcase | strip }}-{{ forloop.index }}-{{ section.id }}" class="product-variant__label">
-                                    {%- liquid 
-                                      assign color_swatch_name = value | handle | append: '.png'
-                                      assign color_swatch_image = images[color_swatch_name]
-                                      assign color_swatch_background = value | downcase | escape | replace: ' ', ''
-                                    -%}
-                                    {%- if color_swatch_image != blank -%}
-                                      <img class="product-variant__item-swatch product-variant__item-swatch--color"
-                                        src="{{ color_swatch_image | image_url: width: 30, height: 30, crop: 'center' }}"
-                                        srcset="
-                                          {{ color_swatch_image | image_url: width: 30, height: 30, crop: 'center' }} 30w,
-                                          {{ color_swatch_image | image_url: width: 60, height: 60, crop: 'center' }} 60w,
-                                          {{ color_swatch_image | image_url: width: 90, height: 90, crop: 'center' }} 90w
-                                        "
-                                        sizes="30px" width="30" height="30"
-                                        loading="lazy"
-                                        alt="{{ color_swatch_image.alt | escape }}"
-                                      />
-                                    {%- else -%}
-                                      <span class="product-variant__item-swatch product-variant__item-swatch--image" style="background-color:{{ color_swatch_background }}"></span>
-                                    {%- endif -%}
-                                    <span class="visually-hidden">{{ value | escape }}</span>
-                                  </label>
-                                </div>
-                              {%- endfor -%}
-              
+                              {%- render 'product-variant-options', type: 'swatch', option: option, product: product, default_to_first_variant: default_to_first_variant, handle_unavailable_variants: block.settings.unavailable_variants, current_variant: current_variant, id: section.id -%}
                             </div>
                 
                             <span class="product-variant__item-text-label text-size--small text-line-height--small text-color--opacity">
@@ -580,29 +717,16 @@
                             </span>
                 
                           {%- elsif block.settings.variants_style == 'select' -%}
-                
+
+                            <label for="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}" class="visually-hidden">{{ 'products.grid.select_variant' | t: variant: option.name }}</label>
                             <select class="product-variant__container product-variant__container--select text-size--small" id="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}" data-js-product-variant-container="select">
-                              {%- unless default_to_first_variant -%}
-                                <option class="product-variant-value" default selected disabled>{{ 'products.grid.select_variant' | t: variant: opeion.name }}</option>
-                              {%- endunless -%}
-                              {%- for value in option.values -%}
-                                <option class="product-variant-value" value="{{ value | escape }}" {% if default_to_first_variant and option.selected_value == value %}selected{% endif %}>
-                                  {{ value | escape }}
-                                </option>
-                              {%- endfor -%}
+                              {%- render 'product-variant-options', type: 'select', option: option, product: product, default_to_first_variant: default_to_first_variant, handle_unavailable_variants: block.settings.unavailable_variants, current_variant: current_variant, id: section.id -%}
                             </select>
                 
                           {%- else -%}
                   
                             <div class="product-variant__container product-variant__container--radio product-variant__container--radio--wrap" data-js-product-variant-container="radio">
-                              {%- for value in option.values -%}
-                                <div class="product-variant__item product-variant__item--radio">
-                                  <input type="radio" name="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}" id="{{ product.handle }}-option-{{ option.name | escape | downcase | strip }}-{{ forloop.index }}-{{ section.id }}" value="{{ value | escape }}" {% if default_to_first_variant and option.selected_value == value %}checked{% endif %} class="product-variant__input product-variant-value">
-                                  <label for="{{ product.handle }}-option-{{ option.name | escape | downcase | strip }}-{{ forloop.index }}-{{ section.id }}" class="product-variant__label text-size--small">
-                                    {{ value | escape }}
-                                  </label>
-                                </div>
-                              {%- endfor -%}
+                              {%- render 'product-variant-options', type: 'radio', option: option, product: product, default_to_first_variant: default_to_first_variant, handle_unavailable_variants: block.settings.unavailable_variants, current_variant: current_variant, id: section.id -%}
                             </div>
                 
                           {%- endif -%}
@@ -871,7 +995,7 @@
           {%- when 'cross_sell' -%}
             <div class="product-recommendation" {{ block.shopify_attributes }}>
               {%- assign recommendation_id = 'product-recommendation-' | append: block.id -%}
-              {%- render 'product-cross-sell', heading: block.settings.heading, product: block.settings.product, id: recommendation_id, widget_style: block.settings.style, heading_position: 'inside' -%}
+              {%- render 'product-cross-sell', heading: block.settings.heading, product: block.settings.product, id: recommendation_id, widget_style: block.settings.style, heading_position: 'inside', layout: 'expanded' -%}
             </div>
   
         {%- endcase -%}
@@ -915,6 +1039,110 @@
     "blocks": [
       {
         "type": "@app"
+      },
+      {
+        "type": "divider",
+        "name": "t:divider.label",
+        "settings": [
+          {
+            "type": "range",
+            "id": "height",
+            "label": "t:sections.bundle-extra-words.sections.main-collection.settings.image_banner.height",
+            "unit": "px",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 1
+          },
+          {
+            "type": "header",
+            "content": "t:divider.divider_design"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "t:divider.divider_color",
+            "default": "rgba(0,0,0,1)"
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "t:sections.local-extra-words.sections.main-product.blocks.pickup_availability.settings.style",
+            "options": [
+              {
+                "value": "solid",
+                "label": "t:divider.divider_style_solid"
+              },
+              {
+                "value": "dotted",
+                "label": "t:divider.divider_style_dotted"
+              },
+              {
+                "value": "dashed",
+                "label": "t:divider.divider_style_dashed"
+              },
+              {
+                "value": "double",
+                "label": "t:divider.divider_style_double"
+              }
+            ],
+            "default": "solid"
+          }
+        ]
+      },
+      {
+        "type": "size_guide",
+        "name": "t:sections.refactor_words.product-page.size_guide.label",
+        "limit": 1,
+        "settings": [
+          {
+            "id": "label",
+            "type": "text",
+            "default": "View size chart",
+            "label": "t:sections.main-product.blocks.text.settings.text.label"
+          },
+          {
+            "type": "checkbox",
+            "id": "has_icon",
+            "label": "t:sections.local-extra-words.sections.newsletter.show_icon",
+            "default": true
+          },
+          {
+            "id": "page",
+            "type": "page",
+            "label": "t:sections.refactor_words.product-page.size_guide.page"
+          },
+          {
+            "type": "select",
+            "id": "open_mode",
+            "label": "t:sections.refactor_words.product-page.size_guide.options.label",
+            "options": [
+              {
+                "value": "popup",
+                "label": "t:sections.refactor_words.product-page.size_guide.options.option_1"
+              },
+              {
+                "value": "self",
+                "label": "t:sections.refactor_words.product-page.size_guide.options.option_2"
+              },
+              {
+                "value": "blank",
+                "label": "t:sections.refactor_words.product-page.size_guide.options.option_3"
+              }
+            ],
+            "default": "popup"
+          },
+          {
+            "type": "header",
+            "content": "t:local-march-update.labels.dynamic_content.name"
+          },
+          {
+            "type": "checkbox",
+            "label": "t:local-march-update.labels.dynamic_content.hide_block",
+            "id": "hide_block_if",
+            "default": false
+          }
+        ]
       },
       {
         "type": "text",
@@ -1063,10 +1291,20 @@
           },
           {
             "type": "checkbox",
+            "id": "variant_labels",
+            "label": "t:bundle-240.show_variant_labels",
+            "default": true
+          },
+          {
+            "type": "checkbox",
             "id": "color_swatches",
             "label": "t:sections.bundle-extra-words.sections.product_grid.blocks.quick_buy.settings.color_swatches.label",
             "info": "t:sections.bundle-extra-words.sections.product_grid.blocks.quick_buy.settings.color_swatches.info",
             "default": true
+          },
+          {
+            "type": "paragraph",
+            "content": "t:new_color_swatches"
           },
           { 
             "type": "select",
@@ -1435,6 +1673,33 @@
         ]
       },
       {
+        "type": "image",
+        "name": "t:sections.local-extra-words.sections.image-section.name",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "t:sections.gallery.blocks.image.settings.image.label"
+          },
+          {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "t:sections.image.mobile_image"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "t:sections.local-extra-words.sections.announcement-bar.blocks.content.settings.link"
+          },
+          {
+            "type": "checkbox",
+            "id": "open_in_new_window",
+            "label": "t:sections.local-extra-words.sections.announcement-bar.blocks.content.settings.target",
+            "default": false
+          }
+        ]
+      },
+      {
         "type": "complementary",
         "name": "t:sections.complementary_products.name",
         "limit": 1,
@@ -1741,6 +2006,12 @@
         "step": 5,
         "default": 90
       },
+      {
+        "type": "checkbox",
+        "id": "gallery_mobile_margin",
+        "label": "t:bundle-240.product_gallery_mobile_padding",
+        "default": true
+      },  
 			{
 				"type": "select",
 				"id": "gallery_aspect_ratio",

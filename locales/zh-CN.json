@@ -199,6 +199,7 @@
         "preoder": "该产品目前缺货，但您仍可订购。"
       },
       "add_to_cart_button": "添加至购物车",
+      "choose_options_button": "选择选项",
       "preorder_button": "预订",
       "share_link": "分享",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "套装内容",
       "add_product_to_bundle": "添加到套装",
+      "product_added_to_bundle": "已添加到包",
       "add_bundle_to_cart": "添加至购物车",
       "choose_products_first": "请先选择产品",
       "add_all_to_cart": "全部添加到购物车"

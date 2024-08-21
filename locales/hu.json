@@ -199,6 +199,7 @@
         "preoder": "Ez a termék már nincs raktáron, de megrendelhető."
       },
       "add_to_cart_button": "Kosárba tesz",
+      "choose_options_button": "Opciók választása",
       "preorder_button": "Előrendelés",
       "share_link": "Megosztás",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Csomag tartalma",
       "add_product_to_bundle": "Hozzáadás a csomaghoz",
+      "product_added_to_bundle": "Hozzáadva a csomaghoz",
       "add_bundle_to_cart": "Kosárba tesz",
       "choose_products_first": "Előbb válasszon termékeket",
       "add_all_to_cart": "Mindent kosárba tesz"

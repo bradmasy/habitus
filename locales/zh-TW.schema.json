@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "此主題還支援使用類別後設欄位建立的顏色樣本。 [了解更多](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "顯示視頻控制",
+  "sticky_cart_actions": "啟用粘性抽屜購物車操作",
+  "currency_codes": {
+    "header": "貨幣格式",
+    "label": "顯示貨幣代碼",
+    "info": "範例: $1.00 USD."
+  },
+  "a11": {
+    "label": "無障礙",
+    "show_sidebars_scrollbar": "顯示側邊欄滾動條",
+    "disable_all_image_animations": "禁用所有圖片動畫"
+  },
+  "divider": {
+    "label": "分隔線",
+    "divider_design": "分隔線設計",
+    "divider_style_solid": "實線",
+    "divider_style_dotted": "點線",
+    "divider_style_dashed": "虛線",
+    "divider_style_double": "雙線",
+    "divider_color": "顏色",
+    "divider_image": "分隔線圖片",
+    "divider_image_info": "一張水平重複的圖片。替換上面的樣式和顏色。"
+  },
+  "cart_actions": {
+    "label": "抽屜購物車操作",
+    "option_1": "顯示「查看購物車」按鈕",
+    "option_2": "顯示「結帳」按鈕",
+    "option_3": "顯示兩者"
+  },
+  "sticky_atc": {
+    "label": "黏性加入購物車",
+    "enable_sticky_atc": "啟用黏性加入購物車"
+  },
+  "performance": {
+    "header": "SEO與效能",
+    "name": "效能",
+    "label": "懸停時預載連結",
+    "info": "提升頁面加載的感知速度。"
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "启用最近浏览过的产品",
+    "enable_recently_viewed_products_info": "启用后，主题将记录浏览过的产品，但您需要在商店中添加该部分以显示这些产品。",
+    "recently_viewed_products": "最近浏览过的产品",
+    "recently_viewed_products_info": "此部分需要在主题设置中启用功能。仅在用户至少访问过一个产品页面后显示。",
+    "recently_viewed_products_limit": "最近浏览过的产品限制"
+  },
   "rating_apps_update": {
     "label": "評分應用程式",
     "info": "第三方應用程式可能需要額外的步驟才能正確整合。"
   },
   "local-220": {
-    "preorder": "顯示 \"預購\" 按鈕標籤"
+    "preorder": "顯示 \"預購\" 按鈕標籤",
+    "autorotate": {
+      "heading": "自動旋轉",
+      "info": "自動切換幻燈片。",
+      "enable": "啟用自動旋轉",
+      "interval": "間隔",
+      "pause_on_mouseover": "鼠標懸停時暫停"
+    }
   },
   "custom-social-icons": {
     "header": "自訂連結",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "退出意圖彈窗",
+      "exit_intent_popup_info": "本節只在桌面上有效"
+    },
     "colors": {
       "name": "顏色",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "強調特色產品",
-          "info": "[進一步了解](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[進一步了解](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "折扣顯示方式",
@@ -2509,6 +2567,9 @@
         "enable_sorting": {
           "label": "啟用排序"
         },
+        "image_filter_layout": {
+          "label": "圖像濾鏡佈局"
+        },
         "header__1": {
           "content": "篩選與排序"
         }
@@ -3225,6 +3286,19 @@
       "label_2": "影像 2",
       "label_3": "影像 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "隱藏搜索",
+    "hide_cart": "隱藏購物車",
+    "product_gallery_mobile_padding": "在移動設備上為畫廊添加填充",
+    "show_variant_labels": "顯示變體標籤",
+    "hide_on_desktop": "在桌面上隱藏元素",
+    "section_design": "部分設計",
+    "background_color": "背景顏色",
+    "background_gradient": "背景漸變",
+    "heading_text_color": "標題文字顏色",
+    "text_color": "文字顏色",
+    "slider_navigation_color": "導航元素顏色"
   },
   "bundle-220": {
     "blending_modes_behind": "在後",

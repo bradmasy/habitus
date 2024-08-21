@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "Dieses Theme bietet auch Unterstützung für Farbmuster, die mit Kategoriemetafeldern erstellt wurden. [Erfahren Sie mehr](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "Videosteuerung anzeigen",
+  "sticky_cart_actions": "Feststehende Warenkorb-Aktionen aktivieren",
+  "currency_codes": {
+    "header": "Währungsformat",
+    "label": "Währungscodes anzeigen",
+    "info": "Beispiel: $1.00 USD."
+  },
+  "a11": {
+    "label": "Barrierefreiheit",
+    "show_sidebars_scrollbar": "Scrollbar in Seitenleisten anzeigen",
+    "disable_all_image_animations": "Alle Bildanimationen deaktivieren"
+  },
+  "divider": {
+    "label": "Trennlinie",
+    "divider_design": "Trennliniendesign",
+    "divider_style_solid": "Durchgehend",
+    "divider_style_dotted": "Gepunktet",
+    "divider_style_dashed": "Gestrichelt",
+    "divider_style_double": "Doppelt",
+    "divider_color": "Farbe",
+    "divider_image": "Trennlinienbild",
+    "divider_image_info": "Ein horizontal wiederholendes Bild. Ersetzt den Stil und die Farbe oben."
+  },
+  "cart_actions": {
+    "label": "Aktionen für Schubladenwarenkorb",
+    "option_1": "Schaltfläche „Warenkorb anzeigen” anzeigen",
+    "option_2": "Schaltfläche „Kasse” anzeigen",
+    "option_3": "Beides anzeigen"
+  },
+  "sticky_atc": {
+    "label": "Sticky In den Warenkorb",
+    "enable_sticky_atc": "Sticky In den Warenkorb aktivieren"
+  },
+  "performance": {
+    "header": "SEO & Leistung",
+    "name": "Leistung",
+    "label": "Links bei Hover vorab laden",
+    "info": "Erhöht die wahrgenommene Ladegeschwindigkeit von Seiten."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "Zuletzt angesehene Produkte aktivieren",
+    "enable_recently_viewed_products_info": "Wenn aktiviert, wird das Thema angesehene Produkte aufzeichnen, aber Sie müssen den Abschnitt in Ihrem Geschäft hinzufügen, um diese Produkte anzuzeigen.",
+    "recently_viewed_products": "Zuletzt angesehene Produkte",
+    "recently_viewed_products_info": "Dieser Abschnitt muss in den Theme-Einstellungen aktiviert werden. Er wird nur angezeigt, nachdem Benutzer mindestens eine Produktseite besucht haben.",
+    "recently_viewed_products_limit": "Limit für zuletzt angesehene Produkte"
+  },
   "rating_apps_update": {
     "label": "Bewertungs-App",
     "info": "Drittanbieter-Apps können zusätzliche Schritte für eine ordnungsgemäße Integration erfordern."
   },
   "local-220": {
-    "preorder": "Zeige \"Vorbestellen\" Schaltflächenbeschriftung"
+    "preorder": "Zeige \"Vorbestellen\" Schaltflächenbeschriftung",
+    "autorotate": {
+      "heading": "Automatisches Drehen",
+      "info": "Automatisches Durchlaufen der Slides.",
+      "enable": "Automatisches Drehen aktivieren",
+      "interval": "Intervall",
+      "pause_on_mouseover": "Pause bei Mouseover"
+    }
   },
   "custom-social-icons": {
     "header": "Benutzerdefinierter Link",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "Popup bei Verlassen-Absicht",
+      "exit_intent_popup_info": "Dieser Abschnitt funktioniert nur auf dem Desktop"
+    },
     "colors": {
       "name": "Farben",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "Vorgestellte Produkte hervorheben",
-          "info": "[Mehr erfahren](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Mehr erfahren](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "Rabatt anzeigen als ...",
@@ -2516,6 +2574,9 @@
         "enable_sorting": {
           "label": "Sortierung aktivieren"
         },
+        "image_filter_layout": {
+          "label": "Bildfilter-Layout"
+        },
         "header__1": {
           "content": "Filterung und Sortierung"
         }
@@ -3232,6 +3293,19 @@
       "label_2": "Bild 2",
       "label_3": "Bild 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "Suche verbergen",
+    "hide_cart": "Warenkorb verbergen",
+    "product_gallery_mobile_padding": "Abstand zur Galerie auf dem Handy hinzufügen",
+    "show_variant_labels": "Variantenbeschriftungen anzeigen",
+    "hide_on_desktop": "Element auf dem Desktop verbergen",
+    "section_design": "Bereichsgestaltung",
+    "background_color": "Hintergrundfarbe",
+    "background_gradient": "Hintergrundverlauf",
+    "heading_text_color": "Überschrift Textfarbe",
+    "text_color": "Textfarbe",
+    "slider_navigation_color": "Navigations Elemente Farbe"
   },
   "bundle-220": {
     "blending_modes_behind": "Hinter",

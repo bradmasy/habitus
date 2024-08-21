@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "ธีมนี้ยังรองรับการสร้างตัวอย่างสีด้วยเมตาฟิลด์หมวดหมู่ [เรียนรู้เพิ่มเติม](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "แสดงการควบคุมวิดีโอ",
+  "sticky_cart_actions": "เปิดใช้งานการดำเนินการตะกร้าติดหนึบ",
+  "currency_codes": {
+    "header": "รูปแบบสกุลเงิน",
+    "label": "แสดงรหัสสกุลเงิน",
+    "info": "ตัวอย่าง: $1.00 USD."
+  },
+  "a11": {
+    "label": "การเข้าถึง",
+    "show_sidebars_scrollbar": "แสดงแถบเลื่อนด้านข้าง",
+    "disable_all_image_animations": "ปิดการใช้งานการเคลื่อนไหวทั้งหมดของรูปภาพ"
+  },
+  "divider": {
+    "label": "ตัวคั่น",
+    "divider_design": "การออกแบบตัวคั่น",
+    "divider_style_solid": "เต็ม",
+    "divider_style_dotted": "จุด",
+    "divider_style_dashed": "เส้นประ",
+    "divider_style_double": "คู่",
+    "divider_color": "สี",
+    "divider_image": "ภาพตัวคั่น",
+    "divider_image_info": "ภาพที่ซ้ำกันแนวนอน แทนที่สไตล์และสีด้านบน"
+  },
+  "cart_actions": {
+    "label": "การดำเนินการของรถเข็นในลิ้นชัก",
+    "option_1": "แสดงปุ่ม \"ดูรถเข็น\"",
+    "option_2": "แสดงปุ่ม \"ชำระเงิน\"",
+    "option_3": "แสดงทั้งสองอย่าง"
+  },
+  "sticky_atc": {
+    "label": "เพิ่มลงในตะกร้าแบบติด",
+    "enable_sticky_atc": "เปิดใช้งานการเพิ่มลงในตะกร้าแบบติด"
+  },
+  "performance": {
+    "header": "SEO และประสิทธิภาพ",
+    "name": "ประสิทธิภาพ",
+    "label": "โหลดลิงก์ล่วงหน้าเมื่อเลื่อนเมาส์ไปทับ",
+    "info": "เพิ่มความรู้สึกในความเร็วของการโหลดหน้าเว็บ."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "เปิดใช้งานสินค้าที่เพิ่งดู",
+    "enable_recently_viewed_products_info": "เมื่อเปิดใช้งาน, ธีมจะบันทึกสินค้าที่ดูแล้ว แต่คุณต้องเพิ่มส่วนนี้ในร้านของคุณเพื่อแสดงสินค้าเหล่านี้",
+    "recently_viewed_products": "สินค้าที่เพิ่งดู",
+    "recently_viewed_products_info": "ส่วนนี้ต้องมีการเปิดใช้งานในการตั้งค่าธีม จะปรากฏขึ้นหลังจากผู้ใช้เข้าชมหน้าสินค้าอย่างน้อยหนึ่งหน้า",
+    "recently_viewed_products_limit": "ขีดจำกัดของสินค้าที่เพิ่งดู"
+  },
   "rating_apps_update": {
     "label": "แอปประเมิน",
     "info": "แอปของบุคคลที่สามอาจต้องการขั้นตอนเพิ่มเติมในการรวมอย่างถูกต้อง."
   },
   "local-220": {
-    "preorder": "แสดงป้ายกำกับปุ่ม \"พรีออเดอร์\""
+    "preorder": "แสดงป้ายกำกับปุ่ม \"พรีออเดอร์\"",
+    "autorotate": {
+      "heading": "การหมุนอัตโนมัติ",
+      "info": "หมุนภาพสไลด์อัตโนมัติ",
+      "enable": "เปิดใช้การหมุนอัตโนมัติ",
+      "interval": "ช่วง",
+      "pause_on_mouseover": "หยุดชั่วคราวเมื่อวางเมาส์"
+    }
   },
   "custom-social-icons": {
     "header": "ลิงค์ที่กำหนดเอง",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "ป๊อปอัปเมื่อตั้งใจออก",
+      "exit_intent_popup_info": "ส่วนนี้ทำงานได้เฉพาะบนเดสก์ท็อป"
+    },
     "colors": {
       "name": "สี",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "เน้นสินค้าเด่น",
-          "info": "[Learn more](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Learn more](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "แสดงส่วนลดเป็น...",
@@ -2517,6 +2575,9 @@
         "enable_sorting": {
           "label": "เปิดใช้งานการเรียงลำดับ"
         },
+        "image_filter_layout": {
+          "label": "เค้าโครงตัวกรองภาพ"
+        },
         "header__1": {
           "content": "การกรองและการเรียงลำดับ"
         }
@@ -3233,6 +3294,19 @@
       "label_2": "ภาพที่ 2",
       "label_3": "ภาพที่ 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "ซ่อนการค้นหา",
+    "hide_cart": "ซ่อนตะกร้า",
+    "product_gallery_mobile_padding": "เพิ่มการเติมลงในแกลเลอรีบนมือถือ",
+    "show_variant_labels": "แสดงป้ายกำกับตัวเลือก",
+    "hide_on_desktop": "ซ่อนองค์ประกอบบนเดสก์ท็อป",
+    "section_design": "ออกแบบส่วน",
+    "background_color": "สีพื้นหลัง",
+    "background_gradient": "ไล่ระดับสีพื้นหลัง",
+    "heading_text_color": "สีข้อความหัวเรื่อง",
+    "text_color": "สีข้อความ",
+    "slider_navigation_color": "สีขององค์ประกอบนำทาง"
   },
   "bundle-220": {
     "blending_modes_behind": "ด้านหลัง",

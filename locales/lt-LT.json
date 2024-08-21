@@ -199,6 +199,7 @@
         "preoder": "Šio produkto nėra sandėlyje, bet vis tiek galite jį užsisakyti."
       },
       "add_to_cart_button": "Į krepšelį",
+      "choose_options_button": "Pasirinkite parinktis",
       "preorder_button": "Išankstinis užsakymas",
       "share_link": "Bendrinti",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Rinkinio turinys",
       "add_product_to_bundle": "Pridėti prie rinkinio",
+      "product_added_to_bundle": "Pridėta prie rinkinio",
       "add_bundle_to_cart": "Į krepšelį",
       "choose_products_first": "Pirmiausia pasirinkite produktus",
       "add_all_to_cart": "Viską sudėti į krepšelį"

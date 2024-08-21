@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "Toto téma také nabízí podporu pro barevné vzorky vytvořené pomocí metapolí kategorií. [Další informace](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "Zobrazit ovládací prvky videa",
+  "sticky_cart_actions": "Povolit akce pevného košíku",
+  "currency_codes": {
+    "header": "Formát měny",
+    "label": "Zobrazit kódy měn",
+    "info": "Příklad: $1.00 USD."
+  },
+  "a11": {
+    "label": "Přístupnost",
+    "show_sidebars_scrollbar": "Zobrazit posuvník postranních panelů",
+    "disable_all_image_animations": "Vypnout všechny animace obrázků"
+  },
+  "divider": {
+    "label": "Oddělovač",
+    "divider_design": "Design oddělovače",
+    "divider_style_solid": "Plný",
+    "divider_style_dotted": "Tečkovaný",
+    "divider_style_dashed": "Čárkovaný",
+    "divider_style_double": "Dvojitý",
+    "divider_color": "Barva",
+    "divider_image": "Obrázek oddělovače",
+    "divider_image_info": "Horizontálně opakující se obrázek. Nahrazuje styl a barvu výše."
+  },
+  "cart_actions": {
+    "label": "Akce košíku zásuvky",
+    "option_1": "Zobrazit tlačítko \"zobrazit košík\"",
+    "option_2": "Zobrazit tlačítko \"pokladna\"",
+    "option_3": "Zobrazit obě"
+  },
+  "sticky_atc": {
+    "label": "Přilepivé přidání do košíku",
+    "enable_sticky_atc": "Povolit přilepivé přidání do košíku"
+  },
+  "performance": {
+    "header": "SEO a výkon",
+    "name": "Výkon",
+    "label": "Přednačítání odkazů při přejetí myši",
+    "info": "Zvyšuje vnímanou rychlost načítání stránek."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "Povolit nedávno prohlížené produkty",
+    "enable_recently_viewed_products_info": "Po aktivaci bude motiv zaznamenávat prohlížené produkty, ale musíte přidat sekci do vašeho obchodu, aby se tyto produkty zobrazily.",
+    "recently_viewed_products": "Nedávno prohlížené produkty",
+    "recently_viewed_products_info": "Tato sekce musí mít povolenou funkčnost v nastavení motivu. Zobrazí se až po návštěvě stránky s alespoň jedním produktem uživatelem.",
+    "recently_viewed_products_limit": "Limit pro nedávno prohlížené produkty"
+  },
   "rating_apps_update": {
     "label": "Hodnocení aplikace",
     "info": "Aplikace třetích stran mohou vyžadovat další kroky k náležité integraci."
   },
   "local-220": {
-    "preorder": "Zobrazit nápis tlačítka \"Předobjednávka\""
+    "preorder": "Zobrazit nápis tlačítka \"Předobjednávka\"",
+    "autorotate": {
+      "heading": "Auto-rotace",
+      "info": "Automaticky procházet snímky.",
+      "enable": "Povolit auto-rotaci",
+      "interval": "Interval",
+      "pause_on_mouseover": "Pauza při najetí myší"
+    }
   },
   "custom-social-icons": {
     "header": "Vlastní odkaz",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "Popup pro úmysl opustit stránku",
+      "exit_intent_popup_info": "Tato sekce funguje pouze na stolních počítačích"
+    },
     "colors": {
       "name": "Barvy",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "Zdůraznit doporučené produkty",
-          "info": "[Další informace](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Další informace](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "Zobrazit slevy jako...",
@@ -801,7 +859,7 @@
             },
             "icons": {
               "name": "Seznam ikon",
-              "info": "Chcete-li zobrazit a stáhnout ikony obsažené v motivu, navštivte [tento odkaz](https://www.krownthemes.com/krown-icons/).",
+              "info": "Chcete-li zobrazit a stáhnout ikony obsažené v motivu, navštivte [tento odkaz](https://resources.krownthemes.com/icons//).",
               "help": "Tento motiv umožňuje přidávat vlastní ikony produktů prostřednictvím dynamického obsahu. [Další informace](https://shopify-support.krownthemes.com/article/639-theme-settings#dynamic-icons)",
               "headers": {
                 "icon_1": "Ikona 1",
@@ -2567,6 +2625,9 @@
         "enable_sorting": {
           "label": "Povolit řazení"
         },
+        "image_filter_layout": {
+          "label": "Rozvržení filtru obrázků"
+        },
         "header__1": {
           "content": "Třídění a řazení"
         }
@@ -3291,6 +3352,19 @@
       "label_2": "Obrázek 2",
       "label_3": "Obrázek 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "Skrýt vyhledávání",
+    "hide_cart": "Skrýt košík",
+    "product_gallery_mobile_padding": "Přidat odsazení do galerie na mobilu",
+    "show_variant_labels": "Zobrazit štítky variant",
+    "hide_on_desktop": "Skrýt prvek na ploše",
+    "section_design": "Návrh sekce",
+    "background_color": "Barva pozadí",
+    "background_gradient": "Gradient pozadí",
+    "heading_text_color": "Barva textu nadpisu",
+    "text_color": "Barva textu",
+    "slider_navigation_color": "Barva navigačních prvků"
   },
   "bundle-220": {
     "blending_modes_behind": "Za",

@@ -199,6 +199,7 @@
         "preoder": "Ta izdelek ni na zalogi, vendar ga lahko še vedno naročite."
       },
       "add_to_cart_button": "Dodaj v voziček",
+      "choose_options_button": "Izberite možnosti",
       "preorder_button": "Prednaročilo",
       "share_link": "Skupna raba",
       "reviews_count": {
@@ -222,7 +223,8 @@
     },
     "bundles": {
       "title": "Vsebina paketa",
-      "add_product_to_bundle": "Dodaj v paket",
+      "add_product_to_bundle": "Dodaj v balíka",
+      "product_added_to_bundle": "Dodano v sveženj",
       "add_bundle_to_cart": "Dodaj v voziček",
       "choose_products_first": "Najprej izberite izdelke",
       "add_all_to_cart": "Dodaj vse v voziček"

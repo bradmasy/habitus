@@ -1,5 +1,19 @@
 {{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
 {{ 'component-countdown.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.is_fullwidth -%}
+  {% style %}
+    @media screen and (min-width: 478px) and (max-width: {{ settings.theme_max_width }}px) {
+      #shopify-section-{{ section.id }} .rich-text__container--image-right .rich-text__text {
+        padding-inline-start: var(--gutter-xlarge) !important;
+      }
+    }
+    @media screen and (min-width: 478px) and (max-width: {{ settings.theme_max_width }}px) {
+      #shopify-section-{{ section.id }} .rich-text__container--image-left .rich-text__text {
+        padding-inline-end: var(--gutter-xlarge) !important;
+      }
+    }
+  {% endstyle %}
+{%- endif -%}
 
 <div class="{% unless section.settings.is_fullwidth %} container--large {% else %} container--fullwidth {% endunless %} {% unless section.settings.remove_margin %} container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} {% endunless %} {% if section.settings.remove_bottom_margin %} container--negative-margin {% endif %}">
 
@@ -33,14 +47,12 @@
         -%}
       </div>
 
-      <div class="rich-text__text align-content align-content--{{ section.settings.text_alignment }} align-content--vertical-middle">
+      <div class="rich-text__text align-content align-content--{{ section.settings.text_alignment }} align-content--vertical-middle countdown__text
+        {% unless section.settings.is_fullwidth %} gutter--xlarge {% endunless %}
+        {% if section.settings.is_fullwidth %} container--large gutter-top--xlarge gutter-bottom--xlarge {% endif %}"
+      >
         <div
           class="card__text
-          {% unless section.settings.is_fullwidth %}
-            gutter--xlarge
-          {% else %}
-            container--large gutter-top--xlarge gutter-bottom--xlarge
-          {% endunless %}
           spacing--custom remove-empty-space"
           style="--spacing:{{ section.settings.spacing }}px">
 

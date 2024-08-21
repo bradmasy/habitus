@@ -199,6 +199,7 @@
         "preoder": "Этот товар закончился, но Вы все еще можете его заказать."
       },
       "add_to_cart_button": "Добавить в корзину",
+      "choose_options_button": "Выбрать опции",
       "preorder_button": "Предзаказ",
       "share_link": "Поделиться",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Комплектация",
       "add_product_to_bundle": "Добавить в комплект",
+      "product_added_to_bundle": "Добавлено в комплект",
       "add_bundle_to_cart": "Добавить в корзину",
       "choose_products_first": "Сначала выберите товары",
       "add_all_to_cart": "Добавить все в корзину"
