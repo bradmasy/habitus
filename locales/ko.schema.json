@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "이 테마는 카테고리 메타필드를 사용하여 생성된 색상 견본도 지원합니다. [자세히 알아보기](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "비디오 제어 표시",
-  "sticky_cart_actions": "고정된 드로어 장바구니 동작 활성화",
-  "currency_codes": {
-    "header": "통화 형식",
-    "label": "통화 코드를 표시",
-    "info": "예: $1.00 USD."
-  },
-  "a11": {
-    "label": "접근성",
-    "show_sidebars_scrollbar": "사이드바 스크롤바 표시",
-    "disable_all_image_animations": "모든 이미지 애니메이션 비활성화"
-  },
-  "divider": {
-    "label": "구분선",
-    "divider_design": "구분선 디자인",
-    "divider_style_solid": "실선",
-    "divider_style_dotted": "점선",
-    "divider_style_dashed": "파선",
-    "divider_style_double": "이중선",
-    "divider_color": "색상",
-    "divider_image": "구분선 이미지",
-    "divider_image_info": "수평 반복 이미지. 위의 스타일과 색상을 대체합니다."
-  },
-  "cart_actions": {
-    "label": "드로어 장바구니 작업",
-    "option_1": "\"장바구니 보기\" 버튼 표시",
-    "option_2": "\"결제\" 버튼 표시",
-    "option_3": "모두 표시"
-  },
-  "sticky_atc": {
-    "label": "스티키 장바구니에 추가",
-    "enable_sticky_atc": "스티키 장바구니에 추가 활성화"
-  },
-  "performance": {
-    "header": "SEO 및 성능",
-    "name": "성능",
-    "label": "마우스 오버 시 링크 사전로드",
-    "info": "페이지의 인지되는 로딩 속도를 증가시킵니다."
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "최근 본 상품 활성화",
-    "enable_recently_viewed_products_info": "활성화하면, 테마가 본 상품을 기록하지만, 이러한 상품을 표시하려면 상점에 섹션을 추가해야 합니다.",
-    "recently_viewed_products": "최근 본 상품",
-    "recently_viewed_products_info": "이 섹션은 테마 설정에서 기능을 활성화해야 합니다. 사용자가 적어도 하나의 상품 페이지를 방문한 후에만 표시됩니다.",
-    "recently_viewed_products_limit": "최근 본 상품 제한"
-  },
   "rating_apps_update": {
     "label": "평가 앱",
     "info": "제3자 앱은 적절한 통합을 위해 추가 단계가 필요할 수 있습니다."
   },
   "local-220": {
-    "preorder": "\"사전 주문\" 버튼 레이블 표시",
-    "autorotate": {
-      "heading": "자동 회전",
-      "info": "슬라이드를 자동으로 전환합니다.",
-      "enable": "자동 회전 활성화",
-      "interval": "간격",
-      "pause_on_mouseover": "마우스 오버 시 일시 중지"
-    }
+    "preorder": "\"사전 주문\" 버튼 레이블 표시"
   },
   "custom-social-icons": {
     "header": "사용자 정의 링크",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "종료 의도 팝업",
-      "exit_intent_popup_info": "이 섹션은 데스크톱에서만 작동합니다"
-    },
     "colors": {
       "name": "색상",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "대표 제품 강조",
-          "info": "[더 알아보기](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[더 알아보기](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "할인 표시...",
@@ -1119,7 +1061,7 @@
             },
             "icons": {
               "name": "아이콘 목록",
-              "info": "테마에 포함된 아이콘을 시각화하고 다운로드하려면 [이 링크](https://resources.krownthemes.com/icons//)를 방문하여 주십시오.",
+              "info": "테마에 포함된 아이콘을 시각화하고 다운로드하려면 [이 링크](https://www.krownthemes.com/krown-icons/)를 방문하여 주십시오.",
               "help": "이 테마 동적 콘텐츠를 통해 사용자 정의 제품 아이콘을 추가할 수 있도록 해줍니다. [더 알아보기](https://shopify-support.krownthemes.com/article/639-theme-settings#dynamic-icons)",
               "headers": {
                 "icon_1": "아이콘 1",
@@ -2598,9 +2540,6 @@
         "enable_sorting": {
           "label": "분류 활성화"
         },
-        "image_filter_layout": {
-          "label": "이미지 필터 레이아웃"
-        },
         "header__1": {
           "content": "필터링 및 분류"
         }
@@ -3317,19 +3256,6 @@
       "label_2": "이미지 2",
       "label_3": "이미지 3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "검색 숨기기",
-    "hide_cart": "장바구니 숨기기",
-    "product_gallery_mobile_padding": "모바일에서 갤러리에 여백 추가",
-    "show_variant_labels": "변형 라벨 표시",
-    "hide_on_desktop": "데스크탑에서 요소 숨기기",
-    "section_design": "섹션 디자인",
-    "background_color": "배경색",
-    "background_gradient": "배경 그라데이션",
-    "heading_text_color": "헤딩 텍스트 색상",
-    "text_color": "텍스트 색상",
-    "slider_navigation_color": "네비게이션 요소 색상"
   },
   "bundle-220": {
     "blending_modes_behind": "뒤",

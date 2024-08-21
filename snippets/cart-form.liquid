@@ -1,11 +1,5 @@
 <cart-form id="AjaxCartForm">
 
-  {%- liquid
-    if settings.show_currency_codes
-      assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
-    endif
-  -%}
-
 	{%- if template != 'cart' and settings.cart_free_shipping -%}
 		<div class="cart-notice text-size--small hide-if-empty-cart">
 			<shipping-notice
@@ -46,17 +40,17 @@
 										<div class="cart-item__price">
 											{%- if item.final_line_price < item.original_line_price -%}
 												<span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>
-												<strong>{{ item.final_line_price | money | append: iso_code }}</strong>
+												<strong>{{ item.final_line_price | money }}</strong>
 												<span class="visually-hidden">{{ 'general.accessibility_labels.price.sale' | t }}</span>
-												<span><del>{{ item.original_line_price | money | append: iso_code }}</del></span>
+												<span><del>{{ item.original_line_price | money }}</del></span>
 											{%- elsif item.variant.compare_at_price > item.variant.price -%}
 												<span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>
-												<strong>{{ item.final_line_price | money | append: iso_code }}</strong>
+												<strong>{{ item.final_line_price | money }}</strong>
 												<span class="visually-hidden">{{ 'general.accessibility_labels.price.sale' | t }}</span>
-												<span><del>{{ item.variant.compare_at_price | times: item.quantity | money | append: iso_code }}</del></span>
+												<span><del>{{ item.variant.compare_at_price | times: item.quantity | money }}</del></span>
 											{%- else -%}
 												<span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>
-												<strong>{{ item.final_line_price | money | append: iso_code }}</strong>
+												<strong>{{ item.final_line_price | money }}</strong>
 											{%- endif -%}
 
 										</div>
@@ -64,7 +58,7 @@
 
 									{%- if item.unit_price_measurement -%}
 										<span class="cart-item__unit-price text-size--small text-color--opacity">
-											{{ item.unit_price | money | append: iso_code }} / 
+											{{ item.unit_price | money }} / 
 											{% if item.unit_price_measurement.reference_value != 1 %}
 												{{ item.unit_price_measurement.reference_value }}
 											{% endif %}
@@ -92,7 +86,7 @@
 
 									{%- if item.line_level_discount_allocations.size > 0 -%}
 										{%- for discount_allocation in item.line_level_discount_allocations -%}
-											<spann class="text-size--small">{{ 'cart.discount' | t }} {{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money | append: iso_code }})</spann>
+											<spann class="text-size--small">{{ 'cart.discount' | t }} {{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})</spann>
 										{%- endfor -%}
 									{%- endif -%}
 
@@ -152,6 +146,6 @@
 	</form>
 
 	<span class="cart__count hidden" aria-hidden="true" data-cart-count>{{ cart.item_count }}</span>
-	<span class="cart__total hidden" aria-hidden="true" data-cart-total>{{ cart.total_price | money | append: iso_code }}</span>
+	<span class="cart__total hidden" aria-hidden="true" data-cart-total>{{ cart.total_price | money }}</span>
 
 </cart-form>

@@ -42,55 +42,13 @@
         {% if section.settings.image_position == "top" %} element--height-{{ section.settings.height }} {% endif %}" 
       aria-hidden="true">
 
-        {%- unless section.settings.video != blank -%}
-
-          {%- liquid
-            unless section.settings.image == blank
-              render 'lazy-image', image: section.settings.image, type: '', alt: section.settings.title, image_alignment: true, id: section.id, class: 'lazy-image--to-reveal', preload: preload
-            else
-              echo 'image' | placeholder_svg_tag
-            endunless
-          -%}
-
-        {%- else -%}
-
-          {{ 'component-video-background.css' | asset_url | stylesheet_tag }}
-
-          <style>
-            @media screen and (max-width: 767px) {
-              #element-{{ section.id }} .rich-text__image {
-                height: 0;
-                padding-top: {{ 100 | divided_by: section.settings.video.aspect_ratio }}%;
-              }
-            }
-          </style>
-
-          <div id="video-background-{{ section.id }}" class="video-background" style="display:block">
-
-            <video-background-element class="video-text__background" data-id="{{ section.id }}">
-              <video autoplay muted loop playsinline {% if section.settings.video_controls %} controls {% endif %} class="slider-item-media-element" style="border-radius:0">
-                {%- for source in section.settings.video.sources -%}
-                  <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
-                {%- endfor -%}
-              </video>
-            </video-background-element>
-
-            {%- unless section.settings.image == blank -%}
-              <div data-video-background-fallback data-id="{{ section.id }}">
-                <template>
-                  <span class="video-text__image" aria-hidden="true">
-                    {%- render 'lazy-image', image: section.settings.image, type: 'background', sizes: 'sizes="(max-width: 1023px) calc(100vw - 60px), 84vw"', id: section.id, class: 'lazy-image--to-reveal' -%}
-                  </span>
-                </template>
-              </div>
-            {%- endunless -%}
-
-            <script src="{{ 'component-video-background.js' | asset_url }}" defer></script>
-
-          </div>
-
-        {%- endunless -%}
-
+      {%- liquid
+          unless section.settings.image == blank
+            render 'lazy-image', image: section.settings.image, type: '', alt: section.settings.title, image_alignment: true, id: section.id, class: 'lazy-image--to-reveal', preload: preload
+          else
+            echo 'image' | placeholder_svg_tag
+          endunless
+        -%}
       </div>
 
       <div class="rich-text__text 
@@ -105,11 +63,6 @@
 
           {%- for block in section.blocks -%}
             {%- case block.type %}
-              
-              {%- when 'custom_liquid' -%}
-                <div {{ block.shopify_attributes }}>
-                  {{ block.settings.custom_liquid }}
-                </div>
 
               {%- when 'title' -%}
                 <div>
@@ -134,7 +87,7 @@
                 <div 
                   {{ block.shopify_attributes }}
                 >
-                  <a href="{{ block.settings.link }}" class="button button--{{ block.settings.button_style }} button--icon" {% unless block.settings.open_in_new_window == false %} target="_blank" {% endunless %}>
+                  <a href="{{ block.settings.link }}" class="button button--{{ block.settings.button_style }} button--icon">
                     <span aria-hidden="true" class="button__icon">{%- render 'theme-symbols', icon: 'arrow-right' -%}</span>
                     <span>{{ block.settings.button_label | escape }}</span>
                     
@@ -157,25 +110,13 @@
 {% schema %}
 {
   "name": "t:sections.rich-text.name",
-  "class": "can-be-fullwidth merged-section supports-absolute-header",
+  "class": "can-be-fullwidth merged-section  supports-absolute-header",
   "max_blocks": 9,
   "settings": [
     {
       "id": "image",
       "type": "image_picker",
       "label": "t:sections.gallery.blocks.image.settings.image.label"
-    },
-    {
-      "type": "video",
-      "id": "video",
-      "label": "t:sections.local-extra-words.sections.media-with-text-overlay.blocks.video.label",
-      "info": "t:sections.local-extra-words.sections.media-with-text-overlay.blocks.video.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "video_controls",
-      "label": "t:video_controls",
-      "default": false
     },
     {
       "type": "select",
@@ -330,17 +271,6 @@
   ],
   "blocks": [
     {
-      "type": "custom_liquid",
-      "name": "t:sections.refactor_words.custom_code.name",
-      "settings": [
-        {
-          "type": "liquid",
-          "id": "custom_liquid",
-          "label": "t:sections.custom-liquid.settings.custom_liquid.label"
-        }
-      ]
-    },
-    {
       "type": "title",
       "name": "t:sections.rich-text.blocks.heading.name",
       "settings": [
@@ -447,12 +377,6 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "open_in_new_window",
-          "label": "t:sections.local-extra-words.sections.announcement-bar.blocks.content.settings.target",
-          "default": false
         },
         {
           "id": "button_style",

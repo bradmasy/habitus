@@ -1,11 +1,5 @@
 <div id="AjaxCartSubtotal">
 
-  {%- liquid
-    if settings.show_currency_codes
-      assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
-    endif
-  -%}
-
 	{%- if type == 'page' -%}
 
 		{%- if settings.cart_free_shipping -%}
@@ -27,7 +21,7 @@
 
 		{%- liquid
 			unless settings.cart_upsell_product == blank
-				render 'product-cross-sell', heading: settings.cart_upsell_heading, product: settings.cart_upsell_product, id: 'cart-individual-product-cross-sell', widget_style: 'outline', heading_position: 'widget', class: 'cart-individual-product-recommendation hide-if-empty-cart margin-bottom--regular', layout: 'expanded'
+				render 'product-cross-sell', heading: settings.cart_upsell_heading, product: settings.cart_upsell_product, id: 'cart-individual-product-cross-sell', widget_style: 'outline', heading_position: 'widget', class: 'cart-individual-product-recommendation hide-if-empty-cart margin-bottom--regular' 
 			endunless
 		-%}
 
@@ -41,19 +35,19 @@
 		{%- if cart.cart_level_discount_applications != blank -%} 
 			<div class="cart__subtotal cart__details--row">
 				<span>{{ 'cart.subtotal' | t }}</span>
-				<strong>{{ cart.items_subtotal_price | money | append: iso_code }}</strong>
+				<strong>{{ cart.items_subtotal_price | money }}</strong>
 			</div>
 			<div class="cart__discounts cart__details--row">
 				<span>{{ 'cart.discounts' | t }}</span>
 				{%- for discount_application in cart.cart_level_discount_applications -%}
-					<strong>{{ discount_application.title }} (-{{ discount_application.total_allocated_amount | money | append: iso_code }})</strong>
+					<strong>{{ discount_application.title }} (-{{ discount_application.total_allocated_amount | money }})</strong>
 				{%- endfor -%}
 			</div>
 		{%- endif -%}
 
 		<div class="cart__total cart__details--row">
 			<span>{{ 'cart.total' | t }}</span> 
-			<strong>{{ cart.total_price | money | append: iso_code }}</strong>
+			<strong>{{ cart.total_price | money }}</strong>
 		</div>
 
 
@@ -82,24 +76,18 @@
 
 		<div {% unless template contains 'cart' %} class="flex-buttons" {% endunless %}>
 			{%- unless type == 'page' -%}
-				{%- if settings.cart_drawer_actions contains 'show-view' -%}
-					<a id="ViewCart" href="{{ routes.cart_url }}" class="button button--regular button--outline button--move">
-						<span class="button__text">{{ 'cart.view_cart' | t }}</span>
-					</a>
-				{%- endif -%}
+				<a id="ViewCart" href="{{ routes.cart_url }}" class="button button--regular button--outline button--move">
+					<span class="button__text">{{ 'cart.view_cart' | t }}</span>
+				</a>
 			{%- endunless -%}
-			{%- if settings.cart_drawer_actions contains 'show-checkout' or type == 'page' -%}
-				<button id="CheckOut" class="button button--regular button--solid button--move" type="submit" name="checkout" form="cart">
-					<span class="button__text">{{ 'cart.checkout' | t }}</span>
-				</button>
-			{%- endif -%}
+			<button id="CheckOut" class="button button--regular button--solid button--move" type="submit" name="checkout" form="cart">
+				<span class="button__text">{{ 'cart.checkout' | t }}</span>
+			</button>
 		</div>
 
 		{%- unless template contains 'order' -%}  
-			{%- if settings.cart_drawer_actions contains 'show-checkout' or type == 'page' -%}
-				{%- if additional_checkout_buttons and settings.cart_additional_buttons -%}
-					<div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
-				{%- endif -%}
+			{%- if additional_checkout_buttons and settings.cart_additional_buttons -%}
+				<div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
 			{%- endif -%}
 		{%- endunless -%}
 

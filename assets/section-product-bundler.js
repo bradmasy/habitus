@@ -26,16 +26,12 @@ if ( typeof ProductBundler !== 'function' ) {
         elm.addEventListener('click', e=>{
           e.preventDefault();
           const product = e.target.closest('[data-js-product-item]');
-          product.querySelector('.button__text').innerHTML = KROWN.settings.locales.products_added_to_bundle_label;
           const id = product.querySelector('.product-form').querySelector('input[name="id"]').value;
           const variant = product.querySelector('product-variants').getVariantData().find(variant=>{
             return variant["id"] == id;
           })
           this.addToBundle(variant, product);
           this.classList.add('opened');
-          if ( window.innerWidth < 768 ) {
-            (this.querySelector('.bundler-product--empty') || this.querySelector('.bundler-product:last-child'))?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-          }
         });
       });
 

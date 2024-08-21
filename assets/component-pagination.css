@@ -49,9 +49,6 @@
   position: relative;
   top: -0.0625rem;
 }
-html[dir=rtl] .pagination li.prev svg, html[dir=rtl] .pagination li.next svg {
-  transform: scale(-1);
-}
 .pagination li.prev svg path, .pagination li.next svg path {
   fill: var(--color-text-main);
 }

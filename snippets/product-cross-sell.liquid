@@ -18,7 +18,7 @@
         >{{ heading | escape }}</span>
       {%- endif -%}
 
-      <div class="product-item-compact product-item-compact--{{ layout }}">
+      <div class="product-item-compact product-item-compact--expanded">
 
         <div class="product-item-compact__image">
           <a href="{{ product.url }}">
@@ -28,51 +28,35 @@
         
         <div class="product-item-compact__details">
 
-          {%- liquid
-            if settings.show_currency_codes
-              assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
-            endif
-          -%}
-        
           <div class="product-item-compact__price" id="product-price-{{ id }}" data-js-product-price>
             <span data-js-product-price-original>
               {%- unless product == blank -%}
                 {%- liquid
                   if product.price_varies
-                    assign produce_price = product.price_min | money | append: iso_code
+                    assign produce_price = product.price_min | money
                     if product.compare_at_price > product.price 
                       echo 'products.grid.on_sale_from_html' | t: price: produce_price 
                     else
                       echo 'products.grid.from_text_html' | t: price: produce_price
                     endif
                   else
-                    echo product.price | money | append: iso_code
+                    echo product.price | money
                   endif
                 -%}
               </span>
               <del data-js-product-price-compare>
                 {%- liquid 
                   if product.compare_at_price > product.price
-                    echo product.compare_at_price | money | append: iso_code | prepend: '<span>' | append: '</span>'
+                    echo product.compare_at_price | money | prepend: '<span>' | append: '</span>'
                   endif
                 -%}
               </del>
-              {%- assign variant = product.selected_or_first_available_variant -%}
-              <span data-js-product-price-unit {% unless variant.unit_price_measurement %}style="display:none" {% endunless %}>
-                {%- if variant.unit_price_measurement -%}
-                  <span class="cart-item__unit-price text-size--small text-color--opacity" style="display:block">
-                    {{ variant.unit_price | money | append: iso_code }} / 
-                    {% if variant.unit_price_measurement.reference_value != 1 %}
-                      {{ variant.unit_price_measurement.reference_value }}
-                    {% endif %}
-                    {{ variant.unit_price_measurement.reference_unit }}
-                  </span>
-                {%- endif -%}
-              </span>
+              <span data-js-product-price-unit style="display:none"></span>
             {%- else -%}
-              {{ 9999 | money | append: iso_code }}
+              {{ 9999 | money }}
             {%- endunless -%}
           </div>
+
 
           <a href="{{ product.url }}" class="">
             <span class="text-animation--underline-thin text-weight--bold">{%- liquid
@@ -85,7 +69,7 @@
           </a>
 
           {%- if product.available -%}
-            <div class="product-item-compact__form product-item-compact__form--horizontal">
+            <div class="product-item-compact__form">
               {%- liquid
                 if heading_position == 'inside'
                   assign defer_ajax_cart = false

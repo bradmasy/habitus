@@ -49,7 +49,6 @@ if ( typeof ProductVariants !== 'function' ) {
 					if ( this.currentVariant ) {
 						this.variantRequired = false;
 						this.noVariantSelectedYet = false;
-						this.classList.add('variant-selected');
 						initVariantChange = true;
 					}
 
@@ -58,7 +57,6 @@ if ( typeof ProductVariants !== 'function' ) {
 			} else {
 				this.variantRequired = false;
 				this.noVariantSelectedYet = false;
-				this.classList.add('variant-selected');
 			}
 
 			this.updateOptions();
@@ -139,7 +137,6 @@ if ( typeof ProductVariants !== 'function' ) {
 
 			if ( this.variantRequired && this.noVariantSelectedYet && this.options.length >= parseInt(this.dataset.variants) ) {
 				this.noVariantSelectedYet = false;
-				this.classList.add('variant-selected');
 			}
 
 		}
@@ -153,7 +150,6 @@ if ( typeof ProductVariants !== 'function' ) {
 		}
 
 		updatePrice(){
-			
 			if (!this.currentVariant) {
 				if ( ! ( this.variantRequired && this.noVariantSelectedYet ) ) {
 					this.priceOriginal.innerHTML = '';
@@ -281,61 +277,130 @@ if ( typeof ProductVariants !== 'function' ) {
 
 			if ( this.dataset.hideVariants != 'false' ) {
 
-				if ( this.dataset.variants == '1' ) {
+				let options1 = {},
+						options2 = {},
+						options3 = {},
 
-					this.variantData.forEach((variant) => {
-						if ( ! variant.available ) {
-							const input = this.querySelector(`[data-js-product-variant-container] .product-variant-value[value="${variant.option1}"]`);
-							if ( this.dataset.hideVariants == 'disable' ) {
-								input.setAttribute('disabled', 'disabled');
-							} else {
-								input.classList.add('disabled');
+						option1Selected = null,
+						option2Selected = null;
+
+				if ( this.dataset.variants > 1 ) {
+					option1Selected = this._getSelectedOption(0);
+					this._resetDisabledOption(1);
+				}
+				if ( this.dataset.variants > 2 ) {
+					option2Selected = this._getSelectedOption(1);
+					this._resetDisabledOption(2);
+				}
+
+				this.getVariantData().forEach((el) => {
+					if ( this.dataset.variants > 0 ) {
+						if ( ! options1[el.option1] ) {
+							options1[el.option1] = [];
+						}
+						options1[el.option1].push(String(el.available));
+					}
+					if ( this.dataset.variants > 1 ) {
+						if ( ! options2[el.option2] ) {
+							options2[el.option2] = [];
+						}
+						options2[el.option2].push(String(el.available));
+					}
+					if ( this.dataset.variants == 2 ) {
+						if ( el.option1 == option1Selected && ! el.available ) {
+							this._setDisabledOption(1, el.option2);
+						}
+					}
+					if ( this.dataset.variants > 2 ) {
+						if ( ! options3[el.option3] ) {
+							options3[el.option3] = [];
+						}
+						options3[el.option3].push(String(el.available));
+						if ( el.option2 == option2Selected && el.option1 == option1Selected && ! el.available ) {
+							this._setDisabledOption(2, el.option3);
+						}
+					}
+
+				});
+
+				if ( this.dataset.variants > 0 ) {
+					Object.keys(options1).forEach((key)=>{
+						if ( ! options1[key].includes('true') ){
+							this._setDisabledOption(0, key);
+						}
+					});
+				}
+				if ( this.dataset.variants > 1 ) {
+					Object.keys(options2).forEach((key)=>{
+						if ( ! options2[key].includes('true') ){
+							this._setDisabledOption(1, key);
+						}
+					});
+				}
+				if ( this.dataset.variants > 2 ) {
+					Object.keys(options3).forEach((key)=>{
+						if ( ! options3[key].includes('true') ){
+							this._setDisabledOption(2, key);
+						}
+					});
+					Object.keys(options2).forEach((key)=>{
+						if ( ! options2[key].includes('true') ){
+							if ( option2Selected == key ) {
+								if ( this.dataset.hideVariants == 'disable' ) {
+									this.querySelectorAll('[data-js-product-variant]')[2].querySelector('.product-variant-value').setAttribute('disabled', 'disabled');
+								} else {
+									this.querySelectorAll('[data-js-product-variant]')[2].querySelector('.product-variant-value').classList.add('disabled');
+								}
 							}
 						}
 					});
-
-				} else {
-
-					if ( this.querySelector(':checked') ) {
-
-						const selectedOptionOneVariants = this.variantData.filter(
-							(variant) => this.querySelector(':checked').value === variant.option1
-						);
-	
-						const inputWrappers = [...this.querySelectorAll('[data-js-product-variant]')];
-						inputWrappers.forEach((option, index) => {
-							if (index === 0) return;
-							const optionInputs = [...option.querySelectorAll('input[type="radio"], option')];
-							const previousOptionSelected = inputWrappers[index - 1].querySelector(':checked').value;
-							const availableOptionInputsValue = selectedOptionOneVariants
-								.filter((variant) => variant.available && variant[`option${index}`] === previousOptionSelected)
-								.map((variantOption) => variantOption[`option${index + 1}`]);
-							this.setInputAvailability(optionInputs, availableOptionInputsValue);
-						});
-	
-					}
-
 				}
 
 			}
 		}
 
-		setInputAvailability(listOfOptions, listOfAvailableOptions) {
-			listOfOptions.forEach((input) => {
-				if (listOfAvailableOptions.includes(input.getAttribute('value'))) {
-					if ( this.dataset.hideVariants == 'disable' ) {
-						input.removeAttribute('disabled');
-					} else {
-						input.classList.remove('disabled');
-					}
+		_getSelectedOption(i){
+			let selectedOption = null;
+			this.querySelectorAll('[data-js-product-variant]')[i].querySelectorAll('[data-js-product-variant-container]').forEach(elm=>{
+				if ( elm.dataset.jsProductVariantContainer == 'radio' ) {
+					elm.querySelectorAll('.product-variant__input').forEach(el=>{
+						if ( el.checked ) {
+							selectedOption = el.value;
+						}
+					});
 				} else {
-					if ( this.dataset.hideVariants == 'disable' ) {
-						input.setAttribute('disabled', 'disabled');
-					} else {
-						input.classList.add('disabled');
-					}
+					selectedOption = elm.value;
 				}
 			});
+			return selectedOption;
+		}
+
+		_resetDisabledOption(i){
+			this.querySelectorAll('[data-js-product-variant]')[i].querySelectorAll('.product-variant-value').forEach((elm)=>{
+				elm.classList.remove('disabled');
+				elm.classList.remove('hide-variant')
+				if ( ! elm.hasAttribute('default') ) {
+					elm.removeAttribute('disabled');
+				}
+				elm.parentNode.classList.remove('hide-variant');
+			})
+		}
+
+		_setDisabledOption(i,option){
+			let variant = this.querySelectorAll('[data-js-product-variant]')[i].querySelector(`.product-variant-value[value="${option.replace('"', '&x22;')}"]`);
+			if ( variant ) {
+				if ( this.dataset.hideVariants == 'disable' ) {
+					variant.setAttribute('disabled', 'disabled');
+				} else if ( this.dataset.hideVariants == 'true' ) {
+					variant.classList.add('disabled');
+				} else if ( this.dataset.hideVariants == 'hide' ) {
+					if ( this.querySelectorAll('[data-js-product-variant]')[i].querySelector('[data-js-product-variant-container]').dataset.jsProductVariantContainer == 'radio' ) {
+						variant.parentNode.classList.add('hide-variant');
+					} else {
+						variant.classList.add('hide-variant');
+					}
+				}
+			}
 		}
 
 		updateURL(){
@@ -385,7 +450,7 @@ if ( typeof ProductVariants !== 'function' ) {
 				);
 				const centsAmount = parts[1] ? decimal + parts[1] : '';
 	
-				return dollarsAmount + centsAmount + KROWN.settings.iso_code;
+				return dollarsAmount + centsAmount;
 			}
 	
 			switch (formatString.match(placeholderRegex)[1]) {
@@ -507,27 +572,22 @@ if ( typeof ProductForm !== 'function' ) {
 					const cartFormInnerHTML = sectionInnerHTML.getElementById('AjaxCartForm').innerHTML;
 					const cartSubtotalInnerHTML = sectionInnerHTML.getElementById('AjaxCartSubtotal').innerHTML;
 
-					if ( document.getElementById('AjaxCartForm') ) {
+					const cartItems = document.getElementById('AjaxCartForm');
+					cartItems.innerHTML = cartFormInnerHTML;
+					cartItems.ajaxifyCartItems();
 
-						const cartItems = document.getElementById('AjaxCartForm');
-						cartItems.innerHTML = cartFormInnerHTML;
-						cartItems.ajaxifyCartItems();
-
-						if ( alert != '' ) {
-							document.getElementById('AjaxCartForm').querySelector('form').prepend(alert);
-						}
-
-						document.getElementById('AjaxCartSubtotal').innerHTML = cartSubtotalInnerHTML;
-
-						document.querySelectorAll('[data-header-cart-count]').forEach(elm=>{
-							elm.textContent = document.querySelector('#AjaxCartForm [data-cart-count]').textContent;
-						});
-						document.querySelectorAll('[data-header-cart-total').forEach(elm=>{
-							elm.textContent = document.querySelector('#AjaxCartForm [data-cart-total]').textContent;
-						});
-
+					if ( alert != '' ) {
+						document.getElementById('AjaxCartForm').querySelector('form').prepend(alert);
 					}
-					
+
+					document.getElementById('AjaxCartSubtotal').innerHTML = cartSubtotalInnerHTML;
+
+					document.querySelectorAll('[data-header-cart-count]').forEach(elm=>{
+						elm.textContent = document.querySelector('#AjaxCartForm [data-cart-count]').textContent;
+					});
+					document.querySelectorAll('[data-header-cart-total').forEach(elm=>{
+						elm.textContent = document.querySelector('#AjaxCartForm [data-cart-total]').textContent;
+					});
 					this.dispatchEvent(this.ADD_TO_CART);
 
 					// a11y
@@ -589,8 +649,8 @@ if ( typeof ProductForm !== 'function' ) {
 --- */
 
 if ( typeof ProductRecommendations !== 'function' ) {
-	class ProductRecommendations extends HTMLElement {
 
+	class ProductRecommendations extends HTMLElement {
 		constructor() {
 
 			super();  
@@ -674,79 +734,6 @@ if ( typeof GiftCardRecipient !== 'function' ) {
 
   if ( typeof customElements.get('gift-card-recipient') == 'undefined' ) {
 		customElements.define('gift-card-recipient', GiftCardRecipient);
-	}
-
-}
-
-/* ---
-	Sticky Add to Cart
---- */
-
-if ( typeof StickyAddToCart !== 'function' ) {
-	class StickyAddToCart extends HTMLElement {
-		
-		constructor() {
-
-			super();  
-
-			const productPage = document.getElementById(this.dataset.id);
-			this.hasAttribute('data-append-to') ? document.querySelector(this.dataset.appendTo).appendChild(this) : document.body.appendChild(this);
-			
-			const productButton = productPage.querySelector('[data-js-product-add-to-cart]');
-			const stickyBar = this;
-			
-			function toggleStickyBarOnScroll() {
-				const rect = productButton.getBoundingClientRect();
-				const isInViewport = (
-						rect.top >= 0 &&
-						rect.left >= 0 &&
-						( rect.bottom - 80 ) <= (window.innerHeight || document.documentElement.clientHeight) &&
-						rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-				);
-				const isMobile = window.innerWidth < 728;
-
-				if ( ( ! isMobile && rect.top < 0 ) || ( isMobile && ! isInViewport ) ) {
-					stickyBar.classList.add('visible');
-				} else {
-					stickyBar.classList.remove('visible');
-				}
-			}
-			window.addEventListener('scroll', toggleStickyBarOnScroll);
-			toggleStickyBarOnScroll();
-
-			if ( this.hasAttribute('data-single') ) {
-
-				const stickyButton = this.querySelector('button[data-js-atc]');
-
-				stickyButton.addEventListener('click', ()=>{
-					productButton.click();
-					stickyButton.classList.add('working');
-				});
-				
-				new MutationObserver(()=>{
-					if ( productButton.classList.contains('working') ) {
-						stickyButton.classList.add('working');
-					} else {
-						stickyButton.classList.remove('working');
-					}
-				}).observe(productButton, {
-					attributes: true, childList: false, subtree: false
-				})
-
-			} else {
-
-				this.querySelector('button[data-js-choose]').addEventListener('click', ()=>{
-					productButton.scrollIntoView({behavior: "smooth", block: "center"});
-				});
-
-			}
-
-		}
-
-	}
-
-  if ( typeof customElements.get('sticky-add-to-cart') == 'undefined' ) {
-		customElements.define('sticky-add-to-cart', StickyAddToCart);
 	}
 
 }

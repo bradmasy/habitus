@@ -207,6 +207,25 @@ if ( typeof ProductPage !== 'function' ) {
 
 			}
 
+            // update stock
+            if (variant) { 
+              let inventoryHash = document.querySelectorAll('[inventory-management]');
+              
+              inventoryHash.forEach((Selectedvariant) => {
+                if (Selectedvariant.dataset.id == variant.id) {
+                  let in_stock = document.querySelector('[data-js-product-in-stock]');
+                  let lead_time = document.querySelector('[data-js-product-lead-time]');
+                  if (Selectedvariant.dataset.inventory <= 0) {
+                    lead_time.style.display = "block";
+                    in_stock.style.display = "none";
+                  } else {
+                    in_stock.style.display = "block";
+                    lead_time.style.display = "none";
+                  }
+                }
+              });
+            }
+
 			// update prices (overwrites the framework)
 
 			if ( this.priceCompact ) {

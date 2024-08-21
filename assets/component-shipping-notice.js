@@ -54,7 +54,7 @@ if ( typeof ShippingNotice !== 'function' ) {
 				);
 				const centsAmount = parts[1] ? decimal + parts[1] : '';
 	
-				return dollarsAmount + centsAmount + KROWN.settings.iso_code;
+				return dollarsAmount + centsAmount;
 			}
 	
 			switch (formatString.match(placeholderRegex)[1]) {

@@ -47,7 +47,7 @@
         {%- if section.settings.show_subject -%}
           <div class="contact-form__row">
             <label class="visually-hidden" for="{{ form_id }}-subject">{{ 'general.contact_form.subject_label' | t }}</label>
-            <input type="text" id="{{ form_id }}-subject" class="field__input" autocomplete="tel" name="contact[Title]"  value="{% if form.subject %}{{ form.subject }}{% elsif customer %}{{ customer.subject }}{% endif %}" placeholder="{{ 'general.contact_form.subject_label' | t }}">
+            <input type="text" id="{{ form_id }}-subject" class="field__input" autocomplete="tel" name="contact[Subject]"  value="{% if form.subject %}{{ form.subject }}{% elsif customer %}{{ customer.subject }}{% endif %}" placeholder="{{ 'general.contact_form.subject_label' | t }}">
           </div>
         {%- endif -%}
 

@@ -199,7 +199,6 @@
         "preoder": "מוצר זה אזל מהמלאי, אבל עדיין ניתן להזמין אותו."
       },
       "add_to_cart_button": "הוספה לעגלת הקניות",
-      "choose_options_button": "בחר אפשרויות",
       "preorder_button": "הזמנה מוקדמת",
       "share_link": "שיתוף",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "תוכן החבילה",
       "add_product_to_bundle": "הוספה לחבילה",
-      "product_added_to_bundle": "נוסף לחבילה",
       "add_bundle_to_cart": "הוספה לעגלת הקניות",
       "choose_products_first": "בחרו תחילה מוצרים",
       "add_all_to_cart": "הוסיפו הכל לעגלה"

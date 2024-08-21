@@ -20,12 +20,6 @@
 
 		{%- if predictive_search.resources.products.size > 0 -%}
 
-      {%- liquid
-        if settings.show_currency_codes
-          assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
-        endif
-      -%}
-
       <div class="search-block">
 
         <span class="search-title">{{ 'search.form.product_results_title' | t }}</span>
@@ -46,19 +40,10 @@
                   {%- assign variant = product.selected_or_first_available_variant -%}
                   <span class="price">
                     <span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>
-                    {{ variant.price | money | append: iso_code }}
+                    {{ variant.price | money }}
                     {%- if variant.compare_at_price > variant.price -%}
                       <span class="visually-hidden">{{ 'general.accessibility_labels.price.sale' | t }}</span>
-                      <span><del>{{ variant.compare_at_price | money | append: iso_code }}</del></span>
-                    {%- endif -%}
-                    {%- if variant.unit_price_measurement -%}
-                      <span class="cart-item__unit-price text-size--small text-color--opacity" style="display:block">
-                        {{ variant.unit_price | money | append: iso_code }} / 
-                        {% if variant.unit_price_measurement.reference_value != 1 %}
-                          {{ variant.unit_price_measurement.reference_value }}
-                        {% endif %}
-                        {{ variant.unit_price_measurement.reference_unit }}
-                      </span>
+                      <span><del>{{ variant.compare_at_price | money }}</del></span>
                     {%- endif -%}
                   </span>
                 </div>

@@ -1,64 +1,10 @@
 {
-  "new_color_swatches": "Dit thema biedt ook ondersteuning voor kleurstalen die zijn gemaakt met categorie-meta velden. [Meer informatie](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
-  "video_controls": "Videobediening tonen",
-  "sticky_cart_actions": "Plakkerige lade-winkelwagenacties inschakelen",
-  "currency_codes": {
-    "header": "Valutaformaat",
-    "label": "Valutacodes tonen",
-    "info": "Voorbeeld: $1.00 USD."
-  },
-  "a11": {
-    "label": "Toegankelijkheid",
-    "show_sidebars_scrollbar": "Toon schuifbalken in zijbalken",
-    "disable_all_image_animations": "Schakel alle afbeeldingsanimaties uit"
-  },
-  "divider": {
-    "label": "Verdeler",
-    "divider_design": "Verdeler ontwerp",
-    "divider_style_solid": "Solide",
-    "divider_style_dotted": "Gestippeld",
-    "divider_style_dashed": "Gestreept",
-    "divider_style_double": "Dubbel",
-    "divider_color": "Kleur",
-    "divider_image": "Verdeler afbeelding",
-    "divider_image_info": "Een horizontaal herhalend beeld. Vervangt de stijl en kleur hierboven."
-  },
-  "cart_actions": {
-    "label": "Ladeacties voor de winkelwagen",
-    "option_1": "Knop \"Winkelwagen bekijken\" weergeven",
-    "option_2": "Knop \"Checkout\" weergeven",
-    "option_3": "Beide weergeven"
-  },
-  "sticky_atc": {
-    "label": "Sticky toevoegen aan winkelwagen",
-    "enable_sticky_atc": "Sticky toevoegen aan winkelwagen inschakelen"
-  },
-  "performance": {
-    "header": "SEO & prestatie",
-    "name": "Prestatie",
-    "label": "Links voorladen bij hover",
-    "info": "Verhoogt de waargenomen laadsnelheid van pagina's."
-  },
-  "recently_viewed": {
-    "enable_recently_viewed_products": "Recent bekeken producten inschakelen",
-    "enable_recently_viewed_products_info": "Wanneer ingeschakeld, zal het thema bekeken producten registreren, maar je moet de sectie in je winkel toevoegen om deze producten te tonen.",
-    "recently_viewed_products": "Recent bekeken producten",
-    "recently_viewed_products_info": "Deze sectie moet de functionaliteit ingeschakeld hebben in Thema Instellingen. Het zal alleen verschijnen nadat gebruikers ten minste één productpagina hebben bezocht.",
-    "recently_viewed_products_limit": "Limiet voor recent bekeken producten"
-  },
   "rating_apps_update": {
     "label": "Beoordelingsapp",
     "info": "Apps van derden kunnen extra stappen vereisen voor een juiste integratie."
   },
   "local-220": {
-    "preorder": "Toon \"pre-order\" knoplabel",
-    "autorotate": {
-      "heading": "Auto-rotatie",
-      "info": "Roteer automatisch door de dia's.",
-      "enable": "Auto-rotatie inschakelen",
-      "interval": "Interval",
-      "pause_on_mouseover": "Pauzeer bij muisaanwijzer"
-    }
+    "preorder": "Toon \"pre-order\" knoplabel"
   },
   "custom-social-icons": {
     "header": "Aangepaste link",
@@ -81,10 +27,6 @@
     }
   },
   "settings_schema": {
-    "exit_intent": {
-      "exit_intent_popup": "Popup voor uitgangsintentie",
-      "exit_intent_popup_info": "Deze sectie werkt alleen op desktop"
-    },
     "colors": {
       "name": "Kleuren",
       "settings": {
@@ -140,7 +82,7 @@
         },
         "enhance_featured_products": {
           "label": "Uitgelichte producten benadrukken",
-          "info": "[Learn more](https://shopify-support.krownthemes.com/article/832-product-card)"
+          "info": "[Learn more](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
         },
         "show_discount": {
           "label": "Toon korting als...",
@@ -2575,9 +2517,6 @@
         "enable_sorting": {
           "label": "Sorteren inschakelen"
         },
-        "image_filter_layout": {
-          "label": "Indeling van beeldfilter"
-        },
         "header__1": {
           "content": "Filteren en sortering"
         }
@@ -3294,19 +3233,6 @@
       "label_2": "Afbeelding 2",
       "label_3": "Afbeelding 3"
     }
-  },
-  "bundle-240": {
-    "hide_search": "Zoeken verbergen",
-    "hide_cart": "Winkelwagen verbergen",
-    "product_gallery_mobile_padding": "Voeg opvulling toe aan de galerij op mobiel",
-    "show_variant_labels": "Variantlabels tonen",
-    "hide_on_desktop": "Element verbergen op desktop",
-    "section_design": "Sectieontwerp",
-    "background_color": "Achtergrondkleur",
-    "background_gradient": "Achtergrondverloop",
-    "heading_text_color": "Tekstkleur van kop",
-    "text_color": "Tekstkleur",
-    "slider_navigation_color": "Navigatie-elementen kleur"
   },
   "bundle-220": {
     "blending_modes_behind": "Achter",

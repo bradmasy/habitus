@@ -199,7 +199,6 @@
         "preoder": "Dette produktet er ikke på lager, men du kan fremdeles bestille det."
       },
       "add_to_cart_button": "Legg til handlevogn",
-      "choose_options_button": "Velg alternativer",
       "preorder_button": "Forhåndsbestill",
       "share_link": "Del",
       "reviews_count": {
@@ -224,7 +223,6 @@
     "bundles": {
       "title": "Pakkeinnhold",
       "add_product_to_bundle": "Legg til i pakke",
-      "product_added_to_bundle": "Lagt til i pakken",
       "add_bundle_to_cart": "Legg til handlevogn",
       "choose_products_first": "Velg produkter først",
       "add_all_to_cart": "Legg til alle i handlekurv"

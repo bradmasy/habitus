@@ -12,7 +12,7 @@
 
     <div class="grid grid--layout grid-4 grid-portable-3 grid-lap-1">
 
-      <div class="grid grid--layout grid-3 grid-portable-2 grid-lap-2 {{ section.settings.layout_mobile }} grid-offset-3 grid-offset-portable-2 grid-offset-lap-1 products-container">
+      <div class="grid grid--layout grid-3 grid-portable-2 grid-lap-2 grid-tiny-1 grid-offset-3 grid-offset-portable-2 grid-offset-lap-1 products-container">
 
         {%- liquid
 
@@ -20,14 +20,14 @@
 
             if section.settings.select_products != blank
               assign products = section.settings.select_products
-              assign limit = 48
+              assign limit = 24
             else
               assign products = collections[section.settings.select_collection].products
               assign limit = section.settings.collection_limit
             endif
 
           for product in products limit: limit
-            render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: 'grid-4', mobile_layout: section.settings.layout_mobile, show_badges: settings.show_badges, add_quick_buy: true, unavailable_variants: 'hide', default_to_first_variant: false, section_id: section.id
+            render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1", show_badges: settings.show_badges, add_quick_buy: true, unavailable_variants: 'hide', default_to_first_variant: false, section_id: section.id
           endfor
           
           else
@@ -191,7 +191,7 @@
         "label": "t:sections.featured-collection.settings.products_number.label",
         "min": 3,
         "step": 3,
-        "max": 48,
+        "max": 24,
         "default": 12
       },
       {
@@ -199,29 +199,13 @@
         "id": "select_products",
         "label": "t:sections.bundle-extra-words.sections.products_bundle.settings.content.products",
         "info": "t:sections.bundle-extra-words.sections.products_bundle.settings.content.info",
-        "limit": 48
+        "limit": 24
       },
       {
         "type": "checkbox",
         "id": "limit_bundles",
         "label": "t:sections.bundle-extra-words.sections.products_bundle.settings.content.limit_bundles",
         "default": true
-      },
-      {
-        "type": "select",
-        "id": "layout_mobile",
-        "label": "t:sections.local-extra-words.sections.columns.name_mobile",
-        "options": [
-          {
-            "value": "grid-palm-1",
-            "label": "t:sections.local-extra-words.sections.columns.option__0"
-          },
-          {
-            "value": "grid-palm-2",
-            "label": "t:sections.local-extra-words.sections.columns.option__1"
-          }
-        ],
-        "default": "grid-palm-1"
       },
       {
         "type": "header",

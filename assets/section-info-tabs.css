@@ -10,7 +10,6 @@
   display: grid;
   gap: var(--gutter-xlarge);
   align-items: center;
-  color: var(--color-text-main);
 }
 .info-tabs--image-right {
   grid-template-areas: "tabs panels";
@@ -36,9 +35,6 @@
 .info-tabs--image-left--half {
   grid-template-columns: 1fr 1fr;
 }
-.info-tabs--image-no-image {
-  grid-template-areas: "tabs";
-}
 @media screen and (max-width: 767px) {
   .info-tabs {
     grid-template-columns: 100%;
@@ -56,8 +52,6 @@
     align-items: stretch;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
   }
   .info-tabs_togglers::-webkit-scrollbar {
     display: none;
@@ -85,7 +79,6 @@
     flex: 0 0 auto;
     margin-inline-end: var(--gutter-large);
     scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 }
 .info-tabs__tab::after {

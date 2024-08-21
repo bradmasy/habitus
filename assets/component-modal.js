@@ -22,56 +22,6 @@ if ( typeof ModalBox !== 'function' ) {
 				}, ...JSON.parse(this.dataset.options)
 			};
 
-			if ( this.o.type == "exit_intent_popup") {
-
-				this.o.enabled = false;
-
-				const showBanner = () => {
-					this.o.enabled = true;
-					
-					this._modalKey = `modal-${document.location.hostname}-${this.id}`;
-					this._modalStorage = ! localStorage.getItem(this._modalKey) ? 'empty' : JSON.parse(localStorage.getItem(this._modalKey));
-					if ( this.querySelector('[data-content]') ) {
-						this._modalText = this.querySelector('[data-content]').textContent;
-					}
-
-					const timeNow = new Date().getTime();
-					const inBetween = Math.round((timeNow - this._modalStorage['shown']) / 1000);
-
-					let showModal = false;
-
-					if ( this._modalStorage == 'empty'
-						|| ( this.o.frequency == 'day' && inBetween > 86400 )
-						|| ( this.o.frequency == 'week' && inBetween > 604800 )
-						|| ( this.o.frequency == 'month' && inBetween > 2419200 )
-						|| this._modalStorage['content'] != this._modalText
-					) {
-						showModal = true
-					}
-
-					if ( showModal ) {
-						setTimeout(()=>{
-							this.show();
-						}, 0);
-						setTimeout(()=>{
-							this.querySelectorAll('[data-js-close]').forEach(elm=>elm.addEventListener('click',()=>{this.hide(this.o.showOnce)}));
-						}, 100);
-					}
-				}
-
-				let lastMouseY = 0; 
-				let topOffset = 20; 
-
-				document.addEventListener('mousemove', function(event) {
-					const currentMouseY = event.clientY;
-					if (currentMouseY < lastMouseY && currentMouseY < topOffset && ! Shopify.designMode) { 
-						showBanner();
-					}
-					lastMouseY = currentMouseY;
-				});
-				
-			}
-
 			if ( this.o.type == "cookies") {
 				this.o.enabled = false;
 
@@ -81,24 +31,16 @@ if ( typeof ModalBox !== 'function' ) {
 				}
 			
 				const cookiesAccept = () => {
-					window.Shopify.customerPrivacy.setTrackingConsent({
-						"analytics": true,
-						"marketing": true,
-						"preferences": true
-					}, () => {});
-					localStorage.setItem('krown-cookie-banner', 'true'); 
+					window.Shopify.customerPrivacy.setTrackingConsent(true, () => {});
 				}
 				const cookiesDecline = () => {
-					window.Shopify.customerPrivacy.setTrackingConsent({
-						"analytics": false,
-						"marketing": false,
-						"preferences": false
-					}, () => {});
-					localStorage.setItem('krown-cookie-banner', 'true'); 
+					window.Shopify.customerPrivacy.setTrackingConsent(false, () => {});
 				}
 			
 				const initCookieBanner = () => {
-					if ( localStorage.getItem('krown-cookie-banner') !== 'true' ) {
+					const userCanBeTracked = window.Shopify.customerPrivacy.userCanBeTracked();
+					const shouldShowBanner = window.Shopify.customerPrivacy.shouldShowBanner();
+					if(shouldShowBanner) {
 						showBanner();
 					}
 				}
