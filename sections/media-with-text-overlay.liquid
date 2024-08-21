@@ -1,4 +1,4 @@
-<div id="section-{{ section.id }}" class="{% unless section.settings.remove_top_margin %} container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} {% endunless %}">
+<div id="section-{{ section.id }}" class="{% unless section.settings.remove_top_margin %} container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} {% endunless %} {% if section.settings.section_background_color != "rgba(0,0,0,0)" or section.settings.section_background_gradient != blank %} container--has-background {% endif %} {% if section.settings.remove_bottom_margin %} container--negative-margin {% endif %}">
   
   <div class="container--large remove-empty-space">
     {%- render 'section-heading', heading: section.settings.heading, subheading: section.settings.subheading, heading_size: section.settings.section_heading_size, section_layout: section.settings.section_heading_layout, button: section.settings.cta_label, button_label: section.settings.cta_label, link: section.settings.cta_url, seo_h_tag: section.settings.seo_h_tag -%}
@@ -12,7 +12,7 @@
         
         {%- for block in section.blocks -%}
           {%- if block.settings.button_label == blank and block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}">
+            <a href="{{ block.settings.link }}" {% unless block.settings.open_in_new_window == false %} target="_blank" {% endunless %}>
           {%- endif -%}
 
           <div id="element-{{ block.id }}" class="card card--no-background element--height-{{ section.settings.height }} align-content align-content--{{ section.settings.alignment }}" {{ block.shopify_attributes }}>
@@ -24,7 +24,7 @@
             <div class="card__text {% unless section.settings.layout == 'full' %} gutter--large {% else %} gutter-bottom--large gutter-top--large {% endunless %} spacing--custom remove-empty-space" style="--spacing:{{ section.settings.spacing }}px">
 
               {%- unless block.settings.caption == blank -%}
-                <span class="text-size--regular">{{ block.settings.caption | escape }}</span>
+                <span class="{{ section.settings.caption_size }}">{{ block.settings.caption | escape }}</span>
               {%- endunless -%}
 
               {%- unless block.settings.title == blank -%}
@@ -34,7 +34,7 @@
               {%- endunless -%}
 
               {%- unless block.settings.subtitle == blank -%}
-                <span class="text-size--regular">{{ block.settings.subtitle | escape }}</span>
+                <span class="{{ section.settings.subtitle_size }}">{{ block.settings.subtitle | escape }}</span>
               {%- endunless -%}
 
               {%- if block.settings.show_horizontal_line -%}
@@ -42,8 +42,9 @@
               {%- endif -%}
 
               {%- if block.settings.button_label != blank -%}
-                {%- render 'button', label: block.settings.button_label, link: block.settings.link, style: section.settings.button_style %}
+                {%- render 'button', target_blank: block.settings.open_in_new_window, label: block.settings.button_label, link: block.settings.link, style: section.settings.button_style %}
               {%- endif -%}
+
             </div>
 
             {% if section.settings.layout == 'full' %}
@@ -158,6 +159,28 @@
     }
   }
 {% endstyle %}
+
+<style>
+  {%- if section.settings.section_background_color != "rgba(0,0,0,0)" -%}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.section_background_color }};
+    }
+  {%- endif -%}
+  {%- if section.settings.section_background_gradient != blank -%}
+    #shopify-section-{{ section.id }} {
+      background-image: {{ section.settings.section_background_gradient }};
+    }
+  {%- endif -%}
+  {%- if section.settings.section_heading_color != "rgba(0,0,0,0)" -%}
+    #shopify-section-{{ section.id }} .section-heading,
+    #shopify-section-{{ section.id }} .section-footer,
+    #shopify-section-{{ section.id }} .css-slider-navigation-container {
+      --color-text-main: {{ section.settings.section_heading_color }};
+      --color-borders-forms-primary: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.3 }};
+      --color-secondary-background-main: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.08 }};
+    }
+  {%- endif -%}
+</style>
 
 {% schema %}
 {
@@ -348,6 +371,26 @@
     },
     {
       "type": "select",
+      "id": "caption_size",
+      "label": "t:sections.local-extra-words.sections.slideshow.settings.caption_size",
+      "options": [
+        {
+          "value": "text-size--regular",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+        },
+        {
+          "value": "text-size--large",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+        },
+        {
+          "value": "text-size--larger",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+        }
+      ],
+      "default": "text-size--regular"
+    },
+    {
+      "type": "select",
       "id": "title_size",
       "label": "t:sections.local-extra-words.sections.main-header.settings.promotion_block.title.size",
       "options": [
@@ -365,6 +408,26 @@
         }
       ],
       "default": "heading-size--small"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_size",
+      "label": "t:sections.local-extra-words.sections.main-header.settings.promotion_block.subtitle.size",
+      "options": [ 
+        {
+          "value": "text-size--regular",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+        },
+        {
+          "value": "text-size--large",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+        },
+        {
+          "value": "text-size--larger",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+        }
+      ],
+      "default": "text-size--regular"
     },
     {
       "type": "range",
@@ -412,6 +475,27 @@
     },
     {
       "type": "header",
+      "content": "t:bundle-240.section_design"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "t:bundle-240.background_color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color_background",
+      "id": "section_background_gradient",
+      "label": "t:bundle-240.background_gradient"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color",
+      "label": "t:bundle-240.heading_text_color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
       "content": "t:sections.bundle-extra-words.sections.headings.gutter.label"
     },
     {
@@ -424,6 +508,12 @@
       "type": "checkbox",
       "id": "remove_top_margin",
       "label": "t:sections.local-extra-words.settings_schema.layout.sections.remove_vertical_space",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_bottom_margin",
+      "label": "t:sections.local-extra-words.settings_schema.layout.sections.remove_bottom_margin",
       "default": false
     },
     {
@@ -503,6 +593,12 @@
           "id": "link",
           "label": "t:sections.image-with-text.blocks.image.settings.url.label",
           "info": "t:sections.bundle-extra-words.sections.slider.settings.link.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_window",
+          "label": "t:sections.local-extra-words.sections.announcement-bar.blocks.content.settings.target",
+          "default": false
         },
         {
           "type": "text",

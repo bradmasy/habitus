@@ -199,6 +199,7 @@
         "preoder": "Ce produit est en rupture de stock, mais vous pouvez encore le commander."
       },
       "add_to_cart_button": "Ajouter au panier",
+      "choose_options_button": "Choisir les options",
       "preorder_button": "Pré-commande",
       "share_link": "Partager",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Contenu du lot",
       "add_product_to_bundle": "Ajouter au lot",
+      "product_added_to_bundle": "Ajouté au lot",
       "add_bundle_to_cart": "Ajouter au panier",
       "choose_products_first": "Choisissez d'abord les produits",
       "add_all_to_cart": "Tout ajouter au panier"

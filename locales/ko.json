@@ -199,6 +199,7 @@
         "preoder": "제품이 매지되었지만 아직 주문 가능합니다."
       },
       "add_to_cart_button": "카트에 담기",
+      "choose_options_button": "옵션 선택",
       "preorder_button": "사전 주문",
       "share_link": "공유",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "묶음 콘텐츠",
       "add_product_to_bundle": "묶음에 추가",
+      "product_added_to_bundle": "번들에 추가됨",
       "add_bundle_to_cart": "카트에 담기",
       "choose_products_first": "제품을 먼저 선택하세요",
       "add_all_to_cart": "전부 카트에 추가"

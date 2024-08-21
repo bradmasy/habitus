@@ -56,8 +56,13 @@
         {%- if filter.type == "price_range" -%}
           {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
             {%- assign has_active_filter = true -%}
+            {%- liquid
+              if settings.show_currency_codes
+                assign iso_code = localization.country.currency.iso_code | prepend: ' ' 
+              endif
+            -%}
             <a class="pill pill--has-close js-facet-remove" href="{{ filter.url_to_remove }}">
-              <span>{%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}</span>
+              <span>{%- if filter.min_value.value -%}{{ filter.min_value.value | money | append: iso_code }}{%- else -%}{{ 0 | money | append: iso_code }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money | append: iso_code }}{%- else -%}{{ filter.range_max | money | append: iso_code }}{%- endif -%}</span>
               {%- render 'theme-symbols', icon: 'close-small' -%}
             </a>
           {%- endif -%}

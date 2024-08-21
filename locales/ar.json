@@ -199,6 +199,7 @@
         "preoder": "هذا المنتج غير متوفر، لكن لا يزال بإمكانك طلبه."
       },
       "add_to_cart_button": "إضافة إلى عربة التسوق",
+      "choose_options_button": "اختر الخيارات",
       "preorder_button": "الطلب المسبق",
       "share_link": "مشاركة",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "محتويات الحزمة",
       "add_product_to_bundle": "أضف إلى الحزمة",
+      "product_added_to_bundle": "أُضيف إلى الحزمة",
       "add_bundle_to_cart": "إضافة إلى عربة التسوق",
       "choose_products_first": "اختر المنتجات أولاً",
       "add_all_to_cart": "أضف الكل إلى عربة التسوق"

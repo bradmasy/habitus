@@ -163,7 +163,24 @@
 
         </div>
       </div>
+    
+    {%- when 'cross_sell' -%}
+      <div class="container--compact container--vertical-space-{% if forloop.first %}small{% else %}xsmall{% endif %}" {{ block.shopify_attributes }}>
 
+        {%- liquid
+          assign show_block = true
+          if block.settings.hide_block_if == true and block.settings.product == blank
+            assign show_block = false
+          endif
+        -%}
+
+        {%- if show_block -%}
+          <div class="product-recommendation" {{ block.shopify_attributes }}>
+            {%- assign recommendation_id = 'product-recommendation-' | append: block.id -%}
+            {%- render 'product-cross-sell', heading: block.settings.heading, product: block.settings.product, id: recommendation_id, widget_style: block.settings.style, heading_position: 'inside', layout: 'expanded' -%}
+          </div>
+        {%- endif -%}
+      </div>
   {%- endcase -%}
     
 {%- endfor -%}
@@ -272,6 +289,50 @@
             "id": "blog_show_content_back",
             "label": "t:sections.bundle-extra-words.settings_schema.labels.show_back",
             "default": true
+          }
+        ]
+      },
+      {
+        "type": "cross_sell",
+        "name": "t:cross-selling.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "t:sections.local-extra-words.sections.headings.title",
+            "default": "Recommended product"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "t:sections.bundle-extra-words.sections.main-product-page.settings.promo.select_product"
+          },
+          { 
+            "type": "select",
+            "id": "style",
+            "label": "t:sections.bundle-extra-words.settings_schema.labels.container_design",
+            "options": [
+              {
+                "value": "outline",
+                "label": "t:sections.bundle-extra-words.settings_schema.labels.options.option_3"
+              },
+              {
+                "value": "primary",
+                "label": "t:sections.bundle-extra-words.settings_schema.labels.options.option_4"
+              }
+            ],
+            "default": "outline"
+          },
+          {
+            "type": "header",
+            "content": "t:local-march-update.labels.dynamic_content.name"
+          },
+          {
+            "type": "checkbox",
+            "label": "t:local-march-update.labels.dynamic_content.hide_block",
+            "id": "hide_block_if",
+            "default": false
           }
         ]
       }

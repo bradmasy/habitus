@@ -1,17 +1,41 @@
 {%- if section.blocks.size > 0 -%}
 
-  {% style %}
-    #slider-{{ section.id }} .card {
-      height: {{ section.settings.desktop_height }};
-      min-height: 450px;
-    }
-    @media all and (max-width: 1023px) {
+  {%- unless section.settings.is_auto_height -%}
+    {% style %}
       #slider-{{ section.id }} .card {
-        height: {{ section.settings.mobile_height }};
+        height: {{ section.settings.desktop_height }};
+        min-height: 450px;
       }
-    }
-  {% endstyle %}
-  
+      @media all and (max-width: 1023px) {
+        #slider-{{ section.id }} .card {
+          height: {{ section.settings.mobile_height }};
+        }
+      }
+    {% endstyle %}
+  {%- else -%}
+    {% style %}
+      #slider-{{ section.id }} .card {
+        height: fit-content;
+      }
+      #slider-{{ section.id }} .card__image {
+        position: relative !important;
+        height: fit-content;
+      }
+      #slider-{{ section.id }} .card__text-parent {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      {% if section.settings.is_fullwidth %}
+        @media screen and (min-width: {{ settings.theme_max_width | plus: 1 }}px) {
+          #slider-{{ section.id }} .card__text-parent {
+            left: calc((100vw - {{ settings.theme_max_width }}px) / 2);
+          }
+        }
+      {% endif %}
+    {% endstyle %}
+  {%- endunless -%}
+
   <div id="slider-{{ section.id }}" class="{% if section.settings.is_fullwidth %} container--fullwidth {% else %} container--large {% endif %} {% unless section.settings.remove_margin %} container--vertical-space {% endunless %} remove-empty-space reduce-margin-if-first">
 
     {%- if section.blocks.size > 1 -%}
@@ -19,10 +43,18 @@
         "selector": ".card",
         "groupCells": true,
         "listenScroll": true,
-        "navigationDOM": "<span class=\"css-slider-button css-slider-prev\" style=\"display:none\"><svg fill=\"none\" height=\"11\" viewBox=\"0 0 6 11\" width=\"6\" xmlns=\"http://www.w3.org/2000/svg\"><path clip-rule=\"evenodd\" d=\"m4.32845 10.0708-4.18198-4.18194c-.195261-.19526-.195261-.51185 0-.70711l4.18198-4.181979c.19527-.195262.51185-.195262.70711 0 .19526.195259.19526.511849 0 .707109l-3.32843 3.32842s-.70713.4647-.00002 1l3.32845 3.32843c.19526.19526.19526.51185 0 .70707-.19526.1953-.51185.1953-.70711 0z\" fill=\"#000\" fill-rule=\"evenodd\"/></svg></span><span class=\"css-slider-button css-slider-next\" style=\"display:none\"><svg fill=\"none\" height=\"11\" viewBox=\"0 0 6 11\" width=\"6\" xmlns=\"http://www.w3.org/2000/svg\"><path clip-rule=\"evenodd\" d=\"m.853555.999962 4.181985 4.181978c.19526.19526.19526.51185 0 .70711l-4.181983 4.18195c-.195263.1953-.511845.1953-.707108 0-.1952631-.19523-.1952632-.51181 0-.70708l3.328431-3.32842s.70713-.4647.00002-1l-3.328453-3.32843c-.1952626-.19526-.1952627-.51185 0-.707108.195263-.195262.511845-.195262.707108 0z\" fill=\"#000\" fill-rule=\"evenodd\"/></svg></span>",
-        "thumbnailsDOM": "<div class=\"css-slider-dot-navigation\" style=\"display:none;--size:{{ section.blocks.size }}\"></div>"
+        {% if section.settings.autorotate_enable %} 
+          "autoplay": {{ section.settings.autorotate_interval | times: 1000 }}, 
+          "thumbnailsDOM": "<div class=\"css-slider-dot-navigation css-slider-dot-navigation--autoplay\" style=\"display:none\"></div>",
+        {% else %}
+          "thumbnailsDOM": "<div class=\"css-slider-dot-navigation\" style=\"display:none;--size:{{ section.blocks.size }}\"></div>",
+        {% endif %}
+        {% if section.settings.is_auto_height %} "autoHeight": true, {% endif %}
+        "navigationDOM": "<span class=\"css-slider-button css-slider-prev\" style=\"display:none\"><svg fill=\"none\" height=\"11\" viewBox=\"0 0 6 11\" width=\"6\" xmlns=\"http://www.w3.org/2000/svg\"><path clip-rule=\"evenodd\" d=\"m4.32845 10.0708-4.18198-4.18194c-.195261-.19526-.195261-.51185 0-.70711l4.18198-4.181979c.19527-.195262.51185-.195262.70711 0 .19526.195259.19526.511849 0 .707109l-3.32843 3.32842s-.70713.4647-.00002 1l3.32845 3.32843c.19526.19526.19526.51185 0 .70707-.19526.1953-.51185.1953-.70711 0z\" fill=\"#000\" fill-rule=\"evenodd\"/></svg></span><span class=\"css-slider-button css-slider-next\" style=\"display:none\"><svg fill=\"none\" height=\"11\" viewBox=\"0 0 6 11\" width=\"6\" xmlns=\"http://www.w3.org/2000/svg\"><path clip-rule=\"evenodd\" d=\"m.853555.999962 4.181985 4.181978c.19526.19526.19526.51185 0 .70711l-4.181983 4.18195c-.195263.1953-.511845.1953-.707108 0-.1952631-.19523-.1952632-.51181 0-.70708l3.328431-3.32842s.70713-.4647.00002-1l-3.328453-3.32843c-.1952626-.19526-.1952627-.51185 0-.707108.195263-.195262.511845-.195262.707108 0z\" fill=\"#000\" fill-rule=\"evenodd\"/></svg></span>"
       }'
         class="css-slider css-slider--bottom-navigation"
+        id="css-slider-{{ section.id }}"
+        style="--autorotate-interval: {{ section.settings.autorotate_interval }}s;"
       >
     {%- endif -%}
 
@@ -32,9 +64,9 @@
 
         <div id="element-{{ block.id }}" class="card card--fullwidth {% if section.settings.is_fullwidth %} card--no-radius {% endif %} card--no-borders js-slider-item" {{ block.shopify_attributes }}>
 
-          <div class="{% if section.settings.is_fullwidth %} container--large gutter-top--xlarge gutter-bottom--xlarge container--large-with-mobile-padding {% endif %} align-content align-content--{{ section.settings.alignment }}">
+          <div class="{% if section.settings.is_fullwidth %} container--large gutter-top--xlarge gutter-bottom--xlarge container--large-with-mobile-padding {% endif %} align-content align-content--{{ section.settings.alignment }} card__text-parent">
               
-            <div class="card__text {% unless section.settings.is_fullwidth %} gutter--xlarge {% endunless %} spacing--custom remove-empty-space" style="--spacing:{{ section.settings.spacing }}px">
+            <div class="card__text {% unless section.settings.is_fullwidth %} gutter--xlarge {% endunless %} spacing--custom remove-empty-space" style="--spacing:{{ section.settings.spacing }}px; mix-blend-mode: {{ section.settings.text_blend_mode }}">
 
               {%- unless block.settings.caption == blank -%}
                 <span class="{{ section.settings.caption_size }}">{{ block.settings.caption | escape }}</span>
@@ -44,7 +76,7 @@
                 <{{ block.settings.seo_h_tag }} class="text-font--heading {{ section.settings.title_size }} gutter-bottom--small">
                   
                   {%- if block.settings.button_label == blank and block.settings.link != blank -%}
-                    <a href="{{ block.settings.link }}">
+                    <a href="{{ block.settings.link }}"  {% unless block.settings.open_in_new_window == false %} target="_blank" {% endunless %}>
                   {%- endif -%}
                   
                     <span class="text-animation--underline underline-mobile">{{ block.settings.title | escape }}</span>
@@ -58,7 +90,7 @@
 
               {%- if block.settings.button_label != blank -%}
                 <div>
-                  {%- render 'button', label: block.settings.button_label, link: block.settings.link, style: section.settings.button_style, fullwidth: false -%}
+                  {%- render 'button', target_blank: block.settings.open_in_new_window, label: block.settings.button_label, link: block.settings.link, style: section.settings.button_style, fullwidth: false -%}
                 </div>
               {%- endif -%}
             </div>
@@ -78,9 +110,23 @@
             {%- if block.type == 'image' -%}
 
               {%- unless block.settings.image == blank -%}
-                {%- capture sizes -%}
-                  sizes="(max-width: 1023px) calc({{ section.settings.mobile_height }} * {{ block.settings.image.aspect_ratio }}), calc({{ section.settings.desktop_height }} * {{ block.settings.image.aspect_ratio }})"
-                {%- endcapture -%}
+                {%- unless section.settings.is_auto_height -%}
+                  {%- liquid
+                    assign image_type = 'background'
+                    assign image_alignment = true
+                  -%}
+                  {%- capture sizes -%}
+                    sizes="(max-width: 1023px) calc({{ section.settings.mobile_height }} * {{ block.settings.image.aspect_ratio }}), calc({{ section.settings.desktop_height }} * {{ block.settings.image.aspect_ratio }})"
+                  {%- endcapture -%}
+                {%- else -%}
+                  {%- if is_fullwidth -%}
+                    {%- assign sizes = 'sizes="100vw"' -%}
+                  {%- else -%}
+                    {%- capture sizes -%}
+                      sizes="(max-width: {{ settings.theme_max_width }}px) calc(100vw - 30px), {{ settings.theme_max_width }}px"
+                    {%- endcapture -%}
+                  {%- endif -%}
+                {%- endunless -%}
 
                 {%- liquid
 
@@ -88,14 +134,15 @@
 
                   if block.settings.mobile_image
 
-                    render 'lazy-image', image: block.settings.mobile_image, type: 'background', alt: block.settings.title, image_alignment: true, sizes: sizes, class: 'lazy-image--to-reveal element--hide-on-desk', overlay: true, preload: preload
+                    render 'lazy-image', image: block.settings.mobile_image, type: image_type, alt: block.settings.title, image_alignment: image_alignment, sizes: sizes, class: 'lazy-image--to-reveal element--hide-on-desk', overlay: true, preload: preload
 
                     assign image_class = image_class | append: ' element--hide-on-small'
 
                   endif
                   
-                  render 'lazy-image', image: block.settings.image, type: 'background', alt: block.settings.title, image_alignment: true, sizes: sizes, class: image_class, overlay: true, preload: preload
+                  render 'lazy-image', image: block.settings.image, type: image_type, alt: block.settings.title, image_alignment: image_alignment, sizes: sizes, class: image_class, overlay: true, preload: preload
 
+                  assign image_class = ''
                 -%}
 
               {%- else -%}
@@ -104,40 +151,48 @@
 
             {%- else -%}
 
-            {%- unless block.settings.video == blank -%}
+              {%- if section.settings.is_auto_height -%}
+                <style>
+                  #element-{{ block.id }} .card__image {
+                    aspect-ratio: 16 / 9;
+                  }
+                </style>
+              {%- endif -%}
 
-              <video-background-element class="lazy-image lazy-image--background" data-id="{{ block.id }}">
+              {%- unless block.settings.video == blank -%}
 
-                <video autoplay muted loop playsinline>
-                  {%- for source in block.settings.video.sources -%}
-                    <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
-                  {%- endfor -%}
-                </video>
-                
-                {%- unless block.settings.image == blank -%}
-                  <div data-video-background-fallback data-id="{{ block.id }}">
-                    <template>
-                      {%- capture sizes -%}
-                        sizes="calc({{ section.settings.desktop_height }} * {{ block.settings.image.aspect_ratio }})"
-                      {%- endcapture -%}
-                      {%- render 'lazy-image', image: block.settings.image, type: 'background', sizes: sizes, class: 'lazy-image--to-reveal' -%}
-                    </template>
-                  </div>
-                {%- endunless -%}
+                <video-background-element class="lazy-image lazy-image--background" data-id="{{ block.id }}">
 
-              </video-background-element>
+                  <video autoplay muted loop playsinline>
+                    {%- for source in block.settings.video.sources -%}
+                      <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+                    {%- endfor -%}
+                  </video>
+                  
+                  {%- unless block.settings.image == blank -%}
+                    <div data-video-background-fallback data-id="{{ block.id }}">
+                      <template>
+                        {%- capture sizes -%}
+                          sizes="calc({{ section.settings.desktop_height }} * {{ block.settings.image.aspect_ratio }})"
+                        {%- endcapture -%}
+                        {%- render 'lazy-image', image: block.settings.image, type: 'background', sizes: sizes, class: 'lazy-image--to-reveal' -%}
+                      </template>
+                    </div>
+                  {%- endunless -%}
 
-            {%- else -%}
-              {{ 'image' | placeholder_svg_tag }}
-            {%- endunless -%}
+                </video-background-element>
 
-            {%- assign video_script = true -%}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag }}
+              {%- endunless -%}
+
+              {%- assign video_script = true -%}
 
             {%- endif -%}
 
           </div>
         
-        {%- render 'custom-colors', id: block.id, text: block.settings.color_text_main, background: block.settings.color_background_main -%}
+        {%- render 'custom-colors', id: block.id, text: block.settings.color_text_main, background: block.settings.color_background_main, border_radius: section.settings.border_radius -%}
 
       </div>
 
@@ -161,7 +216,7 @@
 
 {%- if video_script -%}
   <script src="{{ 'component-video-background.js' | asset_url }}" defer></script>
- {%- endif -%}
+{%- endif -%}
 
 {% schema %}
 {
@@ -176,15 +231,23 @@
       "options": [
         {
           "value": "40vh",
-          "label": "t:sections.image-with-text.settings.image_height.options__1.label"
+          "label": "t:sections.image-with-text.settings.image_height.options__1.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+        },
+        {
+          "value": "50vh",
+          "label": "t:sections.rich-text.settings.image_height.options__1.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
         },
         {
           "value": "60vh",
-          "label": "t:sections.image-with-text.settings.image_height.options__2.label"
+          "label": "t:sections.image-with-text.settings.image_height.options__2.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
         },
         {
           "value": "80vh",
-          "label": "t:sections.image-with-text.settings.image_height.options__3.label"
+          "label": "t:sections.image-with-text.settings.image_height.options__3.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
         },
         {
           "value": "100vh",
@@ -200,15 +263,23 @@
       "options": [
         {
           "value": "40vh",
-          "label": "t:sections.image-with-text.settings.image_height.options__1.label"
+          "label": "t:sections.image-with-text.settings.image_height.options__1.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+        },
+        {
+          "value": "50vh",
+          "label": "t:sections.rich-text.settings.image_height.options__1.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
         },
         {
           "value": "60vh",
-          "label": "t:sections.image-with-text.settings.image_height.options__2.label"
+          "label": "t:sections.image-with-text.settings.image_height.options__2.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
         },
         {
           "value": "80vh",
-          "label": "t:sections.image-with-text.settings.image_height.options__3.label"
+          "label": "t:sections.image-with-text.settings.image_height.options__3.label",
+          "group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
         },
         {
           "value": "100vh",
@@ -216,6 +287,34 @@
         }
       ],
       "default": "60vh"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_auto_height",
+      "label": "Auto height",
+      "info": "Checking this option will overwrite the height settings above and make the slideshow's height responsive to the image inside each slide."
+    },
+    {
+      "type": "header",
+      "content": "t:local-220.autorotate.heading",
+      "info": "t:local-220.autorotate.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "autorotate_enable",
+      "label": "t:local-220.autorotate.enable",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autorotate_interval",
+      "label": "t:local-220.autorotate.interval",
+      "step": 1,
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "unit": "s"
     },
     {
       "type": "checkbox",
@@ -295,7 +394,7 @@
     {
       "type": "select",
       "id": "title_size",
-      "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label",
+      "label": "t:sections.local-extra-words.sections.main-header.settings.promotion_block.title.size",
       "options": [
           {
             "value": "heading-size--small",
@@ -343,8 +442,29 @@
       "default": "100%"
     },
     {
-      "type": "header",
-      "content": "t:sections.bundle-extra-words.settings_schema.labels.button"
+      "type": "select",
+      "id": "text_blend_mode",
+      "label": "t:sections.bundle-extra-words.sections.slider.settings.blending_modes.label",
+      "info": "t:sections.bundle-extra-words.sections.slider.settings.blending_modes.info",
+      "options": [
+        {
+          "value": "normal",
+          "label": "t:sections.bundle-extra-words.sections.slider.settings.blending_modes.option__1"
+        },
+        {
+          "value": "exclusion",
+          "label": "t:sections.bundle-extra-words.sections.slider.settings.blending_modes.option__2"
+        },
+        {
+          "value": "soft-light",
+          "label": "t:sections.bundle-extra-words.sections.slider.settings.blending_modes.option__3"
+        },
+        {
+          "value": "overlay",
+          "label": "t:settings_schema.product-grid.settings.caption_placement.options__1.label"
+        }
+      ],
+      "default": "normal"
     },
     {
       "id": "button_style",
@@ -361,6 +481,20 @@
         }
       ],
       "default": "solid"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.bundle-extra-words.settings_schema.card.settings.design.header"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:sections.bundle-extra-words.settings_schema.buttons.settings.border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     },
     {
       "type": "header",
@@ -415,6 +549,12 @@
           "id": "button_label",
           "label": "t:sections.image-with-text.blocks.image.settings.button_label.label",
           "default": "Show more"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_window",
+          "label": "t:sections.local-extra-words.sections.announcement-bar.blocks.content.settings.target",
+          "default": false
         },
         {
           "type": "header",

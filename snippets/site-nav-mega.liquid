@@ -9,7 +9,7 @@
 <li class="has-submenu submenu-is-mega-menu js-mega-menu-item" {{ shopify_attributes }}>
 
   <a class="menu-link {{ links_weight }}"
-    {% if show_more_url %} href="{{ show_more_url }}" {% endif %}
+    {% if show_more_url %} href="{{ show_more_url }}" {% else %} tabindex="0" {% endif %}
   >
     <span><span  class="{{ links_class }}">{{ menu_name | escape }}</span></span>
     <span class="icon">{%- render 'theme-symbols', icon: 'chevron' -%}</span>

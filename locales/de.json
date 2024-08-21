@@ -199,6 +199,7 @@
         "preoder": "Dieses Produkt ist nicht mehr auf Lager, Sie können es aber noch bestellen."
       },
       "add_to_cart_button": "In den Warenkorb",
+      "choose_options_button": "Optionen wählen",
       "preorder_button": "Pre order",
       "share_link": "Teilen",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "Dein Set",
       "add_product_to_bundle": "Hinzufügen",
+      "product_added_to_bundle": "Zum Paket hinzugefügt",
       "add_bundle_to_cart": "Zum Warenkorb hinzufügen",
       "choose_products_first": "Zuerst Produkte auswählen",
       "add_all_to_cart": "Alle zu Einkaufswagen hinzufügen"

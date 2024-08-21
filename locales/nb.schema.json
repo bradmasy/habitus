@@ -1,10 +1,64 @@
 {
+  "new_color_swatches": "Dette temaet støtter også fargeprøver opprettet med kategorimetafelter. [Lær mer](https://help.shopify.com/en/manual/custom-data/metafields/category-metafields/using-category-metafields).",
+  "video_controls": "Vis videokontroller",
+  "sticky_cart_actions": "Aktiver klistrede handlevogns handlinger",
+  "currency_codes": {
+    "header": "Valutaformat",
+    "label": "Vis valutakoder",
+    "info": "Eksempel: $1.00 USD."
+  },
+  "a11": {
+    "label": "Tilgjengelighet",
+    "show_sidebars_scrollbar": "Vis rullefelt på sidestolper",
+    "disable_all_image_animations": "Deaktiver alle bildeanimasjoner"
+  },
+  "divider": {
+    "label": "Skillelinje",
+    "divider_design": "Design av skillelinje",
+    "divider_style_solid": "Heltrukken",
+    "divider_style_dotted": "Punktet",
+    "divider_style_dashed": "Stiplet",
+    "divider_style_double": "Dobbel",
+    "divider_color": "Farge",
+    "divider_image": "Skillelinjebilde",
+    "divider_image_info": "Et horisontalt repeterende bilde. Erstatter stilen og fargen ovenfor."
+  },
+  "cart_actions": {
+    "label": "Handlinger i skuffevogn",
+    "option_1": "Vis knappen \"vis handlekurv\"",
+    "option_2": "Vis knappen \"utsjekking\"",
+    "option_3": "Vis begge deler"
+  },
+  "sticky_atc": {
+    "label": "Klistre legg til i handlekurv",
+    "enable_sticky_atc": "Aktiver klistre legg til i handlekurv"
+  },
+  "performance": {
+    "header": "SEO & ytelse",
+    "name": "Ytelse",
+    "label": "Forhåndslast lenker ved hover",
+    "info": "Øker den oppfattede lastehastigheten for sider."
+  },
+  "recently_viewed": {
+    "enable_recently_viewed_products": "Aktiver nylig viste produkter",
+    "enable_recently_viewed_products_info": "Når aktivert, vil temaet registrere viste produkter, men du må legge til seksjonen i butikken din for å vise disse produktene.",
+    "recently_viewed_products": "Nylig viste produkter",
+    "recently_viewed_products_info": "Denne seksjonen trenger å ha funksjonaliteten aktivert i Tema Innstillinger. Den vil kun vises etter at brukere har besøkt minst en produktside.",
+    "recently_viewed_products_limit": "Grense for nylig viste produkter"
+  },
   "rating_apps_update": {
     "label": "Vurderingsapp",
     "info": "Tredjepartsapper kan kreve ytterligere trinn for å bli skikkelig integrert."
   },
   "local-220": {
-    "preorder": "Vis \"forhåndsbestill\" knapp etikett"
+    "preorder": "Vis \"forhåndsbestill\" knapp etikett",
+    "autorotate": {
+      "heading": "Autoroter",
+      "info": "Roter automatisk gjennom lysbildene.",
+      "enable": "Aktiver autorotasjon",
+      "interval": "Intervall",
+      "pause_on_mouseover": "Pause ved musepeker"
+    }
   },
   "custom-social-icons": {
     "header": "Tilpasset lenke",
@@ -27,6 +81,10 @@
     }
   },
   "settings_schema": {
+    "exit_intent": {
+      "exit_intent_popup": "Popup for utgangsintensjon",
+      "exit_intent_popup_info": "Denne seksjonen fungerer bare på skrivebord"
+    },
     "colors": {
       "name": "Farger",
       "settings": {
@@ -82,7 +140,7 @@
         },
         "enhance_featured_products": {
           "label": "Fremhev utvalgte produkter",
-          "info": "[Få vite mer](https://shopify-support.krownthemes.com/article/471-general-settings#featured-products)"
+          "info": "[Få vite mer](https://shopify-support.krownthemes.com/article/832-product-card)"
         },
         "show_discount": {
           "label": "Vis rabatt som …",
@@ -2517,6 +2575,9 @@
         "enable_sorting": {
           "label": "Aktiver sortering"
         },
+        "image_filter_layout": {
+          "label": "Oppsett for bildefilter"
+        },
         "header__1": {
           "content": "Filtrering og sortering"
         }
@@ -3233,6 +3294,19 @@
       "label_2": "Bilde 2",
       "label_3": "Bilde 3"
     }
+  },
+  "bundle-240": {
+    "hide_search": "Skjul søk",
+    "hide_cart": "Skjul handlekurv",
+    "product_gallery_mobile_padding": "Legg til polstring i galleriet på mobil",
+    "show_variant_labels": "Vis variantetiketter",
+    "hide_on_desktop": "Skjul element på skrivebordet",
+    "section_design": "Seksjonsdesign",
+    "background_color": "Bakgrunnsfarge",
+    "background_gradient": "Bakgrunnsgradient",
+    "heading_text_color": "Overskriftens tekstfarge",
+    "text_color": "Tekstfarge",
+    "slider_navigation_color": "Navigasjonselementenes farge"
   },
   "bundle-220": {
     "blending_modes_behind": "Bak",

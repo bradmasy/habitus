@@ -199,6 +199,7 @@
         "preoder": "この商品は在庫切れですが、ご注文いただくことはできます。"
       },
       "add_to_cart_button": "カートに追加する",
+      "choose_options_button": "オプションを選択",
       "preorder_button": "予約注文",
       "share_link": "共有する",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "バンドルコンテンツ",
       "add_product_to_bundle": "バンドルに追加",
+      "product_added_to_bundle": "バンドルに追加されました",
       "add_bundle_to_cart": "カートに追加する",
       "choose_products_first": "最初に商品を選択",
       "add_all_to_cart": "すべてをカートに追加"

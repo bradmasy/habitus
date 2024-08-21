@@ -4,7 +4,7 @@
   <div class="container--large" data-js-inert>
     {%- liquid
       if section.settings.enable_filtering or section.settings.enable_sorting
-        render 'facets-horizontal', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting
+        render 'facets-horizontal', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, image_filter_layout: section.settings.image_filter_layout, location: 'desktop'
       endif
     -%}
   </div>
@@ -18,34 +18,87 @@
 
       {%- if section.settings.filters_position == "sidebar" -%}
 
-        <div class="grid grid-4 grid-portable-3 grid-lap-2 grid-tiny-1 grid--layout">
+        {%- liquid
+          if section.settings.layout_desktop == 'four-columns'
+            assign parent_class_desktop = 'grid-4 grid-portable-3 grid-lap-2 grid-palm-1'
+            assign grid_class_desktop = 'grid-3 grid-portable-2 grid-palm-1 grid-offset-3 grid-offset-portable-2'
+            assign pagination_offset_class = 'grid-offset-3 grid-offset-portable-2'
+            assign sizes_class = 'grid-4'
+          else
+            assign parent_class_desktop = 'grid-3 grid-portable-3 grid-lap-2 grid-palm-1'
+            assign grid_class_desktop = 'grid-2 grid-portable-2 grid-offset-2 grid-offset-portable-2'
+            assign pagination_offset_class = 'grid-offset-2 grid-offset-portable-2'
+            assign sizes_class = 'grid-3'
+          endif
+          
+          if section.settings.layout_mobile == 'grid-palm-1'
+            assign parent_class_mobile = 'grid-palm-1'
+            assign grid_class_mobile = 'grid-palm-1 grid-offset-palm-1'
+            assign pagination_offset_mobile_class = 'grid-offset-palm-1'
+            assign heading_continer_mobile = ''
+          else
+            assign parent_class_mobile = 'grid-palm-2'
+            assign grid_class_mobile = 'grid-palm-2 grid-offset-palm-2'
+            assign pagination_offset_mobile_class = 'grid-offset-palm-2'
+            assign heading_continer_mobile = 'grid-offset-palm-2'
+          endif
+        -%}
 
-          {%- unless collection.products.size == 0 -%}
+        <div class="grid {{ parent_class_desktop }} {{ parent_class_mobile }} grid--layout">
+
+          {%- unless collection.products_count == 0 -%}
             <aside class="facets-sidebar element--is-sticky">
               {%- liquid
                 if section.settings.enable_filtering or section.settings.enable_sorting
-                  render 'facets-vertical', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, location: 'desktop'
+                  render 'facets-vertical', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, location: 'desktop', image_filter_layout: section.settings.image_filter_layout
                 endif
               -%}
             </aside>
           {%- endunless -%}
 
-          <div id="CollectionProductGrid" class="grid grid--layout grid-3 grid-portable-2 grid-tiny-1 grid-offset-3 grid-offset-portable-2 grid-offset-tiny-1">
-            {%- unless collection.products.size == 0 -%}
-              <div class="collection-heading-container grid grid--layout grid-1 grid-offset-3 grid-offset-portable-2 grid-offset-tiny-1">{%- render 'facets-header', results: collection -%}</div>
+          <div id="CollectionProductGrid" class="grid grid--layout {{ grid_class_desktop }} {{ grid_class_mobile }}">
+            {%- unless collection.products_count == 0 -%}
+              <div class="collection-heading-container grid grid--layout grid-1 grid-palm-1 {{ heading_continer_mobile }}">{%- render 'facets-header', results: collection -%}</div>
             {%- endunless -%}
-            <div id="main-collection-product-grid" data-id="{{ section.id }}" class="collection grid grid--layout grid-3 grid-portable-2 grid-tiny-1 grid-offset-3 grid-offset-portable-2 grid-offset-tiny-1">
+            <div id="main-collection-product-grid" data-id="{{ section.id }}" class="collection grid grid--layout {{ grid_class_desktop }} {{ grid_class_mobile }}">
 
       {%- else -%}
 
+        {%- liquid
+          if section.settings.layout_desktop == 'four-columns'
+            assign grid_class_desktop = 'grid-4 grid-laptop-3 grid-lap-2'
+            assign parent_class_desktop = 'grid-4 grid-portable-3 grid-lap-2 grid-palm-1'
+            assign pagination_offset_class = 'grid-offset-4 grid-offset-laptop-3 grid-offset-lap-2'
+            assign sizes_class = 'grid-4'
+          else
+            assign grid_class_desktop = 'grid-3 grid-portable-2'
+            assign parent_class_desktop = 'grid-3 grid-portable-3 grid-lap-2 grid-palm-1'
+            assign pagination_offset_class = 'grid-offset-3 grid-offset-portable-2'
+            assign sizes_class = 'grid-3'
+          endif
+          
+          if section.settings.layout_mobile == 'grid-palm-1'
+            assign parent_class_mobile = 'grid-palm-1'
+            assign grid_class_mobile = 'grid-palm-1'
+            assign pagination_offset_mobile_class = 'grid-offset-palm-1'
+            assign heading_continer_mobile = ''
+          else
+            assign parent_class_mobile = 'grid-palm-2'
+            assign grid_class_mobile = 'grid-palm-2'
+            assign pagination_offset_mobile_class = 'grid-offset-palm-2'
+            assign heading_continer_mobile = 'grid-offset-palm-2'
+          endif
+        -%}
+
+        
         <div id="CollectionProductGrid">
-          <div id="main-collection-product-grid" data-id="{{ section.id }}" class="collection grid grid--layout grid-4 grid-portable-3 grid-lap-2 grid-tiny-1">
+          <div id="main-collection-product-grid" data-id="{{ section.id }}" class="collection grid grid--layout {{ grid_class_desktop }} {{ grid_class_mobile }}">
 
       {%- endif -%}
           
             {%- for product in collection.products -%}
               {%- liquid
-                  render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: 'grid-4', show_badges: settings.show_badges, section_id: section.id, product_collection: collection
+                  render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: grid_class_desktop, mobile_layout: section.settings.layout_mobile, show_badges: settings.show_badges, section_id: section.id, product_collection: collection
               -%}
 
             {%- else -%}
@@ -72,7 +125,7 @@
             {%- endfor -%}
 
         {%- if paginate.pages > 1 -%}
-          <div class="grid-offset-3 grid-offset-portable-2 grid-offset-tiny-1">
+          <div class="{{ pagination_offset_class }} {{ pagination_offset_mobile_class | append: ' offset-mobile-on'}}">
             {%- render 'pagination', paginate: paginate %}
           </div>
         {%- endif -%}
@@ -102,7 +155,7 @@
       </button>
     </div>
     <div class="sidebar__body">
-      {%- render 'facets-vertical', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, location: 'mobile' -%}
+      {%- render 'facets-vertical', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, location: 'mobile', image_filter_layout: section.settings.image_filter_layout -%}
     </div>
   </sidebar-drawer>
   <script src="{{ 'component-facets.js' | asset_url }}" defer></script>
@@ -290,6 +343,22 @@
         "default": true
       },
       {
+        "type": "select",
+        "id": "image_filter_layout",
+        "label": "t:sections.main-collection-product-grid.settings.image_filter_layout.label",
+        "options": [
+          {
+            "value": "onecolumn",
+            "label": "t:sections.local-extra-words.sections.columns.option__0"
+          },
+          {
+            "value": "twocolumns",
+            "label": "t:sections.local-extra-words.sections.columns.option__1"
+          }
+        ],
+        "default": "onecolumn"
+      },
+      {
         "type": "header",
         "content": "t:sections.bundle-extra-words.sections.headings.layout.label"
       },
@@ -308,6 +377,38 @@
           }
         ],
         "default": "sidebar"
+      },
+      {
+        "type": "select",
+        "id": "layout_desktop",
+        "label": "t:sections.local-extra-words.sections.columns.name",
+        "options": [
+          {
+            "value": "three-columns",
+            "label": "t:sections.local-extra-words.sections.columns.option__2"
+          },
+          {
+            "value": "four-columns",
+            "label": "t:sections.local-extra-words.sections.columns.option__3"
+          }
+        ],
+        "default": "four-columns"
+      },
+      {
+        "type": "select",
+        "id": "layout_mobile",
+        "label": "t:sections.local-extra-words.sections.columns.name_mobile",
+        "options": [
+          {
+            "value": "grid-palm-1",
+            "label": "t:sections.local-extra-words.sections.columns.option__0"
+          },
+          {
+            "value": "grid-palm-2",
+            "label": "t:sections.local-extra-words.sections.columns.option__1"
+          }
+        ],
+        "default": "grid-palm-2"
       }
     ]
   }

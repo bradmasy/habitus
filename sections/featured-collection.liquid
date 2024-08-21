@@ -1,13 +1,14 @@
-<div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} remove-empty-space">
+
+<div class="container--large container--vertical-space{% if section.settings.gutter_decrease %}-small{% endif %} {% if section.settings.section_background_color != "rgba(0,0,0,0)" or section.settings.section_background_gradient != blank %} container--has-background {% endif %} {% if section.settings.remove_bottom_margin %} container--negative-margin {% endif %} remove-empty-space">
 
   {%- render 'section-heading', heading: section.settings.heading, subheading: section.settings.subheading, heading_size: section.settings.section_heading_size, section_layout: section.settings.section_heading_layout, seo_h_tag: section.settings.seo_h_tag -%}
 
-  <div class="grid grid--layout {{ section.settings.layout }}" style="margin-bottom: calc(-1*var(--gutter-regular));">
+  <div class="grid grid--layout {{ section.settings.layout }} {{ section.settings.layout_mobile }}" style="margin-bottom: calc(-1*var(--gutter-regular));">
 
     {%- liquid
       if section.settings.collection != blank
         for product in collections[section.settings.collection].products limit: section.settings.products_number
-          render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: section.settings.layout, show_badges: settings.show_badges, section_id: section.id, product_collection: collections[section.settings.collection]
+          render 'product-item', product: product, section_blocks: section.blocks, index: forloop.index, layout: section.settings.layout, mobile_layout: section.settings.layout_mobile, show_badges: settings.show_badges, section_id: section.id, product_collection: collections[section.settings.collection]
         endfor
       else 
         for i in (1..section.settings.products_number)
@@ -21,6 +22,36 @@
   {%- render 'section-footer', button: section.settings.show_view_all, button_label: 'collections.view_all_products', link: collections[section.settings.collection].url, button_label_is_translation: true, show_always: true, align_center: true -%}
 
 </div>
+
+<style>
+  {%- if section.settings.section_background_color != "rgba(0,0,0,0)" -%}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.section_background_color }};
+    }
+  {%- endif -%}
+  {%- if section.settings.section_background_gradient != blank -%}
+    #shopify-section-{{ section.id }} {
+      background-image: {{ section.settings.section_background_gradient }};
+    }
+  {%- endif -%}
+  {%- if section.settings.section_heading_color != "rgba(0,0,0,0)" -%}
+    #shopify-section-{{ section.id }} {
+      --color-text-main: {{ section.settings.section_heading_color }};
+      --color-secondary-text-main: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.6 }};
+      --color-borders-forms-primary: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.3 }};
+      --color-borders-main: {{ section.settings.section_heading_color | color_modify: 'alpha', 0.1 }};
+    }
+    #shopify-section-{{ section.id }} .product-item__text {
+      color: {{ section.settings.section_heading_color }};
+    }
+    #shopify-section-{{ section.id }} .star-rating__stars {
+      background-image: url('data:image/svg+xml;utf8,<svg width="20" height="14" viewBox="0 0 14 13" fill="{{ section.settings.section_heading_color | color_modify: 'alpha', 0.1 | url_encode }}" xmlns="http://www.w3.org/2000/svg"><path d="m7 0 1.572 4.837h5.085l-4.114 2.99 1.572 4.836L7 9.673l-4.114 2.99 1.571-4.837-4.114-2.99h5.085L7 0Z" stroke="{{ section.settings.section_heading_color | color_modify: 'alpha', 0.1  | url_encode }}" stroke-width="0"/></svg>');
+    }
+    #shopify-section-{{ section.id }} .star-rating__stars-active {
+      background-image: url('data:image/svg+xml;utf8,<svg width="20" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m7 0 1.572 4.837h5.085l-4.114 2.99 1.572 4.836L7 9.673l-4.114 2.99 1.571-4.837-4.114-2.99h5.085L7 0Z" fill="{{ section.settings.section_heading_color | url_encode }}" stroke-width="0"/></svg>');
+    }
+  {%- endif -%}
+</style>
 
 {% schema %}
   {
@@ -245,18 +276,33 @@
         "type": "select",
         "id": "layout",
         "label": "t:sections.local-extra-words.sections.columns.name",
-        "info": "t:sections.local-extra-words.sections.columns.info",
         "options": [
           {
-            "value": "grid-3 grid-lap-2 grid-tiny-1",
+            "value": "grid-3 grid-lap-2",
             "label": "t:sections.local-extra-words.sections.columns.option__2"
           },
           {
-            "value": "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1",
+            "value": "grid-4 grid-portable-3 grid-lap-2",
             "label": "t:sections.local-extra-words.sections.columns.option__3"
           }
         ],
-        "default": "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1"
+        "default": "grid-4 grid-portable-3 grid-lap-2"
+      },
+      {
+        "type": "select",
+        "id": "layout_mobile",
+        "label": "t:sections.local-extra-words.sections.columns.name_mobile",
+        "options": [
+          {
+            "value": "grid-palm-1",
+            "label": "t:sections.local-extra-words.sections.columns.option__0"
+          },
+          {
+            "value": "grid-palm-2",
+            "label": "t:sections.local-extra-words.sections.columns.option__1"
+          }
+        ],
+        "default": "grid-palm-2"
       },
       {
         "type": "range",
@@ -274,12 +320,39 @@
       },
       {
         "type": "header",
+        "content": "t:bundle-240.section_design"
+      },
+      {
+        "type": "color",
+        "id": "section_background_color",
+        "label": "t:bundle-240.background_color",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "color_background",
+        "id": "section_background_gradient",
+        "label": "t:bundle-240.background_gradient"
+      },
+      {
+        "type": "color",
+        "id": "section_heading_color",
+        "label": "t:bundle-240.text_color",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "header",
         "content": "t:sections.bundle-extra-words.sections.headings.gutter.label"
       },
       {
         "type": "checkbox",
         "id": "gutter_decrease",
         "label": "t:sections.bundle-extra-words.sections.headings.gutter.content",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "remove_bottom_margin",
+        "label": "t:sections.local-extra-words.settings_schema.layout.sections.remove_bottom_margin",
         "default": false
       },
       {

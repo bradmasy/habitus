@@ -199,6 +199,7 @@
         "preoder": "สินค้าชิ้นนี้หมด แต่คุณยังสามารถสั่งได้"
       },
       "add_to_cart_button": "เพิ่มไปยังรถเข็น",
+      "choose_options_button": "เลือกตัวเลือก",
       "preorder_button": "พรีออเดอร์",
       "share_link": "แบ่งปัน",
       "reviews_count": {
@@ -223,6 +224,7 @@
     "bundles": {
       "title": "เนื้อหาของชุดรวม",
       "add_product_to_bundle": "เพิ่มเข้าชุดรวม",
+      "product_added_to_bundle": "เพิ่มไปยังชุด",
       "add_bundle_to_cart": "เพิ่มไปยังรถเข็น",
       "choose_products_first": "ให้เลือกผลิตภัณฑ์ก่อน",
       "add_all_to_cart": "เพิ่มทั้งหมดในรถเข็น"
