@@ -103,6 +103,7 @@
         },
         "2bdfc862-603c-438a-8416-322db1fd4145": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Reviews",
             "content": "<p>If in stock, please allow up to 3 weeks for delivery. If not in stock, please allow up to 12 weeks for delivery.<\/p>",
@@ -119,6 +120,7 @@
         },
         "klaviyo_reviews_featured_reviews_carousel_fY7A9Y": {
           "type": "shopify:\/\/apps\/klaviyo-reviews\/blocks\/featured-reviews-carousel\/db20e365-d984-4ac4-9655-e1588d951ca9",
+          "disabled": true,
           "settings": {
           }
         }
