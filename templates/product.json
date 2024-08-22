@@ -230,6 +230,23 @@
         "full_width": false,
         "remove_margin": false
       }
+    },
+    "17243543274c037b66": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_reviews_product_reviews_4ykc3y": {
+          "type": "shopify:\/\/apps\/klaviyo-reviews\/blocks\/product-reviews\/db20e365-d984-4ac4-9655-e1588d951ca9",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_reviews_product_reviews_4ykc3y"
+      ],
+      "settings": {
+        "full_width": false,
+        "remove_margin": false
+      }
     }
   },
   "order": [
@@ -238,6 +255,7 @@
     "17243515564a51ac0e",
     "product-recommendations",
     "opinew-reviews-product-page-code",
-    "1724353522c869c2f9"
+    "1724353522c869c2f9",
+    "17243543274c037b66"
   ]
 }
