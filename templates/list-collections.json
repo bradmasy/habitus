@@ -1,1 +1,279 @@
-{"sections":{"main":{"type":"main-list-collections","blocks":{"collection_cr7V4C":{"type":"collection","disabled":true,"settings":{"collection":"accessories"}},"collection_nVPpLU":{"type":"collection","settings":{"collection":"bar-counter-stools"}},"collection_BDATCD":{"type":"collection","settings":{"collection":"beds"}},"collection_iB7TFw":{"type":"collection","settings":{"collection":"benches-stools"}},"collection_xzWdhF":{"type":"collection","settings":{"collection":"books-book-stands","image":"shopify:\/\/shop_images\/KDS_AW22_38.jpg"}},"collection_w4MHBz":{"type":"collection","settings":{"collection":"bowls-trays"}},"collection_qgnHDR":{"type":"collection","settings":{"collection":"candle-holders"}},"collection_xfXQwx":{"type":"collection","settings":{"collection":"candles-and-home-fragrances","image":"shopify:\/\/shop_images\/HUMDAKIN_2024-03-0615707_1800x1800_06869173-cfb0-495e-b9ec-c10b4fc87db1.jpg"}},"collection_9fG8Km":{"type":"collection","settings":{"collection":"carts-trolleys"}},"collection_pxrgdh":{"type":"collection","disabled":true,"settings":{"collection":"ceramics-and-vases"}},"collection_yxtG6a":{"type":"collection","settings":{"collection":"cleaning-products","image":"shopify:\/\/shop_images\/Humdakin.jpg"}},"collection_HGYBwY":{"type":"collection","settings":{"collection":"coat-hooks-coat-racks"}},"collection_hLVw9M":{"type":"collection","settings":{"collection":"coffee-tables"}},"collection_pEkh7C":{"type":"collection","settings":{"collection":"console-tables"}},"collection_MzjTWC":{"type":"collection","settings":{"collection":"cookware-and-dinnerware"}},"collection_4JhGkE":{"type":"collection","settings":{"collection":"decorative-objects","image":"shopify:\/\/shop_images\/KB_brandphoto_39260_Monkey_large_hanging_in_jungle_Background_1080x1080_cf9133c5-5f19-43b3-a633-b56dca17f897.jpg"}},"collection_bGYYyF":{"type":"collection","settings":{"collection":"desks"}},"collection_hVry6t":{"type":"collection","settings":{"collection":"dining-chairs"}},"collection_mbx3cE":{"type":"collection","settings":{"collection":"dining-tables"}},"collection_P8tXXc":{"type":"collection","settings":{"collection":"lighting"}},"collection_e7NNdz":{"type":"collection","settings":{"collection":"lounge-chairs-armchairs","image":"shopify:\/\/shop_images\/Sibast-No-7-Lounge-Table-close-up-4.jpg"}},"collection_XnETGe":{"type":"collection","settings":{"collection":"mirrors"}},"collection_ypyaWD":{"type":"collection","settings":{"collection":"office-chairs"}},"collection_KanDfb":{"type":"collection","settings":{"collection":"pillows"}},"collection_dDgKTN":{"type":"collection","settings":{"collection":"planters-plant-pots","image":"shopify:\/\/shop_images\/SQUARELY_05_c9ae730a-8199-49ba-aae5-20d5e3751ebd_1800x1800_jpg.webp"}},"collection_qqYj3V":{"type":"collection","settings":{"collection":"rugs","image":"shopify:\/\/shop_images\/Aquarius-coal__Rug_Detail_Mark-Krebs8.webp"}},"collection_YnhTUe":{"type":"collection","settings":{"collection":"side-end-tables"}},"collection_TrRDtw":{"type":"collection","settings":{"collection":"sleeper-sofas-daybeds"}},"collection_MKLYbY":{"type":"collection","settings":{"collection":"sofas-sectionals-ottomans","image":"shopify:\/\/shop_images\/Podium_Modular_4PC_Lounge_Sectional_A_-_RF_-_Copenhagen_Fossil_-_L01.jpg"}},"collection_UND3dF":{"type":"collection","settings":{"collection":"storage-shelving"}},"collection_69BbBg":{"type":"collection","settings":{"collection":"throws-and-textiles"}},"collection_AnqTrc":{"type":"collection","settings":{"collection":"vases-ceramics"}},"collection_3F3VnT":{"type":"collection","settings":{"collection":"wall-decor","image":"shopify:\/\/shop_images\/WRONGSHOP_Ronan-Bouroullec_Drawing-14_lifestyle_1440x_4a818fc6-6e39-4d7f-a0f3-45bdb45319b0.jpg"}},"collection_TrmpVD":{"type":"collection","settings":{"collection":"pedestals"}}},"block_order":["collection_cr7V4C","collection_nVPpLU","collection_BDATCD","collection_iB7TFw","collection_xzWdhF","collection_w4MHBz","collection_qgnHDR","collection_xfXQwx","collection_9fG8Km","collection_pxrgdh","collection_yxtG6a","collection_HGYBwY","collection_hLVw9M","collection_pEkh7C","collection_MzjTWC","collection_4JhGkE","collection_bGYYyF","collection_hVry6t","collection_mbx3cE","collection_P8tXXc","collection_e7NNdz","collection_XnETGe","collection_ypyaWD","collection_KanDfb","collection_dDgKTN","collection_qqYj3V","collection_YnhTUe","collection_TrRDtw","collection_MKLYbY","collection_UND3dF","collection_69BbBg","collection_AnqTrc","collection_3F3VnT","collection_TrmpVD"],"settings":{"layout":"grid-4 grid-portable-3 grid-lap-2 grid-tiny-1","image_aspect_ratio":"1","image_border_radius":0,"display_type":"selected","sort":"alphabetical"}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "blocks": {
+        "collection_cr7V4C": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "collection_nVPpLU": {
+          "type": "collection",
+          "settings": {
+            "collection": "bar-counter-stools"
+          }
+        },
+        "collection_BDATCD": {
+          "type": "collection",
+          "settings": {
+            "collection": "beds"
+          }
+        },
+        "collection_iB7TFw": {
+          "type": "collection",
+          "settings": {
+            "collection": "benches-stools"
+          }
+        },
+        "collection_xzWdhF": {
+          "type": "collection",
+          "settings": {
+            "collection": "books-book-stands",
+            "image": "shopify://shop_images/KDS_AW22_38.jpg"
+          }
+        },
+        "collection_w4MHBz": {
+          "type": "collection",
+          "settings": {
+            "collection": "bowls-trays"
+          }
+        },
+        "collection_qgnHDR": {
+          "type": "collection",
+          "settings": {
+            "collection": "candle-holders"
+          }
+        },
+        "collection_xfXQwx": {
+          "type": "collection",
+          "settings": {
+            "collection": "candles-and-home-fragrances",
+            "image": "shopify://shop_images/HUMDAKIN_2024-03-0615707_1800x1800_06869173-cfb0-495e-b9ec-c10b4fc87db1.jpg"
+          }
+        },
+        "collection_9fG8Km": {
+          "type": "collection",
+          "settings": {
+            "collection": "carts-trolleys"
+          }
+        },
+        "collection_pxrgdh": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "ceramics-and-vases"
+          }
+        },
+        "collection_yxtG6a": {
+          "type": "collection",
+          "settings": {
+            "collection": "cleaning-products",
+            "image": "shopify://shop_images/Humdakin.jpg"
+          }
+        },
+        "collection_HGYBwY": {
+          "type": "collection",
+          "settings": {
+            "collection": "coat-hooks-coat-racks"
+          }
+        },
+        "collection_hLVw9M": {
+          "type": "collection",
+          "settings": {
+            "collection": "coffee-tables"
+          }
+        },
+        "collection_pEkh7C": {
+          "type": "collection",
+          "settings": {
+            "collection": "console-tables"
+          }
+        },
+        "collection_MzjTWC": {
+          "type": "collection",
+          "settings": {
+            "collection": "cookware-and-dinnerware"
+          }
+        },
+        "collection_4JhGkE": {
+          "type": "collection",
+          "settings": {
+            "collection": "decorative-objects",
+            "image": "shopify://shop_images/KB_brandphoto_39260_Monkey_large_hanging_in_jungle_Background_1080x1080_cf9133c5-5f19-43b3-a633-b56dca17f897.jpg"
+          }
+        },
+        "collection_bGYYyF": {
+          "type": "collection",
+          "settings": {
+            "collection": "desks"
+          }
+        },
+        "collection_hVry6t": {
+          "type": "collection",
+          "settings": {
+            "collection": "dining-chairs"
+          }
+        },
+        "collection_mbx3cE": {
+          "type": "collection",
+          "settings": {
+            "collection": "dining-tables"
+          }
+        },
+        "collection_P8tXXc": {
+          "type": "collection",
+          "settings": {
+            "collection": "lighting"
+          }
+        },
+        "collection_e7NNdz": {
+          "type": "collection",
+          "settings": {
+            "collection": "lounge-chairs-armchairs",
+            "image": "shopify://shop_images/Sibast-No-7-Lounge-Table-close-up-4.jpg"
+          }
+        },
+        "collection_XnETGe": {
+          "type": "collection",
+          "settings": {
+            "collection": "mirrors"
+          }
+        },
+        "collection_ypyaWD": {
+          "type": "collection",
+          "settings": {
+            "collection": "office-chairs"
+          }
+        },
+        "collection_KanDfb": {
+          "type": "collection",
+          "settings": {
+            "collection": "pillows"
+          }
+        },
+        "collection_dDgKTN": {
+          "type": "collection",
+          "settings": {
+            "collection": "planters-plant-pots",
+            "image": "shopify://shop_images/SQUARELY_05_c9ae730a-8199-49ba-aae5-20d5e3751ebd_1800x1800_jpg.webp"
+          }
+        },
+        "collection_qqYj3V": {
+          "type": "collection",
+          "settings": {
+            "collection": "rugs",
+            "image": "shopify://shop_images/Aquarius-coal__Rug_Detail_Mark-Krebs8.webp"
+          }
+        },
+        "collection_YnhTUe": {
+          "type": "collection",
+          "settings": {
+            "collection": "side-end-tables"
+          }
+        },
+        "collection_TrRDtw": {
+          "type": "collection",
+          "settings": {
+            "collection": "sleeper-sofas-daybeds"
+          }
+        },
+        "collection_MKLYbY": {
+          "type": "collection",
+          "settings": {
+            "collection": "sofas-sectionals-ottomans",
+            "image": "shopify://shop_images/Podium_Modular_4PC_Lounge_Sectional_A_-_RF_-_Copenhagen_Fossil_-_L01.jpg"
+          }
+        },
+        "collection_UND3dF": {
+          "type": "collection",
+          "settings": {
+            "collection": "storage-shelving"
+          }
+        },
+        "collection_69BbBg": {
+          "type": "collection",
+          "settings": {
+            "collection": "throws-and-textiles"
+          }
+        },
+        "collection_AnqTrc": {
+          "type": "collection",
+          "settings": {
+            "collection": "vases-ceramics"
+          }
+        },
+        "collection_3F3VnT": {
+          "type": "collection",
+          "settings": {
+            "collection": "wall-art-wall-decor",
+            "image": "shopify://shop_images/WRONGSHOP_Ronan-Bouroullec_Drawing-14_lifestyle_1440x_4a818fc6-6e39-4d7f-a0f3-45bdb45319b0.jpg"
+          }
+        },
+        "collection_TrmpVD": {
+          "type": "collection",
+          "settings": {
+            "collection": "pedestals"
+          }
+        }
+      },
+      "block_order": [
+        "collection_cr7V4C",
+        "collection_nVPpLU",
+        "collection_BDATCD",
+        "collection_iB7TFw",
+        "collection_xzWdhF",
+        "collection_w4MHBz",
+        "collection_qgnHDR",
+        "collection_xfXQwx",
+        "collection_9fG8Km",
+        "collection_pxrgdh",
+        "collection_yxtG6a",
+        "collection_HGYBwY",
+        "collection_hLVw9M",
+        "collection_pEkh7C",
+        "collection_MzjTWC",
+        "collection_4JhGkE",
+        "collection_bGYYyF",
+        "collection_hVry6t",
+        "collection_mbx3cE",
+        "collection_P8tXXc",
+        "collection_e7NNdz",
+        "collection_XnETGe",
+        "collection_ypyaWD",
+        "collection_KanDfb",
+        "collection_dDgKTN",
+        "collection_qqYj3V",
+        "collection_YnhTUe",
+        "collection_TrRDtw",
+        "collection_MKLYbY",
+        "collection_UND3dF",
+        "collection_69BbBg",
+        "collection_AnqTrc",
+        "collection_3F3VnT",
+        "collection_TrmpVD"
+      ],
+      "settings": {
+        "layout": "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1",
+        "image_aspect_ratio": "1",
+        "image_border_radius": 0,
+        "display_type": "selected",
+        "sort": "alphabetical"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
