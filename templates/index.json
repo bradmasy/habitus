@@ -517,29 +517,24 @@
       "blocks": {
         "vendor_4gnw7a": {
           "type": "vendor",
-          "settings": {
-          }
+          "settings": {}
         },
         "166245747472ac4f44-0": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "166245747472ac4f44-1": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "0afd2c9a-1791-493a-b735-5227fad1b0bd": {
           "type": "rating",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "dc22df2a-d6cb-4072-83c2-34f86732db6b": {
           "type": "icons",
-          "settings": {
-          }
+          "settings": {}
         },
         "66b08189-b941-4f66-8a0c-b3f48e68738d": {
           "type": "product_link",
@@ -550,8 +545,7 @@
         },
         "rating_YWEKVy": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -641,24 +635,20 @@
       "blocks": {
         "vendor_TgdtUi": {
           "type": "vendor",
-          "settings": {
-          }
+          "settings": {}
         },
         "16642022777af36aa3-0": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "16642022777af36aa3-1": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "7d288db7-c70e-4249-b7a6-c69f021a1218": {
           "type": "rating",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "b6761649-e304-4ef5-b026-954abf5ad190": {
           "type": "description",
@@ -703,7 +693,7 @@
         "product_VXHYNH": {
           "type": "product",
           "settings": {
-            "product": "panthella-320-table-lamp",
+            "product": "panthella-320-table-lamp-old",
             "vertical_offset_desktop": 47,
             "horizontal_offset_desktop": 15,
             "vertical_offset_mobile": 45,
@@ -826,19 +816,16 @@
         },
         "vendor_FPiYtU": {
           "type": "vendor",
-          "settings": {
-          }
+          "settings": {}
         },
         "3558fe54-2891-45ad-8fbc-4afbc0f57045": {
           "type": "rating",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "template--16437919940841__1eee0d8d-5e33-4159-838a-edeeae95e5dd-1665990114b23b38a4-1": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "template--16437919940841__1eee0d8d-5e33-4159-838a-edeeae95e5dd-1665990114b23b38a4-4": {
           "type": "description",
