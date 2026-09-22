@@ -76,7 +76,7 @@
                 else
                   assign defer_ajax_cart = true
                 endif
-                render 'quick-buy', product: product, defer_ajax_cart: defer_ajax_cart, variants_style: 'select', button_style: 'solid', show_color_swatches: false, change_variant_images: false, default_to_first_variant: false, add_to_cart_price: false, show_variant_quantities: "no", unavailable_variants: 'hide'.settings.unavailable_variants, id: id
+                render 'quick-buy', product: product, defer_ajax_cart: defer_ajax_cart, variants_style: 'select', button_style: 'solid', show_color_swatches: false, change_variant_images: false, default_to_first_variant: false, add_to_cart_price: false, show_variant_quantities: "no", unavailable_variants: 'hide', id: id
               -%}
             </div>
           {%- endif -%}
@@ -86,4 +86,20 @@
 
     </div>
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '                render ''quick-buy'', product: product, defer_ajax_cart:
+    defer_ajax_cart, variants_style: ''select'', button_style: ''solid'', show_color_swatches:
+    false, change_variant_images: false, default_to_first_variant: false, add_to_cart_price:
+    false, show_variant_quantities: "no", unavailable_variants: ''hide''.settings.unavailable_variants,
+    id: id'
+  to: '                render ''quick-buy'', product: product, defer_ajax_cart: defer_ajax_cart,
+    variants_style: ''select'', button_style: ''solid'', show_color_swatches: false,
+    change_variant_images: false, default_to_first_variant: false, add_to_cart_price:
+    false, show_variant_quantities: "no", unavailable_variants: ''hide'', id: id'
+  position: 3182..3503
+{%- endcomment -%}
